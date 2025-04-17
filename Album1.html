@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="Album.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+        </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+                <ul>
+                    <li class="has-submenu" onclick="togglePopup()">
+                        <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                    <hr>
+                    <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                    <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                    <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                    <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                    <li class="version">Version: 1.1.10</li>
+                </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+                <div class="GiaoDien">
+                    <div class="GDvCL">
+                       <h2>Giao Diện</h2>
+                       <div class="NutDong" onclick="togglePopup()">&times;</div>
+                    </div>
+                    <div class="GD GD1">
+                        <h3 class="h3-GD">Dynamic</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                                <div class="ten-nen">Vàng Tím</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                                <div class="ten-nen">Sáng Tối</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                                <div class="ten-nen">Bầu Trời</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                                <div class="ten-nen">Xanh Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                                <div class="ten-nen">Cam Nâu</div>
+                            </div>     
+                        </div>
+                        <h3 class="h3-GD">Color</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('#2c2340')">
+                                <div class="mau-nen" style="background: #2c2340"></div>
+                                <div class="ten-nen">Mặc Định</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                                <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                                <div class="ten-nen">Xanh Dương</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('plum')">
+                                <div class="mau-nen" style="background: plum"></div>
+                                <div class="ten-nen">Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('greenyellow')">
+                                <div class="mau-nen" style="background: greenyellow"></div>
+                                <div class="ten-nen">Xanh Lá</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('orange')">
+                                <div class="mau-nen" style="background: orange"></div>
+                                <div class="ten-nen">Cam</div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <!--Album-->
+    <h1 onclick="history.back()"><i class="fa-solid fa-chevron-left"></i>&nbsp;Quay Lại</h1>
+    <div class="Album">
+      <div class="NDLeft" >
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537013/hieu2_rflonc.jpg" alt="Top 100 Nhạc EDM">
+          <h2>Ai Cũng Phải Bắt Đầu Từ Đâu Đó</h2>
+          <p>HIEUTHUHAI 2023</p>
+          <p>90K người yêu thích</p>
+          <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+          <a href="#" class="play-btn random-play-btn">▶ PHÁT NGẪU NHIÊN</a>
+      </div>
+      <div class="NDRight">
+          <div class="song">
+            <h3 class="BH">Bài Hát</h3>
+            <h3 class="TG">Thời Gian</h3>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+          data-title="Nước Mắt Cá Sấu" 
+          data-artist="HIEUTHUHAI" 
+          data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592744/Nuocmatcaxau_igqdrw.mp3"
+          data-lyrics="
+Sao đêm hôm qua em không bắt máy? Em đi bên ai, qua đêm ở đâu? Yah
+Anh mong em tự mình nói ra ngay
+Cho em hay là anh đã biết
+Nước mắt cá sấu chẳng thể cứu lấy anh quăng va li em ra khỏi đây, cam kết với em
+Dù có lúc anh nghĩ nếu có chia tay
+Sẽ tại anh đã thay đổi
+Anh sẽ tìm người thay thế được ngay thôi
+Và em sẽ phải mau hối hận này em ơi
+Người yêu em như anh sẽ không có đâu
+TRÊN TRỜI RƠI XUỐNG!
+Người làm hết tất cả vì em
+Dù là máu rơi cũng chỉ vì em
+Nhận hết lỗi lầm, là vì em
+Em còn mong chờ điều gì nữa
+Chỉ một câu nói yêu mình anh
+Theo như nghĩa đen cho em tim của anh
+Sẽ chẳng có ai yêu em bằng anh
+Nhưng mà ngoài buồn phiền và những dối trá
+Em đã cho anh được gì?
+Phải chi biết kết cục như thế yeah i'll be cheating
+Em có biết đó là ngoài kia bao cô gái đang chờ anh mỗi đêm
+Chỉ để cho em vui anh đã block hết tất cả những cô mà em không ưa
+Nhưng hình như nhiêu đây dollar không đủ để cho lòng em thôi đong đưa
+Anh cũng đã cố baby
+Yêu em thật tốt baby
+Thật sự đã nghĩ hơi nhiều cho em rồi
+Anh sẽ tìm người thay thế được ngay thôi
+Và em sẽ phải mau hối hận này em ơi
+Người yêu em như anh sẽ không có đâu
+TRÊN TRỜI RƠI XUỐNG!
+Người làm hết tất cả vì em
+Dù là máu rơi cũng chỉ vì em
+Nhận hết lỗi lầm, là vì em
+Em còn mong chờ điều gì nữa
+Chỉ một câu nói yêu mình anh
+Theo như nghĩa đen cho em tim của anh
+Sẽ chẳng có ai yêu em bằng anh
+Nhưng mà ngoài buồn phiền và những dối trá
+Em đã cho anh được gì?
+Cuối cùng, chỉ toàn là dối lừa
+Từ nay chắc anh đây không dám tin ai nhiều thế đâu
+Anh không thể ngờ
+Bạn bè xung quanh em che giấu cho
+Em ngừng yêu anh nhưng anh là người sau cùng được biết
+Người làm hết tất cả vì em
+Dù là máu rơi cũng chỉ vì em
+Nhận hết lỗi lầm, là vì em
+Em còn mong chờ điều gì nữa
+Chỉ một câu nói yêu mình anh
+Theo như nghĩa đen cho em tim của anh
+Sẽ chẳng có ai yêu em bằng anh
+Nhưng mà ngoài buồn phiền và những dối trá
+Em đã cho anh được gì?
+Em đã cho anh được gì?
+              ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537254/nuocmatcasau_n7nuya.jpg" alt="">
+              <div class="song-info">
+                  <h3>Nước Mắt Cá Sấu</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>03:07</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Không Thể Say" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744808627/KHONGTHESAY_konjgr.mp3"
+               data-lyrics="">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537147/khongthesay_ni4abu.jpg" alt="Không Thể Say">
+              <div class="song-info">
+                  <h3>Không Thể Say</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Ai Cũng Phải Bắt Đầu Từ Đâu Đó" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744809496/AICUNGPHAIBATDAUTUDAUDO_kcsfbq.mp3"
+               data-lyrics="       
+Tụi nó nói là tao muốn tiền và name
+Đúng rồi tao đó, chắc mày thì không?
+Tao còn cần nhiều hơn cả quyền và fame, mài nhọn cây viết và tạo kì công
+Đành phải buông bàn tay em đi để mà cầm lái AMG
+Đâu còn cái giá 12 tiếng trước, nếu muốn thì pay thêm fee
+Tao đi từ Thằng này, mày là ai? cho tới Đâu cần phải giới thiệu chú
+Từng là dấu chấm hỏi của cả Việt Rap, giờ là câu trả lời cho ai là triệu phú
+Dẫm ga, tao chỉ phóng và phóng, chân tao chưa từng nhùn
+Không ai có thể cản, phanh tao chưa từng dùng
+Đừng có nhận người quen nếu mình chưa mừng cùng
+Cuộc hẹn với chiến thắng tao vẫn chưa từng bùng
+Qua năm 23 tao vẫn cao dần (cao dần), xem ở trong tương lai tao còn bao lần (bao lần)
+Tụi nó nói tao nằm mơ khi tao nói, mỗi ngày viết thêm một verse là tao có thứ mà tao cần
+Thời gian mà tao bỏ ra để mà giết vài con beat thì nó đang nằm ngay ngắn ở trên Cartier
+Và những gì tao nói cũng đã thành sự thật, không cần ai tin giống như Galileo, yeah, hold up
+Tụi mày có mấy thằng anh chống lưng mà vẫn muốn so sánh mong là ta bằng nhau
+Tao chỉ có cả tương lai phía trước cộng thêm rất nhiều tỉ đang nằm ở đằng sau (huh)
+Mục tiêu của tao ở trong top (trong top), mục tiêu của mày chính là tao
+Nó chỉ mong là tao sẽ ăn phốt, nghe album tao drop thì bao thằng thi lo (thi lo)
+Kewtiie trên beat và we on (we on), Prada và Christian Dior (Dior)
+Số một đứng cạnh cùng số hai thì nó vẫn là tao khi after before (before)
+Sẽ không bao giờ tao dừng lại, tao không hề ngủ quên những lúc mà khi no
+Nên chỉ có đeo thêm vài cọng dây chuyền sẽ là cách duy nhất tăng thêm vài ki-lô (ki-lô)
+Và tao chỉ thua khi tự cắn vào đuôi như là rắn săn mồi
+Tụi nó đâu biết tao lớn lên ở Hóc Môn, đêm nằm dưới căn chòi
+Chỉ biết rockstar lifestyle nhưng mà đâu ai thấy tất cả thứ sau nó (no one)
+Cô đơn, phòng tối và chiếc bóng, ai cũng phải bắt đầu từ đâu đó
+Throwing dirt on my fucking name, wanna try me out? (Try me out)
+Đã bao năm, thời gian cũng trôi qua, mày vẫn ở đó sao?
+Đứng trên show mà sao ở bên tai toàn là tên của tao?
+Tên của tao, ao-ao-ao
+         ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537013/hieu2_rflonc.jpg" alt="">
+              <div class="song-info">
+                  <h3>Ai Cũng Phải Bắt Đầu Từ Đâu Đó</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>00:30</span>
+          </div>
+         <div class="song" onclick="playMusic(this)" 
+              data-title="Exit Sign" 
+              data-artist="HIEUTHUHAI" 
+              data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810075/EXITSIGN_psly3z.mp3"
+              data-lyrics="">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536962/exitsign_pes4rn.jpg" alt="">
+              <div class="song-info">
+                  <h3>Exit Sign</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Ngủ Một Mình" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810108/NGUMOTMINH_luzdbt.mp3"
+               data-lyrics="">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537251/ngumotminh_nt4jcz.jpg" alt="">
+              <div class="song-info">
+                  <h3>Ngủ Một Mình</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Xoay Một Vòng" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810312/XOAYMOTVONG_j9khkd.mp3"
+               data-lyrics="">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537689/xoaymotvong_hxsuyq.webp" alt="">
+              <div class="song-info">
+                  <h3>Xoay Một Vòng</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Trình" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810352/TRINH_fjgspi.mp3"
+               data-lyrics="">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537620/trinh_kzra1j.jpg" alt="">
+              <div class="song-info">
+                  <h3>Trình</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="NOLOVENOLIFE" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810472/NOLOVENOLIFE_b64hdn.mp3"
+               data-lyrics="">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537013/hieu2_rflonc.jpg" alt="">
+            <div class="song-info">
+                <h3>NOLOVENOLIFE</h3>
+                <p>HIEUTHUHAI</p>
+            </div>
+            <span>00:30</span>
+        </div>
+        <div class="song" onclick="playMusic(this)" 
+            data-title="Vệ Tinh" 
+            data-artist="HIEUTHUHAI" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810520/VETINH_crz7bv.mp3"
+            data-lyrics="">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537655/vetinh_kvvgnb.jpg" alt="">
+          <div class="song-info">
+              <h3>Vệ Tinh</h3>
+              <p>HIEUTHUHAI</p>
+          </div>
+          <span>00:30</span>
+      </div>
+      <div class="song" onclick="playMusic(this)" 
+           data-title="Không Phải Gu" 
+           data-artist="HIEUTHUHAI" 
+           data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810575/KHONGPHAIGU_fds96x.mp3"
+           data-lyrics="">
+        <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537013/hieu2_rflonc.jpg" alt="">
+        <div class="song-info">
+            <h3>Không Phải Gu</h3>
+            <p>HIEUTHUHAI</p>
+        </div>
+        <span>00:30</span>
+    </div>
+      </div>
+  </div>
+  <!-- Trình phát nhạc -->
+<div class="music-player">
+    <div class="player-container">
+  
+      <!-- Thông tin bài hát -->
+      <div class="song-info1">
+        <img id="song-thumbnail" src="img/default.jpg" alt="Thumbnail">
+        <div class="text">
+          <b id="song-title">Tên bài hát</b>
+          <small id="song-artist">Ca sĩ</small>
+        </div>
+      </div>
+  
+      <!-- Điều khiển trung tâm -->
+      <div class="center-controls">
+        <div class="controls">
+          <button onclick="prevSong()" title="Bài trước">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button id="play-btn" title="Phát / Tạm dừng">
+            <i class="fa-solid fa-play"></i>
+          </button>         
+          <button onclick="nextSong()" title="Bài tiếp theo">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>
+  
+        <div class="progress-container">
+          <span id="current-time">0:00</span>
+          <input type="range" id="progress-bar" value="0" min="0" max="100">
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+  
+      <!-- Điều khiển mở rộng + nút đóng -->
+      <div class="extra-controls-wrapper">
+        <!-- Các nút phụ -->
+        <div class="extra-controls">
+          <button id="repeat-btn" title="Lặp lại">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+  
+          <div class="volume-container" title="Âm lượng">
+            <button id="volume-down"><i class="fa-solid fa-volume-down"></i></button>
+            <input type="range" id="volume-bar" value="100" min="0" max="100">
+            <button id="volume-up"><i class="fa-solid fa-volume-up"></i></button>
+          </div>
+  
+          <button id="download-btn" title="Tải xuống">
+            <i class="fa-solid fa-download"></i>
+          </button>
+  
+          <button id="like-btn" title="Yêu thích">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+  
+          <button id="lyrics-btn" title="Lời bài hát">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+        </div>
+  
+        <!-- Nút đóng player -->
+        <div class="exit-btn">
+          <button id="close-player" title="Đóng trình phát">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Audio -->
+    <audio id="audio-player">
+      <source id="audio-source" src="" type="audio/mp3">
+    </audio>
+  </div>
+  
+  <!-- Popup lời bài hát -->
+  <div id="lyrics-popup" class="lyrics-popup hidden">
+    <div class="lyrics-content">
+      <button id="close-lyrics">&times;</button>
+      <h3>Lời bài hát</h3>
+      <div id="lyrics-text">Lời bài hát sẽ hiển thị tại đây...</div>
+    </div>
+  </div>
+    </main>
+    <script src="Album.js"></script>
+</body>
+</html>

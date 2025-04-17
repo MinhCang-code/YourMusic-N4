@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="Radio.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Playlist.html'"><i class="fas fa-headphones"></i> <span>Playlist</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+        </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+              <ul>
+                <li class="has-submenu" onclick="togglePopup()">
+                    <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                <hr>
+                <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                <li class="version">Version: 1.1.10</li>
+              </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+              <div class="GiaoDien">
+                  <div class="GDvCL">
+                     <h2>Giao Diện</h2>
+                     <div class="NutDong" onclick="togglePopup()">&times;</div>
+                  </div>
+                  <div class="GD GD1">
+                      <h3 class="h3-GD">Dynamic</h3>
+                      <div class="NDGiaoDien">
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                              <div class="ten-nen">Vàng Tím</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                              <div class="ten-nen">Sáng Tối</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                              <div class="ten-nen">Bầu Trời</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                              <div class="ten-nen">Xanh Hồng</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                              <div class="ten-nen">Cam Nâu</div>
+                          </div>     
+                      </div>
+                      <h3 class="h3-GD">Color</h3>
+                      <div class="NDGiaoDien">
+                          <div class="theme-item" onclick="changeBackground('#2c2340')">
+                              <div class="mau-nen" style="background: #2c2340"></div>
+                              <div class="ten-nen">Mặc Định</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                              <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                              <div class="ten-nen">Xanh Dương</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('plum')">
+                              <div class="mau-nen" style="background: plum"></div>
+                              <div class="ten-nen">Hồng</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('greenyellow')">
+                              <div class="mau-nen" style="background: greenyellow"></div>
+                              <div class="ten-nen">Xanh Lá</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('orange')">
+                              <div class="mau-nen" style="background: orange"></div>
+                              <div class="ten-nen">Cam</div>
+                          </div>     
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Radio</h1>
+     <button class="button1"><i class="fa-solid fa-chevron-left"></i></button>
+     <button class="button2"><i class="fa-solid fa-chevron-right"></i></button>
+     <div class="music-card music-card1">
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - keshi" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595318/HaveASip_vb1vrp.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537138/keshi1_eda0ep.jpg" alt="V-POP">
+            <div class="play-button">▶</div>
+            <div class="NDRadio">
+              <h2>Have A Sip - keshi</h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - MCK" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595357/HaveASipMCK_wurlei.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537216/mck1_v5mjzr.jpg" alt="V-POP">
+            <div class="play-button">▶</div>
+            <div class="NDRadio">
+              <h2>Have A Sip - MCK</h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - Táo" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595344/HaveASip_Tao_rrzsqi.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537543/tao1_jvmqhp.jpg" alt="V-POP">
+            <div class="play-button">▶</div>
+            <div class="NDRadio">
+              <h2>Have A Sip - Táo</h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - Wren Evans" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595359/WrenEvansHaveASip_h4zbkc.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537684/wren1_husqcp.jpg" alt="V-POP">
+            <div class="play-button">▶</div>
+            <div class="NDRadio">
+              <h2>Have A Sip - Wren Evans</h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - HIEUTHUHAI" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595331/HIEUTHUHAIHaveASip_tmgz0f.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537031/hieuthuhai1_lwqdfj.jpg" alt="V-POP">
+            <div class="play-button">▶</div>
+            <div class="NDRadio">
+              <h2>Have A Sip - HIEUTHUHAI</h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - B Ray" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595353/BRayHaveASip_h6y1e1.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536843/bray1_isc6l1.jpg" alt="V-POP">
+            <div class="play-button">▶</div>
+            <div class="NDRadio">
+              <h2>Have A Sip - B Ray</h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Sách Nói - Siêu Hấp Lực" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595301/Sieunangluc_lom8r1.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537422/sieuhapluc1_ruz1mt.jpg" alt="V-POP">
+            <div class="play-button">▶</div>
+            <div class="NDRadio">
+              <h2>Sách Nói - Siêu Hấp Lực</h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+    </div>
+    <div class="music-card music-card2">
+      <div class="music-image">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537149/khuyenhoc_jg0oc3.jpg" alt="V-POP">
+          <div class="play-button">▶</div>
+          <div class="NDRadio">
+            <h2>Sách Nói- Khuyến Học</h2>
+            <p>638 đang nghe</p>
+          </div>
+          <div class="live-badge">LIVE</div>
+      </div>
+      <div class="music-image">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536888/dacnhantam1_wbxgjx.jpg" alt="V-POP">
+          <div class="play-button">▶</div>
+          <div class="NDRadio">
+            <h2>Sách Nói - Đắc Nhân Tâm</h2>
+            <p>638 đang nghe</p>
+          </div>
+          <div class="live-badge">LIVE</div>
+      </div>
+      <div class="music-image">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537493/tamlyvetien1_tyojj0.jpg" alt="V-POP">
+          <div class="play-button">▶</div>
+          <div class="NDRadio">
+            <h2>Sách Nói - Tâm Lý Về Tiền</h2>
+            <p>638 đang nghe</p>
+          </div>
+          <div class="live-badge">LIVE</div>
+      </div>
+      <div class="music-image">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537253/nhagiakim_npprlp.jpg" alt="V-POP">
+          <div class="play-button">▶</div>
+          <div class="NDRadio">
+            <h2>Sách Nói- Nhà Giả Kim</h2>
+            <p>638 đang nghe</p>
+          </div>
+          <div class="live-badge">LIVE</div>
+      </div>
+      <div class="music-image">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537539/tamthuc1_afg5ls.jpg" alt="V-POP">
+          <div class="play-button">▶</div>
+          <div class="NDRadio">
+            <h2>Sách Nói- Tâm Thức</h2>
+            <p>638 đang nghe</p>
+          </div>
+          <div class="live-badge">LIVE</div>
+      </div>
+      <div class="music-image">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537664/vu1_zap5hm.jpg" alt="V-POP">
+          <div class="play-button">▶</div>
+          <div class="NDRadio">
+            <h2>Have A Sip - Vũ</h2>
+            <p>638 đang nghe</p>
+          </div>
+          <div class="live-badge">LIVE</div>
+      </div>
+      <div class="music-image">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537128/justatee1_vzdq0f.jpg" alt="V-POP">
+          <div class="play-button">▶</div>
+          <div class="NDRadio">
+            <h2>Have A Sip- Justatee</h2>
+            <p>638 đang nghe</p>
+          </div>
+          <div class="live-badge">LIVE</div>
+      </div>
+      </div>
+      <!-- Trình phát nhạc -->
+<div class="music-player">
+    <div class="player-container">
+  
+      <!-- Thông tin bài hát -->
+      <div class="song-info1">
+        <img id="song-thumbnail" src="assets/img/default.jpg" alt="Thumbnail">
+        <div class="text">
+          <b id="song-title">Tên bài hát</b>
+          <small id="song-artist">Ca sĩ</small>
+        </div>
+      </div>
+  
+      <!-- Điều khiển trung tâm -->
+      <div class="center-controls">
+        <div class="controls">
+          <button onclick="prevSong()" title="Bài trước">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button id="play-btn" title="Phát / Tạm dừng">
+            <i class="fa-solid fa-play"></i>
+          </button>         
+          <button onclick="nextSong()" title="Bài tiếp theo">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>
+  
+        <div class="progress-container">
+          <span id="current-time">0:00</span>
+          <input type="range" id="progress-bar" value="0" min="0" max="100">
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+  
+      <!-- Điều khiển mở rộng + nút đóng -->
+      <div class="extra-controls-wrapper">
+        <!-- Các nút phụ -->
+        <div class="extra-controls">
+          <button id="repeat-btn" title="Lặp lại">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+  
+          <div class="volume-container" title="Âm lượng">
+            <button id="volume-down"><i class="fa-solid fa-volume-down"></i></button>
+            <input type="range" id="volume-bar" value="100" min="0" max="100">
+            <button id="volume-up"><i class="fa-solid fa-volume-up"></i></button>
+          </div>
+  
+          <button id="download-btn" title="Tải xuống">
+            <i class="fa-solid fa-download"></i>
+          </button>
+  
+          <button id="like-btn" title="Yêu thích">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+  
+          <button id="lyrics-btn" title="Lời bài hát">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+        </div>
+  
+        <!-- Nút đóng player -->
+        <div class="exit-btn">
+          <button id="close-player" title="Đóng trình phát">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Audio -->
+    <audio id="audio-player">
+      <source id="audio-source" src="" type="audio/mp3">
+    </audio>
+</div>
+  
+    <!-- Popup lời bài hát -->
+    <div id="lyrics-popup" class="lyrics-popup hidden">
+        <div class="lyrics-content">
+             <button id="close-lyrics">&times;</button>
+             <h3>Lời bài hát</h3>
+             <div id="lyrics-text">Lời bài hát sẽ hiển thị tại đây...</div>
+             
+             <!-- Thêm lyrics-container để lời chạy từng dòng -->
+             <div id="lyrics-container" style="margin-top: 20px; height: 200px; overflow-y: auto;"></div>
+        </div>
+    </div> 
+    </main>
+    <script src="Radio.js"></script>
+</body>
+</html>

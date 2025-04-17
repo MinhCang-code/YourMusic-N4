@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="CaNhan.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+        </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+              <ul>
+                <li class="has-submenu" onclick="togglePopup()">
+                    <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                <hr>
+                <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                <li class="version">Version: 1.1.10</li>
+              </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+              <div class="GiaoDien">
+                  <div class="GDvCL">
+                     <h2>Giao Diện</h2>
+                     <div class="NutDong" onclick="togglePopup()">&times;</div>
+                  </div>
+                  <div class="GD GD1">
+                      <h3 class="h3-GD">Dynamic</h3>
+                      <div class="NDGiaoDien">
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                              <div class="ten-nen">Vàng Tím</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                              <div class="ten-nen">Sáng Tối</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                              <div class="ten-nen">Bầu Trời</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                              <div class="ten-nen">Xanh Hồng</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                              <div class="ten-nen">Cam Nâu</div>
+                          </div>     
+                      </div>
+                      <h3 class="h3-GD">Color</h3>
+                      <div class="NDGiaoDien">
+                          <div class="theme-item" onclick="changeBackground('#2c2340')">
+                              <div class="mau-nen" style="background: #2c2340"></div>
+                              <div class="ten-nen">Mặc Định</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                              <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                              <div class="ten-nen">Xanh Dương</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('plum')">
+                              <div class="mau-nen" style="background: plum"></div>
+                              <div class="ten-nen">Hồng</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('greenyellow')">
+                              <div class="mau-nen" style="background: greenyellow"></div>
+                              <div class="ten-nen">Xanh Lá</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('orange')">
+                              <div class="mau-nen" style="background: orange"></div>
+                              <div class="ten-nen">Cam</div>
+                          </div>     
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Cá Nhân</h1>
+    <div class="khung">
+      <div class="ho_so">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536771/AvataCaNhan_pujfvc.png" alt="Avatar">
+          <div class="thong_tin">
+              <p>Tên:Nguyễn Văn A</p>
+              <p>Ngày Sinh:<b>05/12/2005</b></p>
+              <a href="CSCaNhan.html">Chỉnh Sửa Trang Cá Nhân</a>
+          </div>
+      </div>
+  
+      <div class="nut_bam">
+          <div class="nut" onclick="window.location.href='NhacDaTai.html'"><i class="fa-solid fa-download"></i>Nhạc Đã Tải</div>
+          <div class="nut" onclick="window.location.href='NgheGanDay.html'"><i class="fa-solid fa-clock-rotate-left"></i>Nghe Gần Đây</div>
+      </div>
+      <div class="phan">
+        <div class="BaiNhac0 BN2">
+          <div class="AnhBaiNhac0" onclick="window.location.href='CacBaiNhacYeuThich.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537237/Music_qk3lgm.png"></div>
+          <div class="NDBaiNhac0 BN2">
+              <b style="cursor: default;">Yêu Thích</b><br>
+              <small style="cursor: default;">20 bài hát<p onclick="window.location.href='NhacDaTai.html'" style="cursor: pointer"><i class="fa-solid fa-download"></i>&nbsp;17 Đã Tải Xuống</p></small>
+          </div>
+        </div>
+      </div>
+      <div class="PvA">
+        <div class="Playlist">Playlist của tôi</div>
+        <div class="Album">Album yêu thích</div>
+      </div>
+      <!--Playlist-->
+      <div class="phan phanPL" onclick="window.location.href='Playlist.html'">
+        <h3>Playlist đã tạo</h3>
+        <div class="BaiNhac0 BN1">
+          <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537281/Playlist_qxhj8b.png"></div>
+          <div class="NDBaiNhac0">
+              <b>Playlist của tôi</b><br>
+              <small>33 bài hát</small>
+          </div>
+        </div>
+      </div>
+      <!--Album-->
+       <div class="phan phanAB" onclick="window.location.href='AlbumYeuThich.html'">
+        <h3>Album yêu thích</h3>
+        <div class="BaiNhac0 BN1">
+          <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536745/Album_zwx4m9.png"></div>
+          <div class="NDBaiNhac0">
+              <b>Album của tôi</b><br>
+              <small>10 Album</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <script src="CaNhan.js"></script>
+</body>
+</html>

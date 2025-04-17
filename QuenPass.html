@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview Web</title>
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+  <link rel="stylesheet" href="QuenPass.css">
+</head>
+<body>
+  <nav>
+  <div class="BackgroundMusic">
+    <div class="NoiDungGiua">
+      <div class="form-container forgot-password-form">
+        <h2>Quên Mật Khẩu</h2>
+        <form>
+            <div class="input-group">
+                <label for="forgot-username"><i class="fa-solid fa-user"></i>&nbsp;Tên đăng nhập:</label>
+                <input type="text" id="forgot-username" placeholder="Nhập tên đăng nhập" required>
+            </div>
+            <div class="input-group">
+                <label for="new-password"><i class="fa-solid fa-lock"></i>&nbsp;Mật khẩu mới:</label>
+                <input type="password" id="new-password" placeholder="Nhập mật khẩu mới" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password"><i class="fa-solid fa-lock"></i>&nbsp;Xác nhận mật khẩu:</label>
+                <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu mới" required>
+            </div>
+            <div class="show-password">
+                <input type="checkbox" id="show-confirm-password">
+                <label for="show-confirm-password">Hiện mật khẩu</label>
+            </div>
+            <button type="submit" class="btn-login" id="confirm-btn" onclick="window.location.href='DangNhap.html'">Xác nhận</button>
+        </form>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+              let inputs = document.querySelectorAll("#forgot-username, #new-password, #confirm-password");
+              let confirmBtn = document.getElementById("confirm-btn");
+        
+              function checkInputs() {
+                  let allFilled = Array.from(inputs).every(input => input.value.trim() !== "");
+                  confirmBtn.disabled = !allFilled;
+              }
+        
+              inputs.forEach(input => input.addEventListener("input", checkInputs));
+        
+              confirmBtn.addEventListener("click", function () {
+                  window.location.href = "DangNhap.html";
+              });
+          });
+        </script>
+    </div>
+      </div>
+  </div>
+  <div class="Background0"></div>
+</nav>
+</body>
+</html>

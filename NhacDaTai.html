@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="NhacDaTai.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Playlist.html'"><i class="fas fa-headphones"></i> <span>Playlist</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+        </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+              <ul>
+                <li class="has-submenu" onclick="togglePopup()">
+                    <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                <hr>
+                <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                <li class="version">Version: 1.1.10</li>
+              </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+              <div class="GiaoDien">
+                  <div class="GDvCL">
+                     <h2>Giao Diện</h2>
+                     <div class="NutDong" onclick="togglePopup()">&times;</div>
+                  </div>
+                  <div class="GD GD1">
+                      <h3 class="h3-GD">Dynamic</h3>
+                      <div class="NDGiaoDien">
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                              <div class="ten-nen">Vàng Tím</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                              <div class="ten-nen">Sáng Tối</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                              <div class="ten-nen">Bầu Trời</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                              <div class="ten-nen">Xanh Hồng</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                              <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                              <div class="ten-nen">Cam Nâu</div>
+                          </div>     
+                      </div>
+                      <h3 class="h3-GD">Color</h3>
+                      <div class="NDGiaoDien">
+                          <div class="theme-item" onclick="changeBackground('#2c2340')">
+                              <div class="mau-nen" style="background: #2c2340"></div>
+                              <div class="ten-nen">Mặc Định</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                              <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                              <div class="ten-nen">Xanh Dương</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('plum')">
+                              <div class="mau-nen" style="background: plum"></div>
+                              <div class="ten-nen">Hồng</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('greenyellow')">
+                              <div class="mau-nen" style="background: greenyellow"></div>
+                              <div class="ten-nen">Xanh Lá</div>
+                          </div>
+                          <div class="theme-item" onclick="changeBackground('orange')">
+                              <div class="mau-nen" style="background: orange"></div>
+                              <div class="ten-nen">Cam</div>
+                          </div>     
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <h1 onclick="window.location.href='CaNhan.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Đã Tải</h1>
+    <table>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536923/DongKiemEm_cjfky6.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Đông Kiếm Em</b><br>
+                <small>Vũ</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:50</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536866/chonsamac_gxperh.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Chốn Sa Mạc</b><br>
+                <small>Lam x Minh Tốc</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">04:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537264/phepmau_g7wvov.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Phép Màu</b><br>
+                <small>Lam x Minh Tốc</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">05:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537659/vinha_qiyks6.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Vị Nhà</b><br>
+                <small>Đen</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">06:20</div>
+        </td>
+      </tr> 
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537623/trontim_nlyccc.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Trốn Tìm</b><br>
+                <small>Đen</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536892/dailomattroi_ibgpk0.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Đại Lộ Mặt Trời</b><br>
+                <small>Chillies</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536811/bautroimoi_ua8jmz.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Bầu Trời Mới</b><br>
+                <small>Da Lab</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">08:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537253/nhammatthaymuahe_w36mgg.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Nhắm Mắt Thấy Mặt Trời</b><br>
+                <small>Nguyên Hà</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">09:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537151/kimphutkimgio_ald2ya.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Kim Phút Kim Giờ</b><br>
+                <small>Anh Trai Say Hi</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:15</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537251/neulucdo_cm1emv.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Nếu Lúc Đó</b><br>
+                <small>tlinh</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536657/99_bnseex.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Anh Đã Ổn hơn</b><br>
+                <small>MCK</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">07:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Chờ Một Người</b><br>
+                <small>Gill x Caption</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">06:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Qua Từng Khung Hình</b><br>
+                <small>Robber x Ngắn</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>1TINHYEU</b><br>
+                <small>Robber x Young Puppy</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Người Được Chọn</b><br>
+                <small>Dick x B Ray x 24k.Right</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537606/tranbonho_drf8js.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Tràn Bộ Nhớ</b><br>
+                <small>Dương Domic</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+              <div class="TG1">03:20</div>
+        </td>
+      </tr>
+      <tr class="BaiNhac1">
+        <td class="BaiNhac0">
+            <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537606/tranbonho_drf8js.jpg"></div>
+            <div class="NDBaiNhac0">
+                <b>Mất Kết Nối</b><br>
+                <small>Dương Domic</small><br>
+                <small class="Heart"><i class="fa-solid fa-circle-down"></i>Đã Tải Xuống</small>
+            </div>
+            <div class="TG1">17:20</div>
+        </td>
+      </tr>
+  </table>
+    </main>
+    <script src="NhacDaTai.js"></script>
+  </body>
+</html>

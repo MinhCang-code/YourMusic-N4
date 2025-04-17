@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview Web</title>
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+  <link rel="stylesheet" href="DN_DK.css">
+  <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav>
+  <div class="BackgroundMusic">
+    <div class="NoiDungGiua">
+      <div class="form-container register-form">
+        <h2 id="modal-title">Đăng Kí</h2>
+        <form>
+            <div class="input-group">
+                <label for="register-fullname"><i class="fa-solid fa-user"></i>&nbsp;Họ và tên:</label>
+                <input type="text" id="register-fullname" placeholder="Nhập họ và tên" required>
+                <script>
+                  document.getElementById("register-fullname").addEventListener("input", function () {
+                      this.value = this.value.replace(/[^a-zA-ZÀ-ỹ\s]/g, ""); // Chỉ cho nhập chữ cái và khoảng trắng
+                  });
+                  </script>
+            </div>
+            <div class="input-group">
+              <label for="register-dob"><i class="fa-solid fa-calendar-days"></i>&nbsp;Ngày Tháng Năm Sinh:</label>
+              <input type="date" id="register-dob" required>
+              <script>
+                 document.addEventListener("DOMContentLoaded", function () {
+                let dobField = document.getElementById("register-dob");
+                let today = new Date();
+                let minBirthDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate()); // Giới hạn 100 tuổi
+                let maxBirthDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()); // Phải đủ 18 tuổi
+                // Giới hạn ngày trong input
+                dobField.setAttribute("min", minBirthDate.toISOString().split("T")[0]); 
+                dobField.setAttribute("max", maxBirthDate.toISOString().split("T")[0]); 
+            });
+              </script>         
+          </div>
+            <div class="input-group">
+                <label for="register-email"><i class="fa-solid fa-envelope"></i>&nbsp;Email:</label>
+                <input type="email" id="register-email" placeholder="Nhập email" required>
+                <script>
+                  document.addEventListener("DOMContentLoaded", function () {
+                      let emailField = document.getElementById("register-email");
+                      // Mặc định hiển thị @ khi load trang
+                      emailField.value = "@";
+                      emailField.addEventListener("input", function (event) {
+                          let value = emailField.value;
+                  
+                          // Nếu @ bị xóa, giữ lại
+                          if (!value.includes("@")) {
+                              value = "@";
+                          }
+                          // Chia thành 2 phần: trước và sau @
+                          let parts = value.split("@");
+                          let beforeAt = parts[0].replace(/[^a-zA-Z0-9]/g, ""); // Chỉ chữ và số trước @
+                          let afterAt = parts.length > 1 ? parts[1].replace(/[^a-zA-Z0-9.]/g, "") : ""; // Chỉ chữ, số và dấu chấm sau @
+                          // Cập nhật giá trị input
+                          emailField.value = beforeAt + "@" + afterAt;
+                          // Đặt con trỏ đúng vị trí khi xóa ký tự
+                          let cursorPos = emailField.selectionStart;
+                          if (cursorPos <= beforeAt.length) {
+                              emailField.selectionStart = emailField.selectionEnd = beforeAt.length + 1;
+                          }
+                      });
+                      // Đặt con trỏ đúng vị trí khi focus vào ô input
+                      emailField.addEventListener("focus", function () {
+                          setTimeout(() => {
+                              if (emailField.value === "@") {
+                                  emailField.selectionStart = 0;
+                                  emailField.selectionEnd = 0;
+                              }
+                          }, 0);
+                      });
+                  });
+                  </script>
+            </div>
+            <div class="input-group">
+              <label for="register-phone"><i class="fa-solid fa-phone-volume"></i>&nbsp;Số điện thoại:</label>
+              <input type="tel" id="register-phone" placeholder="Nhập số điện thoại" 
+              required title="Số điện thoại phải có từ 10 đến 15 chữ số">
+              <p id="phone-error" style="color: red; display: none;">Số điện thoại phải có đúng 10 chữ số sau +84</p>
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let phoneField = document.getElementById("register-phone");
+            
+                    // Mặc định hiển thị +84 khi load trang
+                    phoneField.value = "+84 ";
+            
+                    // Ngăn xóa +84 và không cho nhập chữ
+                    phoneField.addEventListener("input", function () {
+                        if (!phoneField.value.startsWith("+84 ")) {
+                            phoneField.value = "+84 ";}
+                        // Chỉ cho nhập số sau +84
+                        phoneField.value = phoneField.value.replace(/[^0-9+ ]/g, ""); 
+                    });
+                    // Đặt con trỏ sau số khi click vào
+                    phoneField.addEventListener("focus", function () {
+                        setTimeout(() => {
+                            phoneField.selectionStart = phoneField.value.length;
+                            phoneField.selectionEnd = phoneField.value.length;
+                        }, 0);
+                    });
+                });
+            </script>  
+           </div>
+           <!--Nhập mật khẩu-->
+           <div class="input-group">
+             <label for="register-password"><i class="fa-solid fa-lock"></i>&nbsp;Mật khẩu:</label>
+             <input type="password" id="register-password" placeholder="Nhập mật khẩu" required>
+          </div>
+          <div class="show-password-DK">
+            <input type="checkbox" id="show-register-password">
+            <label for="show-register-password">Hiện mật khẩu</label>
+          </div> 
+          <!-- Xác Nhận lại mật khẩu -->
+          <div class="input-group">
+            <label for="confirm-password"><i class="fa-solid fa-lock"></i>&nbsp;Xác nhận lại mật khẩu:</label>
+            <input type="password" id="confirm-password" placeholder="Nhập mật khẩu" required>
+          </div>
+            <button type="submit" class="btn-login-DK" onclick="window.location.href='Home.html'">Đăng Kí</button>
+          </form>
+            <p class="register-link">Đã có tài khoản? <a href="DangNhap.html">Đăng nhập</a></p>
+      </div>
+      </div>
+      <script>
+    function togglePassword(checkboxId, passwordId) {
+    let checkbox = document.getElementById(checkboxId);
+    let passwordField = document.getElementById(passwordId);
+
+    checkbox.addEventListener("change", function () {
+        passwordField.type = this.checked ? "text" : "password";
+    });
+
+    checkbox.addEventListener("mouseleave", function () {
+        this.checked = false;
+        passwordField.type = "password";
+    });
+}
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      let showPasswordCheckbox = document.getElementById("show-register-password");
+      let passwordField = document.getElementById("register-password");
+      let confirmPasswordField = document.getElementById("confirm-password");
+  
+      showPasswordCheckbox.addEventListener("change", function () {
+          let type = this.checked ? "text" : "password";
+          passwordField.type = type;
+          confirmPasswordField.type = type;
+      });
+  
+      // Ẩn mật khẩu khi chuột rời khỏi checkbox
+      showPasswordCheckbox.addEventListener("mouseleave", function () {
+          this.checked = false;
+          passwordField.type = "password";
+          confirmPasswordField.type = "password";
+      });
+  });
+  </script>
+  
+    </div>
+  </div>
+  <div class="Background0"></div>
+</nav>
+</body>
+</html>

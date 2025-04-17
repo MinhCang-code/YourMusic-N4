@@ -1,0 +1,109 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+.BackgroundMusic{
+  background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), 
+  url('https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536751/AnhNenAmNhac_c4epuh.jpg');
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+}
+.Background0{
+  background-color: black;
+  width: 100%;
+  height: 50vh;
+  z-index: -1;
+  position: absolute;
+}
+.NoiDungGiua{
+  background-color: white;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: clamp(50px, 60vw, px);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px 30px 30px 30px; 
+}
+/*Đăng Nhập*/
+h2{
+  color: #007BFF;
+  position: relative;
+  bottom: 10px;
+}
+.Img-Login{
+  width:30px;
+  position: relative;
+  bottom: 10px;
+  right: 145px
+}
+.form-container {
+  background: white;
+  padding: 8px;
+  text-align: center;
+}
+.input-group {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.input-group img{
+  width: 15px; height: 15px;
+}
+.input-group input {
+  width: 90%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.btn-login {
+  width: 95%;
+  padding: 8px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #333;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-right: 10%;
+}
+.forgot-password {
+  text-align: right;
+  font-size: 12px;
+}
+.show-password {
+  position: absolute;
+  font-size: 13px;
+  bottom: 26%;
+}
+.show-password input{
+  position: relative;
+  top: 2px;
+}
+.show-password label{
+  position: relative;
+  right: 5px;
+}
+.forgot-password a {
+  color: #007BFF;
+  text-decoration: none;
+}
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+.btn-login:hover{
+  scale: 1.1;
+  transition: transform 0.3s ease;
+}
+.register-link a{
+  color: #333;
+}
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+
+

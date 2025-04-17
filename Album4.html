@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="Album.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+        </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+                <ul>
+                    <li class="has-submenu" onclick="togglePopup()">
+                        <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                    <hr>
+                    <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                    <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                    <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                    <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                    <li class="version">Version: 1.1.10</li>
+                </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+                <div class="GiaoDien">
+                    <div class="GDvCL">
+                       <h2>Giao Diện</h2>
+                       <div class="NutDong" onclick="togglePopup()">&times;</div>
+                    </div>
+                    <div class="GD GD1">
+                        <h3 class="h3-GD">Dynamic</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                                <div class="ten-nen">Vàng Tím</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                                <div class="ten-nen">Sáng Tối</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                                <div class="ten-nen">Bầu Trời</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                                <div class="ten-nen">Xanh Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                                <div class="ten-nen">Cam Nâu</div>
+                            </div>     
+                        </div>
+                        <h3 class="h3-GD">Color</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('#2c2340')">
+                                <div class="mau-nen" style="background: #2c2340"></div>
+                                <div class="ten-nen">Mặc Định</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                                <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                                <div class="ten-nen">Xanh Dương</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('plum')">
+                                <div class="mau-nen" style="background: plum"></div>
+                                <div class="ten-nen">Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('greenyellow')">
+                                <div class="mau-nen" style="background: greenyellow"></div>
+                                <div class="ten-nen">Xanh Lá</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('orange')">
+                                <div class="mau-nen" style="background: orange"></div>
+                                <div class="ten-nen">Cam</div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <!--Album-->
+    <h1 onclick="history.back()"><i class="fa-solid fa-chevron-left"></i>&nbsp;Quay Lại</h1>
+    <div class="Album">
+      <div class="NDLeft">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537555/the1_pqfizl.jpg" alt="Top 100 Nhạc EDM">
+          <h3>After Hours</h3>
+          <p>The Weeknd 2025</p>
+          <p>265K người yêu thích</p>
+          <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+          <a href="#" class="play-btn">▶ PHÁT NGẪU NHIÊN</a>
+      </div>
+      <div class="NDRight">
+          <div class="song">
+            <h3 class="BH">Bài Hát</h3>
+            <h3 class="TG">Thời Gian</h3>
+          </div>
+          <div class="song">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537466/starboi_iumviw.jpg" alt="">
+              <div class="song-info">
+                  <h3>Starboy</h3>
+                  <p>The Weeknd</p>
+              </div>
+              <span>03:07</span>
+          </div>
+          <div class="song">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537555/the1_pqfizl.jpg" alt="">
+              <div class="song-info">
+                  <h3>Save Your Tears</h3>
+                  <p>The Weeknd</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537255/oneofthegirl_ee2lzp.jpg" alt="">
+              <div class="song-info">
+                  <h3>One Of The Girls</h3>
+                  <p>The Weeknd</p>
+              </div>
+              <span>00:30</span>
+          </div>
+         <div class="song">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536836/blindinglights_xkkywz.png" alt="">
+              <div class="song-info">
+                  <h3>Blinding Lights</h3>
+                  <p>The Weeknd</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536915/dieforu_ttbwoh.jpg" alt="">
+              <div class="song-info">
+                  <h3>Die For You</h3>
+                  <p>The Weeknd</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537469/streamtimeless_ksfkhw.jpg" alt="">
+              <div class="song-info">
+                  <h3>Stream Timeless</h3>
+                  <p>The Weeknd</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537085/hurryuptomorrow_usffb8.jpg" alt="">
+              <div class="song-info">
+                  <h3>Hurry Up Tomorrow</h3>
+                  <p>The Weeknd</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536881/cryforme_w8skoe.jpg" alt="">
+            <div class="song-info">
+                <h3>Cry For Me</h3>
+                <p>The Weeknd</p>
+            </div>
+            <span>00:30</span>
+        </div>
+        <div class="song">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537178/liveatsofistadium_rnayra.png" alt="">
+          <div class="song-info">
+              <h3>Live At Sofi Stadium</h3>
+              <p>The Weeknd</p>
+          </div>
+          <span>00:30</span>
+      </div>
+      <div class="song">
+        <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537670/wakemeup_kvu9wm.jpg" alt="">
+        <div class="song-info">
+            <h3>Wake Me Up</h3>
+            <p>The Weeknd</p>
+        </div>
+        <span>00:30</span>
+    </div>
+      </div>
+  </div>
+    </main>
+    <script src="Album.js"></script>
+</body>
+</html>

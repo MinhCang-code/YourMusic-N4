@@ -1,0 +1,3041 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="CacBaiNhac.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+          <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" id="searchInput"placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+            <ul id="suggestionList"></ul>
+          </div>
+        <div class="user-options">
+          <div class="container">
+            <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+            <label class="toggle-switch">
+                <input type="checkbox" id="toggle-btn">
+                <span class="slider"></span> 
+            </label>
+        </div>
+        <!-- Biểu tượng Cài đặt -->
+        <div class="settings-icon">
+            <i class="fa-solid fa-gear"></i>
+        </div>
+        
+        <!-- Menu Cài đặt -->
+        <div id="settingsMenu" class="settings-menu">
+          <ul>
+            <li class="has-submenu" onclick="togglePopup()">
+                <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+            <hr>
+            <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+            <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+            <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+            <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+            <li class="version">Version: 1.1.10</li>
+          </ul>
+        </div>
+          <!--Bảng Giao Diện Hiển Thị-->
+          <div id="BangGiaoDien" class="BangGiaoDien">
+            <div class="GiaoDien">
+                <div class="GDvCL">
+                   <h2>Giao Diện</h2>
+                   <div class="NutDong" onclick="togglePopup()">&times;</div>
+                </div>
+                <div class="GD GD1">
+                    <h3 class="h3-GD">Dynamic</h3>
+                    <div class="NDGiaoDien">
+                        <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                            <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                            <div class="ten-nen">Vàng Tím</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                            <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                            <div class="ten-nen">Sáng Tối</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                            <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                            <div class="ten-nen">Bầu Trời</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                            <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                            <div class="ten-nen">Xanh Hồng</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                            <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                            <div class="ten-nen">Cam Nâu</div>
+                        </div>     
+                    </div>
+                    <h3 class="h3-GD">Color</h3>
+                    <div class="NDGiaoDien">
+                        <div class="theme-item" onclick="changeBackground('#2c2340')">
+                            <div class="mau-nen" style="background: #2c2340"></div>
+                            <div class="ten-nen">Mặc Định</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                            <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                            <div class="ten-nen">Xanh Dương</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('plum')">
+                            <div class="mau-nen" style="background: plum"></div>
+                            <div class="ten-nen">Hồng</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('greenyellow')">
+                            <div class="mau-nen" style="background: greenyellow"></div>
+                            <div class="ten-nen">Xanh Lá</div>
+                        </div>
+                        <div class="theme-item" onclick="changeBackground('orange')">
+                            <div class="mau-nen" style="background: orange"></div>
+                            <div class="ten-nen">Cam</div>
+                        </div>     
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END Bảng Giao Diện Hiển Thị-->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+        <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Mới Phát Hành</h1>
+        <!--Mới Cập Nhật Ngày 26.3.2005-->
+        <div class="All">
+            <table class="BaiHat">
+                <tr class="BHAB">
+                  <td class="BA active" data-tab="baihat">Bài Hát</td>
+                  <td class="AB" data-tab="album">Album</td>
+                </tr>
+                <tr>
+                  <hr class="DuongKe-hr">
+                </tr>
+                <tr class="TatCa-VietNam-QuocTe">
+                   <td class="TVQ"><button data-category="tatca" class="active">Tất Cả</button></td> 
+                   <td class="TVQ"><button data-category="vietnam">Việt Nam</button></td> 
+                   <td class="TVQ"><button data-category="aumy">Âu Mỹ</button></td>
+                   <td class="TVQ"><button data-category="hanquoc">Hàn Quốc</button></td>
+                   <td class="TVQ"><button data-category="khac">Khác</button></td>
+                </tr>
+            </table>
+            <table class="CacBaiNhac" data-category="tatca" style="display: none;">
+              <tr class="BangNhac">
+                <td class="BH">Bài Hát</td>
+                <td class="PH">Phát Hành</td>
+                <td class="TG">Thời Gian</td>
+              </tr>
+              <tr class="BaiNhac1">
+                  <td class="BaiNhac0" onclick="playMusic(this)" 
+                      data-title="Bạc Phận" data-artist="Jack-J97 x K-ICM" 
+                      data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538076/bacphan_jtihcu.mp3"
+                      data-lyrics=
+                      "
+                      J-A-C-K
+                      K-I-C-M, hallow
+                      Take it, one, two, let's get it!
+                      Ai gieo tình này, ai mang tình này để lệ trên khóe mi cay
+                      Ai đưa về nhà, ai cho ngọc ngà giờ người xa cách ta
+                      Từng là một thời thiếu nữ trong vùng quê nghèo
+                      Hồn nhiên cài hoa mái đầu
+                      Dòng người vội vàng em hóa thân đời bẽ bàng
+                      Rời xa tình anh năm tháng
+                      Ôi phút giây tương phùng anh nhớ và mong
+                      Dòng lưu bút năm xưa in dấu mãi đậm sâu
+                      Trong nỗi đau anh mệt nhoài, trong phút giây anh tìm hoài
+                      Muốn giữ em ở lại một lần này vì anh mãi thương
+                      Xa cách nhau thật rồi, sương trắng chiều thu
+                      Ngày em bước ra đi, nước mắt ấy biệt ly
+                      Hoa vẫn rơi bên thềm nhà, lá xát xơ đi nhiều và
+                      Anh chúc em yên bình, mối tình mình, hẹn em kiếp sau
+                      Thoáng thoáng, ngày miên man
+                      Giờ con nước dài thênh thang
+                      Không trách người không thương
+                      Mà hương tóc còn vương vương
+                      Gửi tặng em màu son cỏ dại, chút bình yên trên môi bỏ lại
+                      Nước mắt nào thấm đẫm cả hai vai
+                      Mắt phượng mày ngài, mình phải tìm đến thiên thai
+                      À ơi câu hát, em không cần những lời khuyên
+                      Em buông thả mình và chẳng màng đến tình duyên
+                      Đời em phiêu bạc, đau đớn lắm lúc cũng vì tiền
+                      Thương thân em khổ để một lần cùng chí tuyến
+                      Giờ em ở nơi khuê phòng, ngày mai nữa em theo chồng
+                      Và tô má em thêm hồng, ôi đớn đau lòng, ôi đớn đau lòng
+                      Bình minh dẫn em đi rồi, vòng xoay bánh xe luân hồi
+                      Hoàng hôn khuất sau lưng đồi, ôi vỡ tan rồi, ôi vỡ tan rồi
+                      Một ngày buồn mây tím, em về thôn làng
+                      Mẹ cha của em vỡ òa
+                      Giọt lệ chạnh lòng em khóc, thương người sang đò
+                      Hồng nhan bạc phận sóng gió!
+                      Ôi phút giây tương phùng anh nhớ và mong
+                      Dòng lưu bút năm xưa in dấu mãi đậm sâu
+                      Trong nỗi đau anh mệt nhoài, trong phút giây anh tìm hoài
+                      Muốn giữ em ở lại một lần này vì anh mãi thương
+                      Xa cách nhau thật rồi, sương trắng chiều thu
+                      Ngày em bước ra đi, nước mắt ấy biệt ly
+                      Hoa vẫn rơi bên thềm nhà, lá xát xơ đi nhiều và
+                      Anh chúc em yên bình, mối tình mình, hẹn em kiếp sau
+                      Em ở nơi khuê phòng, mai nữa em theo chồng
+                      Tô má em thêm hồng, ôi đớn đau lòng, ôi đớn đau lòng
+                      Bình minh dẫn em đi rồi, vòng xoay bánh xe luân hồi
+                      Hoàng hôn khuất sau lưng đồi, ôi vỡ tan rồi, ôi vỡ tan rồi
+                      Xa cách nhau thật rồi, sương trắng chiều thu
+                      Ngày em bước ra đi, nước mắt ấy biệt ly
+                      Hoa vẫn rơi bên thềm nhà, lá xát xơ đi nhiều và
+                      Anh chúc em yên bình, mối tình mình, hẹn em kiếp sau
+                      ">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536799/BacPhan_sw3uis.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Bạc Phận</b><br>
+                          <small>Jack-J97 x K-ICM</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                  </td>
+              </tr>
+              <tr class="BaiNhac1">
+                  <td class="BaiNhac0" onclick="playMusic(this)" 
+                  data-title="Có Chắc Yêu Là Đây" data-artist="Sơn Tùng MTP" 
+                  data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537976/Cochacyeuladay_zt1jde.mp3"
+                  data-lyrics="
+                  … Good boy
+                  … Thấp thoáng ánh mắt đôi môi mang theo hương mê say
+                  Em cho anh tan trong miên man quên luôn đi đêm ngày
+                  Chạm nhẹ vội vàng hai ba giây nhưng con tim đâu hay
+                  Bối rối khẽ lên ngôi yêu thương đong đầy thật đầy
+                  … Anh ngẩn ngơ cứ ngỡ
+                  (Đó chỉ là giấc mơ)
+                  Anh ngẩn ngơ cứ ngỡ
+                  (Như đang ngất ngây trong giấc mơ)
+                  Thật ngọt ngào êm dịu đắm chìm
+                  Phút chốc viết tương tư gieo nên thơ (yeah, hey)
+                  … Có câu ca trong gió hát ngân nga, ru trời mây
+                  Nhẹ nhàng đón ban mai ngang qua trao nụ cười 
+                  (trao nụ cười)
+                  Nắng đua chen, khoe sắc, vui đùa giữa muôn ngàn hoa
+                  Dịu dàng đến nhân gian âu yếm tâm hồn người
+                  … Hình như chính em
+                  (Cho anh mong chờ)
+                  Hình như chính là em
+                  (Cho anh vấn vương)
+                  Đừng thờ ơ, xin hãy lắng nghe
+                  Và giúp anh trả lời đôi điều còn băn khoăn
+                  … Có chắc yêu là đây, đây, đây
+                  Có chắc yêu là đây, đây
+                  Có chắc yêu là đây, đây, đây
+                  Có chắc yêu là đây, đây
+                  … Em lang thang cả ngày trong tâm trí
+                  Đi không ngừng cả ngày trong tâm trí
+                  Si mê thêm cuồng quay
+                  Oo-ooh, oo-oo-oo-ooh
+                  … Chắc gì nữa mà chắc
+                  Sáng thì nhớ đêm trắng tương tư còn không phải yêu là gì
+                  (Có chắc yêu là đây)
+                  Rồi thắc gì nữa mà mắc
+                  Đến bên nắm tay nói ra ngay ngồi mơ mộng thêm làm gì
+                  … Nhanh chân chạy mua một bó hoa (hey)
+                  Thêm luôn một món quà (hooh)
+                  Khuôn mặt tươi cười lên vô tư gạt đi lo âu mạnh mẽ nha
+                  Và rồi bước ra, bước ra, bước ra (hey)
+                  … Có câu ca trong gió hát ngân nga, ru trời mây
+                  Nhẹ nhàng đón ban mai ngang qua trao nụ cười 
+                  (trao nụ cười)
+                  Nắng đua chen, khoe sắc, vui đùa giữa muôn ngàn hoa
+                  Dịu dàng đến nhân gian âu yếm tâm hồn người
+                  … Hình như chính em
+                  (Cho anh mong chờ)
+                  Hình như chính là em
+                  (Cho anh vấn vương)
+                  Đừng thờ ơ, xin hãy lắng nghe
+                  Và giúp anh trả lời đôi điều còn băn khoăn
+                  … Có chắc yêu là đây, đây, đây
+                  Có chắc yêu là đây, đây
+                  Có chắc yêu là đây, đây, đây
+                  Có chắc yêu là đây, đây
+                  … Em lang thang cả ngày trong tâm trí
+                  Đi không ngừng cả ngày trong tâm trí
+                  Si mê thêm cuồng quay
+                  Oo-ooh, oo-oo-oo-ooh
+                  … Có chắc yêu là đây (a-ah, a-ah)
+                  Có chắc yêu là đây (ooh-ooh, oo-ooh)
+                  Có chắc yêu là đây (a-ah)
+                  … Please come to me! (Please come to me!)
+                  Please come to me!
+                  … Có chắc yêu là đây, đây, đây
+                  Có chắc yêu là đây, đây
+                  Có chắc yêu là đây, đây, đây
+                  Có chắc yêu là đây, đây
+                  … Em lang thang cả ngày trong tâm trí
+                  Đi không ngừng cả ngày trong tâm trí
+                  Si mê thêm cuồng quay
+                  Oo-ooh, oo-oo-oo-ooh
+                  … M-TP
+                  (Có chắc yêu là đây, đây) Một bài hát
+                  Dành đến cho tất cả những ai đang yêu 
+                  (có chắc yêu là đây, đây, đây)
+                  Chưa yêu, và sẽ được yêu 
+                  (có chắc yêu là đây, đây)
+                  Hạnh phúc nhá!">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536874/CoChacYeuLaDay_tj5rwm.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Có Chắc Yêu Là Đây</b><br>
+                          <small>Sơn Tùng MTP</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                  </td>
+              </tr>
+              <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537066/HongNhan_gsvz3z.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Hồng Nhan</b><br>
+                          <small>Jack-J97 x K-ICM</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                  <div class="PH1">Hôm qua</div>
+                  <div class="TG1">03:20</div>
+                </td> 
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537370/seeugain_vtwn5k.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>See You Again</b><br>
+                        <small>Charlie Puth x Wiz Khalifa</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537677/whatdoyoumean_ihluel.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>What do you mean ?</b><br>
+                        <small>Justin Bieber</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536638/7years_lw25yb.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>7 Years</b><br>
+                        <small>Lukas Graham</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">09:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537466/starboi_iumviw.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Starboy</b><br>
+                        <small>The Weeknd x Daft Punk</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537569/theweeknd_tmxjd1.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>bulding lights</b><br>
+                        <small>The Weeknd</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537569/theweeknd_tmxjd1.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>The Hills</b><br>
+                        <small>The Weeknd</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">08:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537091/idol_eaojya.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>One Of The Girls</b><br>
+                        <small>The Weeknd</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536915/dieforu_ttbwoh.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Die For You</b><br>
+                        <small>The Weeknd x Ariana Grande</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537200/luther_xqpwgp.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>luther</b><br>
+                        <small>Kendrick Lamar</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">18:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537188/lookwhat_idygll.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Look What You Made Me Do</b><br>
+                        <small>Taylor Swift</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">19:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537082/humble_xq8vv5.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>HUMBLE</b><br>
+                        <small>Kendrick Lamar</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537008/helllo_sdunld.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>hello</b><br>
+                        <small>Adele</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">19:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537380/shapeoff_qqk6qh.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Shape Of You</b><br>
+                        <small>Edd Sheeren</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536822/believer_fhukdc.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Believer</b><br>
+                        <small>Imagine Dragons</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:50</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537089/hymm_wrncbq.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Hymn for the Weekend</b><br>
+                        <small>Coldplay</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">15:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537190/lovely_etk5oi.png"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Lovely</b><br>
+                        <small>Billie Eilish x Khalid</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">15:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536918/diewithasmile_ekakit.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Die With A Smile</b><br>
+                        <small>Lady Gaga x Bruno Mars</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537644/utopia_py6slx.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>My Eyes</b><br>
+                        <small>Travis Scott</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536745/alot_krgnmb.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>A Lot</b><br>
+                      <small>21 savage</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537490/symphony_aoml0a.png"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Symphony</b><br>
+                      <small>Clean Bandit</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536764/attention_u4thqz.png"></div>
+                  <div class="NDBaiNhac0">
+                      <b>attention</b><br>
+                      <small>Charlie Puth</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536755/animals_wflvzr.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Animals</b><br>
+                      <small>Marroon 5</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <td class="TG1">17:30</td>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536912/demons_mdlzfh.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Demons</b><br>
+                      <small>Imagine Dragons</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537342/sad1_etju9j.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>SAD!</b><br>
+                      <small>XXXTENTACION</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536902/dark_srt0ei.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Darkside</b><br>
+                      <small>Alan Walker</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536829/bigbang_m3vcis.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Bang Bang Bang</b><br>
+                        <small>BigBang</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536992/godlin_qkvibg.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Stay With Me</b><br>
+                        <small>CHANYEOL, PUNCH</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">09:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537581/thislove_cgjphy.png"></div>
+                    <div class="NDBaiNhac0">
+                        <b>This Love</b><br>
+                        <small>Davichi</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">09:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537093/ikon_raw6ji.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>LOVE SCENARIO</b><br>
+                        <small>ikon</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">11:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536929/dudu_xerju1.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>DU DU DU DU</b><br>
+                        <small>BlackPink</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">11:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536796/baam_rmjw86.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>BAAM</b><br>
+                        <small>MOMOLAND</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">13:20</div>
+                </td>
+              </tr>
+              <!-- <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536796/baam_rmjw86.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>BAAM</b><br>
+                        <small>MOMOLAND</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">13:20</div>
+                </td>
+              </tr> -->
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536818/bboom_kyraq3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>BBOOM BBOOM</b><br>
+                        <small>MOMOLAND</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">13:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536851/BuocQuaMuaCodon_rktsyd.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Bước Qua Mùa Cô Đơn</b><br>
+                        <small>Vũ</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536923/DongKiemEm_cjfky6.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Đông Kiếm Em</b><br>
+                        <small>Vũ</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:50</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536866/chonsamac_gxperh.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Chốn Sa Mạc</b><br>
+                        <small>Lam x Minh Tốc</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">04:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537264/phepmau_g7wvov.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Phép Màu</b><br>
+                        <small>Lam x Minh Tốc</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">05:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537659/vinha_qiyks6.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Vị Nhà</b><br>
+                        <small>Đen</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:20</div>
+                </td>
+              </tr> 
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537623/trontim_nlyccc.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Trốn Tìm</b><br>
+                        <small>Đen</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536892/dailomattroi_ibgpk0.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Đại Lộ Mặt Trời</b><br>
+                        <small>Chillies</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm nay</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536811/bautroimoi_ua8jmz.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Bầu Trời Mới</b><br>
+                        <small>Da Lab</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">08:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537253/nhammatthaymuahe_w36mgg.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Nhắm Mắt Thấy Mặt Trời</b><br>
+                        <small>Nguyên Hà</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">09:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537151/kimphutkimgio_ald2ya.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Kim Phút Kim Giờ</b><br>
+                        <small>Anh Trai Say Hi</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:15</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537251/neulucdo_cm1emv.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Nếu Lúc Đó</b><br>
+                        <small>tlinh</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536657/99_bnseex.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Anh Đã Ổn hơn</b><br>
+                        <small>MCK</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">07:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Chờ Một Người</b><br>
+                        <small>Gill x Caption</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Qua Từng Khung Hình</b><br>
+                        <small>Robber x Ngắn</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>1TINHYEU</b><br>
+                        <small>Robber x Young Puppy</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Người Được Chọn</b><br>
+                        <small>Dick x B Ray x 24k.Right</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537606/tranbonho_drf8js.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Tràn Bộ Nhớ</b><br>
+                        <small>Dương Domic</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537606/tranbonho_drf8js.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Mất Kết Nối</b><br>
+                        <small>Dương Domic</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537271/phong-zin-zin_20240925145743_o9sdfw.png"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Phóng Zìn Zìn</b><br>
+                        <small>tlinh x Low G</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+            </table>
+            <!--Mới Phát Hành Việt Nam-->
+            <table class="CacBaiNhac" data-category="vietnam" style="display: none;">
+              <tr class="BangNhac">
+                <td class="BH">Bài Hát</td>
+                <td class="PH">Phát Hành</td>
+                <td class="TG">Thời Gian</td>
+              </tr>
+              <tr class="BaiNhac1" onclick="playMusic(this)" 
+              data-title="Bạc Phận" data-artist="Jack-J97 x K-ICM" 
+              data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538076/bacphan_jtihcu.mp3"
+              data-lyrics="
+              J-A-C-K
+              K-I-C-M, hallow
+              Take it, one, two, let's get it!
+              Ai gieo tình này, ai mang tình này để lệ trên khóe mi cay
+              Ai đưa về nhà, ai cho ngọc ngà giờ người xa cách ta
+              Từng là một thời thiếu nữ trong vùng quê nghèo
+              Hồn nhiên cài hoa mái đầu
+              Dòng người vội vàng em hóa thân đời bẽ bàng
+              Rời xa tình anh năm tháng
+              Ôi phút giây tương phùng anh nhớ và mong
+              Dòng lưu bút năm xưa in dấu mãi đậm sâu
+              Trong nỗi đau anh mệt nhoài, trong phút giây anh tìm hoài
+              Muốn giữ em ở lại một lần này vì anh mãi thương
+              Xa cách nhau thật rồi, sương trắng chiều thu
+              Ngày em bước ra đi, nước mắt ấy biệt ly
+              Hoa vẫn rơi bên thềm nhà, lá xát xơ đi nhiều và
+              Anh chúc em yên bình, mối tình mình, hẹn em kiếp sau
+              Thoáng thoáng, ngày miên man
+              Giờ con nước dài thênh thang
+              Không trách người không thương
+              Mà hương tóc còn vương vương
+              Gửi tặng em màu son cỏ dại, chút bình yên trên môi bỏ lại
+              Nước mắt nào thấm đẫm cả hai vai
+              Mắt phượng mày ngài, mình phải tìm đến thiên thai
+              À ơi câu hát, em không cần những lời khuyên
+              Em buông thả mình và chẳng màng đến tình duyên
+              Đời em phiêu bạc, đau đớn lắm lúc cũng vì tiền
+              Thương thân em khổ để một lần cùng chí tuyến
+              Giờ em ở nơi khuê phòng, ngày mai nữa em theo chồng
+              Và tô má em thêm hồng, ôi đớn đau lòng, ôi đớn đau lòng
+              Bình minh dẫn em đi rồi, vòng xoay bánh xe luân hồi
+              Hoàng hôn khuất sau lưng đồi, ôi vỡ tan rồi, ôi vỡ tan rồi
+              Một ngày buồn mây tím, em về thôn làng
+              Mẹ cha của em vỡ òa
+              Giọt lệ chạnh lòng em khóc, thương người sang đò
+              Hồng nhan bạc phận sóng gió!
+              Ôi phút giây tương phùng anh nhớ và mong
+              Dòng lưu bút năm xưa in dấu mãi đậm sâu
+              Trong nỗi đau anh mệt nhoài, trong phút giây anh tìm hoài
+              Muốn giữ em ở lại một lần này vì anh mãi thương
+              Xa cách nhau thật rồi, sương trắng chiều thu
+              Ngày em bước ra đi, nước mắt ấy biệt ly
+              Hoa vẫn rơi bên thềm nhà, lá xát xơ đi nhiều và
+              Anh chúc em yên bình, mối tình mình, hẹn em kiếp sau
+              Em ở nơi khuê phòng, mai nữa em theo chồng
+              Tô má em thêm hồng, ôi đớn đau lòng, ôi đớn đau lòng
+              Bình minh dẫn em đi rồi, vòng xoay bánh xe luân hồi
+              Hoàng hôn khuất sau lưng đồi, ôi vỡ tan rồi, ôi vỡ tan rồi
+              Xa cách nhau thật rồi, sương trắng chiều thu
+              Ngày em bước ra đi, nước mắt ấy biệt ly
+              Hoa vẫn rơi bên thềm nhà, lá xát xơ đi nhiều và
+              Anh chúc em yên bình, mối tình mình, hẹn em kiếp sau
+              ">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536799/BacPhan_sw3uis.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Bạc Phận</b><br>
+                          <small>Jack-J97 x K-ICM</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">03:20</div>
+                  </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0" onclick="playMusic(this)" 
+                    data-title="Bước Qua Mùa Cô Đơn" data-artist="Vũ" 
+                    data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744774321/BUOCQUAMUACODON_r2tptj.mp3"
+                    data-lyrics="
+Chào cơn mưa
+Làm sao cứ kéo ta quay lại
+Những rung động con tim
+Lần đầu hai ta gặp gỡ
+
+Chào hàng cây
+Làm sao cố níu tay nhau lại
+Để thấy nồng nàn
+Đang về trên đôi mắt em
+
+Chợt nhìn đôi bàn tay em run nắm lấy bờ vai, rất lâu
+Cuối thu, với anh là ngày khiến hai hàng mi rối bời
+Vì ngày ấy gặp nhau không ai dám nói 1 câu, chào nhau
+Cứ đắm đuối, cứ thế hát bài hát chia xa
+
+Mùa thu rơi vào em vào trong giấc mơ hôm qua
+Mùa thu ôm mình em chạy xa vòng tay vội vã
+Lời em nói ngày xưa đâu đây vẫn âm thầm chìm vào trong mây
+Đến bao giờ, dặn lòng anh không mong nhớ
+
+Mùa thu rơi vào em vào trong chiếc hôn ngây thơ
+Mùa thu không cần anh, vì em giờ đây còn mãi hững hờ
+Ngày mai kia nếu có phút giây vô tình thấy nhau sẽ nói câu gì
+Hay ta chỉ nhìn, lặng lẽ, đi qua
+
+Chào cơn mưa
+Làm sao cứ kéo ta quay lại
+Những rung động con tim
+Lần đầu hai ta gặp gỡ
+
+Chào hàng cây
+Làm sao cố níu tay nhau lại
+Để thấy nồng nàn
+Đang về trên đôi mắt em
+
+Chợt nhìn đôi bàn tay em run nắm lấy bờ vai, rất lâu
+Cuối thu, với anh là ngày khiến hai hàng mi rối bời
+Vì ngày ấy gặp nhau không ai dám nói 1 câu, chào nhau
+Cứ đắm đuối, chẳng thể chia xa
+
+Mùa thu rơi vào em vào trong giấc mơ hôm qua
+Mùa thu ôm mình em rời xa vòng tay vội vã
+Lời em nói ngày xưa đâu đây vẫn âm thầm chìm vào trong mây
+Đến bao giờ, dặn lòng anh không mong nhớ
+
+Mùa thu rơi vào em vào trong chiếc hôn ngây thơ
+Mùa thu không cần anh, vì em giờ đây còn mãi hững hờ
+Ngày mai kia nếu có phút giây vô tình thấy nhau sẽ nói câu gì
+Hay ta chỉ nhìn, lặng lẽ, đi qua
+                    ">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536851/BuocQuaMuaCodon_rktsyd.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Bước Qua Mùa Cô Đơn</b><br>
+                        <small>Vũ</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536923/DongKiemEm_cjfky6.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Đông Kiếm Em</b><br>
+                        <small>Vũ</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:50</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536866/chonsamac_gxperh.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Chốn Sa Mạc</b><br>
+                        <small>Lam x Minh Tốc</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">04:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537264/phepmau_g7wvov.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Phép Màu</b><br>
+                        <small>Lam x Minh Tốc</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">05:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537659/vinha_qiyks6.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Vị Nhà</b><br>
+                        <small>Đen</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:20</div>
+                </td>
+              </tr> 
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537623/trontim_nlyccc.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Trốn Tìm</b><br>
+                        <small>Đen</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536892/dailomattroi_ibgpk0.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Đại Lộ Mặt Trời</b><br>
+                        <small>Chillies</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm nay</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536811/bautroimoi_ua8jmz.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Bầu Trời Mới</b><br>
+                        <small>Da Lab</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">08:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537253/nhammatthaymuahe_w36mgg.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Nhắm Mắt Thấy Mặt Trời</b><br>
+                        <small>Nguyên Hà</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">09:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537151/kimphutkimgio_ald2ya.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Kim Phút Kim Giờ</b><br>
+                        <small>Anh Trai Say Hi</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:15</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537251/neulucdo_cm1emv.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Nếu Lúc Đó</b><br>
+                        <small>tlinh</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536657/99_bnseex.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Anh Đã Ổn hơn</b><br>
+                        <small>MCK</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">07:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Chờ Một Người</b><br>
+                        <small>Gill x Caption</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Qua Từng Khung Hình</b><br>
+                        <small>Robber x Ngắn</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>1TINHYEU</b><br>
+                        <small>Robber x Young Puppy</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537303/rapviet_ivy4t3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Người Được Chọn</b><br>
+                        <small>Dick x B Ray x 24k.Right</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537606/tranbonho_drf8js.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Tràn Bộ Nhớ</b><br>
+                        <small>Dương Domic</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537606/tranbonho_drf8js.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Mất Kết Nối</b><br>
+                        <small>Dương Domic</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537271/phong-zin-zin_20240925145743_o9sdfw.png"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Phóng Zìn Zìn</b><br>
+                        <small>tlinh x Low G</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <td class="PH1">Hôm qua</td>
+                      <td class="TG1">03:20</td>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537585/thucgiac_jf9cl3.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Thức Giấc</b><br>
+                        <small>Da Lab</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537397/shhh_zciliy.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>shhhhh....</b><br>
+                        <small>Wean x tlinh</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537394/shesaid_phqaps.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>She Said</b><br>
+                        <small>Wean x Naomi</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537049/hoasua_uwujfk.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Hoa Sữa</b><br>
+                        <small>Justatee x Kimmese x Mr.A</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537390/shenevaknow_bxtcvi.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>She Neva Know</b><br>
+                        <small>Justatee</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:27</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536810/bangkhuang_eqhkgb.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Bâng Khuâng</b><br>
+                        <small>Justatee</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">19:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537666/vungkyuc_hrg0qj.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Vùng Ký Ức</b><br>
+                        <small>Chillies</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">20:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537245/mo_ffk7ws.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Mơ </b><br>
+                        <small>Vũ Cát Tường</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">10:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537550/thang4laloinoidoicuaem_j3lvsc.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Tháng 4 Là Lời Nói Dối Của Em</b><br>
+                        <small>Hà Anh Tuấn</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">21:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537374/sela_irzshl.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Sẽ Là</b><br>
+                        <small>Dick x Xám x O.Lew</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:50</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537253/nhactrap_j7skxt.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Nhạc Trap Căng Nhất 2024</b><br>
+                        <small>Wxrdie x 24k.Right x JasonDilla</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536657/99_bnseex.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Ai Là Kẻ Xấu Xa</b><br>
+                        <small>MCK</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537342/sauloitukhuoc_jmmj8m.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Sau Lời Từ Khước</b><br>
+                        <small>Phan Mạnh Quỳnh</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:38</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537180/loichoi_zekcpz.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Cầu Vĩnh Tuy</b><br>
+                        <small>Wren Evans</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">16:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536876/cochangtraivietlencay_mb0yva.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Có Chàng Trai Viết Lên Cây</b><br>
+                        <small>Phan Mạnh Quỳnh</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">04:20</div>
+                </td>
+              </tr>
+              </table>
+            <!--Mới Phát Hành Âu Mỹ-->
+            <table class="CacBaiNhac" data-category="aumy" style="display: none;">
+              <tr class="BangNhac">
+                <td class="BH">Bài Hát</td>
+                <td class="PH">Phát Hành</td>
+                <td class="TG">Thời Gian</td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0" onclick="playMusic(this)" 
+                    data-title="That Girls" data-artist="Olly Murs" 
+                    data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744590063/ThatGirl_wrqhio.mp3"
+                    data-lyrics="
+There’s a girl but I let her get away
+It’s all my fault cause pride got in the way
+And I’d be lying if I said I was ok
+About that girl the one I let get away
+
+I keep saying no
+This can’t be the way we’re supposed to be
+I keep saying no
+There’s gotta be a way to get you close to me
+Now I know you gotta
+
+Speak up if you want somebody
+Can’t let him get away, oh no
+You don’t wanna end up sorry
+The way that I’m feeling everyday
+No no no no
+There’s no hope for the broken heart
+No no no no
+There’s no hope for the broken
+
+There’s a girl but I let her get away
+Its my fault cause I said I needed space
+I’ve been torturing myself night and day
+About that girl, the one I let get away
+I keep saying no
+This ain’t the way it’s supposed to be
+I keep saying no
+There’s gotta be a way
+There’s gotta be a way
+To get you close to me
+You gotta
+
+Speak up if you want somebody
+Can’t let him get away, oh no
+You don’t wanna end up sorry
+The way that I’m feeling everyday
+No no no no
+There’s no hope for the broken heart
+No no no no
+There’s no hope for the broken
+
+No home for me
+No home cause I’m broken
+No room to breathe
+And I got no one to blame
+No home for me
+No home cause I’m broken
+About that girl
+The one I let get away
+
+So you better
+Speak up if you want somebody
+Can’t let him get away no no
+You don’t wanna end up sorry
+The way that I’m feeling everyday
+Don’t you know
+No no no no
+There’s no hope for the broken heart
+Don’t you know
+No no no no
+There’s no hope for the broken
+You don’t wanna lose at love
+It’s only gonna hurt too much
+I’m telling you
+You don’t wanna lose at love
+It’s only gonna hurt too much
+You don’t wanna lose at love
+Cause There’s no hope for the broken heart
+There’s that girl
+The one I let get away
+                    ">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537552/ThatGirl_sscysy.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>That Girls</b><br>
+                        <small>Olly Murs</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0" onclick="playMusic(this)" 
+                    data-title="Circles" data-artist="Post Malone" 
+                    data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744775905/Circles_vu82yv.mp3"
+                    data-lyrics="
+We couldn't turn around
+'Til we were upside down
+I'll be the bad guy now
+But, no, I ain't too proud
+I couldn't be there
+Even when I tried
+You don't believe it
+We do this every time
+Seasons change and our love went cold
+Feed the flame 'cause we can't let it go
+Run away, but we're running in circles
+Run away, run away
+I dare you to do something
+I'm waiting on you again
+So I don't take the blame
+Run away, but we're running in circles
+Run away, run away, run away
+Let go
+I got a feeling that it's time to let go
+I say so
+I knew that this was doomed from the get-go
+You thought that it was special, special
+But it was just the sex though, the sex though
+And I still hear the echoes (the echoes)
+I got a feeling that it's time to let it go, let it go
+Seasons change and our love went cold
+Feed the flame 'cause we can't let it go
+Run away, but we're running in circles
+Run away, run away
+I dare you to do something
+I'm waiting on you again
+So I don't take the blame
+Run away, but we're running in circles
+Run away, run away, run away
+Maybe you don't understand what I'm going through
+It's only me
+What you got to lose?
+Make up your mind, tell me
+What are you gonna do?
+It's only me
+Let it go
+Seasons change and our love went cold
+Feed the flame 'cause we can't let it go
+Run away, but we're running in circles
+Run away, run away
+I dare you to do something
+I'm waiting on you again
+So I don't take the blame
+Run away, but we're running in circles
+Run away, run away, run away
+                    ">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536868/circles_wwrhpo.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Circles</b><br>
+                        <small>Post Malone</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">07:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537293/PostMaloneRockstar_zaqgak.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>rockstar</b><br>
+                        <small>Post Malone x 21 savage</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">07:45</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537259/openarms_x32kgd.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Open Arms</b><br>
+                        <small>SZA</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">07:20</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537677/whatdoyoumean_ihluel.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>What do you mean ?</b><br>
+                        <small>Justin Bieber</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537370/seeugain_vtwn5k.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>See You Again</b><br>
+                        <small>Charlie Puth x Wiz Khalifa</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536638/7years_lw25yb.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>7 Years</b><br>
+                        <small>Lukas Graham</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">09:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537466/starboi_iumviw.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>Starboy</b><br>
+                        <small>The Weeknd x Daft Punk</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">03:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537569/theweeknd_tmxjd1.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>bulding lights</b><br>
+                        <small>The Weeknd</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537569/theweeknd_tmxjd1.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>The Hills</b><br>
+                        <small>The Weeknd</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">08:30</div>
+                </td>
+              </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537091/idol_eaojya.jpg"></div>
+                    <div class="NDBaiNhac0">
+                        <b>One Of The Girls</b><br>
+                        <small>The Weeknd</small><br>
+                        <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH1">Hôm qua</div>
+                      <div class="TG1">17:30</div>
+                  </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536915/dieforu_ttbwoh.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Die For You</b><br>
+                      <small>The Weeknd x Ariana Grande</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537200/luther_xqpwgp.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>luther</b><br>
+                      <small>Kendrick Lamar</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">18:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537188/lookwhat_idygll.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Look What You Made Me Do</b><br>
+                      <small>Taylor Swift</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">19:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537082/humble_xq8vv5.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>HUMBLE</b><br>
+                      <small>Kendrick Lamar</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537008/helllo_sdunld.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>hello</b><br>
+                      <small>Adele</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">19:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537380/shapeoff_qqk6qh.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Shape Of You</b><br>
+                      <small>Edd Sheeren</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">06:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536822/believer_fhukdc.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Believer</b><br>
+                      <small>Imagine Dragons</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">06:50</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537089/hymm_wrncbq.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Hymn for the Weekend</b><br>
+                      <small>Coldplay</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">15:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537190/lovely_etk5oi.png"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Lovely</b><br>
+                      <small>Billie Eilish x Khalid</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">15:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536918/diewithasmile_ekakit.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Die With A Smile</b><br>
+                      <small>Lady Gaga x Bruno Mars</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537644/utopia_py6slx.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>My Eyes</b><br>
+                      <small>Travis Scott</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536745/alot_krgnmb.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>A Lot</b><br>
+                      <small>21 savage</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537490/symphony_aoml0a.png"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Symphony</b><br>
+                      <small>Clean Bandit</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536764/attention_u4thqz.png"></div>
+                  <div class="NDBaiNhac0">
+                      <b>attention</b><br>
+                      <small>Charlie Puth</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536755/animals_wflvzr.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Animals</b><br>
+                      <small>Marroon 5</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536912/demons_mdlzfh.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Demons</b><br>
+                      <small>Imagine Dragons</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537342/sad1_etju9j.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>SAD!</b><br>
+                      <small>XXXTENTACION</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              <tr class="BaiNhac1">
+                <td class="BaiNhac0">
+                  <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536902/dark_srt0ei.jpg"></div>
+                  <div class="NDBaiNhac0">
+                      <b>Darkside</b><br>
+                      <small>Alan Walker</small><br>
+                      <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH1">Hôm qua</div>
+                    <div class="TG1">17:30</div>
+                </td>
+              </tr>
+              </table>
+              <!--Mới Phát Hành Hàn Quốc-->
+              <table class="CacBaiNhac" data-category="hanquoc" style="display: none;">
+                <tr class="BangNhac">
+                  <td class="BH">Bài Hát</td>
+                  <td class="PH">Phát Hành</td>
+                  <td class="TG">Thời Gian</td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0" onclick="playMusic(this)" 
+                      data-title="APT" data-artist="Bruno Mars x Rose" 
+                      data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589714/APT_wbxzaf.mp3"
+                      data-lyrics="
+[Intro]
+Chaeyeongiga joahaneun raendeom geim
+Raendeom geim
+Game start
+
+[Chorus: ROSÉ]
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Uh, uh-huh, uh-huh
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Uh, uh-huh, uh-huh
+
+[Verse 1: ROSÉ]
+Kissy face, kissy face
+Sent to your phone, but
+I'm tryna kiss your lips for real (Uh-huh, uh-huh)
+Red hearts, red hearts
+That's what I'm on, yeah
+Come give me somethin' I can feel, oh-oh, oh
+
+[Pre-Chorus: ROSÉ]
+Don't you want me like I want you, baby?
+Don't you need me like I need you now?
+Sleep tomorrow, but tonight, go crazy
+All you gotta do is just meet me at the
+
+[Chorus: ROSÉ]
+Apatеu, apateu
+Apateu, apateu
+Apatеu, apateu
+Uh, uh-huh, uh-huh
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Uh, uh-huh, uh-huh
+
+[Verse 2: Bruno Mars, Bruno Mars & ROSÉ]
+It's whatever (Whatever), it's whatever (Whatever)
+It's whatever (Whatever) you like (Woo)
+Turn this apateu into a club (Uh-huh, uh-huh)
+I'm talkin' drink, dance, smoke, freak, party all night (Come on)
+Geonbae, geonbae, girl, what's up? Oh-oh, oh
+
+[Pre-Chorus: Bruno Mars & ROSÉ]
+Don't you want me like I want you, baby?
+Don't you need me like I need you now?
+Sleep tomorrow, but tonight, go crazy
+All you gotta do is just meet me at the
+
+[Chorus: ROSÉ & Bruno Mars]
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Uh, uh-huh, uh-huh
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Uh, uh-huh, uh-huh
+
+[Bridge: ROSÉ, ROSÉ & Bruno Mars]
+Hey, so now you know the game
+Are you ready?
+'Cause I'm comin' to get ya, get ya, get ya
+Hold on, hold on
+I'm on my way
+Yeah, yeah, yeah-yeah, yeah
+I'm on my way
+Hold on, hold on
+I'm on my way
+Yeah, yeah, yeah-yeah, yeah
+I'm on my way
+
+[Pre-Chorus: ROSÉ & Bruno Mars]
+Don't you want me like I want you, baby?
+Don't you need me like I need you now?
+Sleep tomorrow, but tonight, go crazy
+All you gotta do is just meet me at the
+
+[Chorus: ROSÉ & Bruno Mars, ROSÉ, Bruno Mars]
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Just meet me at the (Uh, uh-huh, uh-huh)
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Just meet me at the (Uh, uh-huh, uh-huh)
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Just meet me at the (Uh, uh-huh, uh-huh)
+Apateu, apateu
+Apateu, apateu
+Apateu, apateu
+Uh, uh-huh, uh-huh
+                      ">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536759/APT_rzntyy.webp"></div>
+                      <div class="NDBaiNhac0">
+                          <b>APT</b><br>
+                          <small>Bruno Mars x Rose</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">03:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0" onclick="playMusic(this)" 
+                      data-title="Fake Love" data-artist="BTS" 
+                      data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744783934/FAKELOVE_jv10iv.mp3"
+                      data-lyrics="
+neol wihaeseolamyeon nan
+seulpeodo gippeun cheog hal suga iss-eoss-eo
+neol wihaeseolamyeon nan
+apado ganghan cheog hal suga iss-eoss-eo
+salang-i salangman-eulo wanbyeoghagil
+nae modeun yagjeomdeul-eun da sumgyeojigil
+ilwojiji anhneun kkumsog-eseo
+piul su eobsneun kkoch-eul kiwoss-eo
+
+Hook: Jimin, Jin
+I'm so sick of this fake love, fake love, fake love
+I'm so sorry but it's fake love, fake love, fake love
+
+Verse 1: RM, RM & Jungkook, J-Hope
+I wanna be a good man just for you
+sesang-eul jwossne just for you
+jeonbu bakkwoss-eo just for you
+Now I don't know me, who are you?
+uliman-ui sup neoneun eobs-eoss-eo
+naega wassdeon route ij-eobeolyeoss-eo
+nado naega nuguyeossneunjido jal moleuge dwaess-eo
+geoul-eda jikkeol-yeobwa neoneun daeche nuguni
+
+Pre-Chorus: Jimin, Jin
+neol wihaeseolamyeon nan
+seulpeodo gippeun cheog hal suga iss-eoss-eo
+neol wihaeseolamyeon nan
+apado ganghan cheog hal suga iss-eoss-eo
+salang-i salangman-eulo wanbyeoghagil
+nae modeun yagjeomdeul-eun da sumgyeojigil
+ilwojiji anhneun kkumsog-eseo
+piul su eobsneun kkoch-eul kiwoss-eo
+
+Chorus: Jungkook, V
+Love you so bad, love
+you so bad
+neol wihae yeppeun geojis-eul bij-eonae
+Love you so mad, love you so mad
+nal jiwo neoui inhyeong-i doelyeo hae
+Love you so bad, love you so bad
+neol wihae yeppeun geojis-eul bij-eonae
+Love you so mad, love you so mad
+nal jiwo neoui inhyeong-i doelyeo hae
+
+Hook: Jimin, Jin
+
+I'm so sick of this fake love, fake love, fake love
+I'm so sorry but it's fake love, fake love, fake love
+
+Verse 2: RM, Suga
+
+Why you sad? I don't know nan molla
+us-eobwa salanghae malhaebwa
+naleul bwa najochado beolin na
+neojocha ihaehal su eobsneun na
+nachseolda hane
+niga joh-ahadeon nalo byeonhan naega
+anila hane
+yejeon-e niga jal algo issdeon naega
+anigin mwoga anya nan nun meol-eoss-eo
+salang-eun mwoga salang it's all fake love
+
+Bridge: Jungkook, Jin
+
+(Woo) I don't know, I don't know, I don't know why
+(Woo) nado nal nado nal jal moleugess-eo
+(Woo) I just know, I just know, I just know why
+Cuz its all fake love, fake love, fake love
+
+Chorus: Jungkook, Jimin
+Love you so bad, love you
+so bad
+neol wihae yeppeun geojis-eul bij-eonae
+Love you so mad, love you so mad
+nal jiwo neoui inhyeong-i doelyeo hae
+Love you so bad, love you so bad
+neol wihae yeppeun geojis-eul bij-eonae
+Love you so mad, love you so mad
+nal jiwo neoui inhyeong-i doelyeo hae
+
+Hook: Jimin, Jin
+I'm so sick of this fake love, fake love, fake love
+I'm so sorry but it's fake love, fake love, fake love
+
+Outro: Jimin, V, Jungkook, Jin
+neol wihaeseolamyeon nan
+seulpeodo gippeun cheog hal suga iss-eoss-eo
+neol wihaeseolamyeon nan
+apado ganghan cheog hal suga iss-eoss-eo
+salang-i salangman-eulo wanbyeoghagil
+nae modeun yagjeomdeul-eun da sumgyeojigil
+ilwojiji anhneun kkumsog-eseo
+piul su eobsneun kkoch-eul kiwoss-eo
+                      ">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536973/fake_love_yhkg12.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Fake Love</b><br>
+                          <small>BTS</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">03:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536829/bigbang_m3vcis.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Bang Bang Bang</b><br>
+                          <small>BigBang</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">03:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536992/godlin_qkvibg.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Stay With Me</b><br>
+                          <small>CHANYEOL, PUNCH</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">09:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537581/thislove_cgjphy.png"></div>
+                      <div class="NDBaiNhac0">
+                          <b>This Love</b><br>
+                          <small>Davichi</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">09:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537093/ikon_raw6ji.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>LOVE SCENARIO</b><br>
+                          <small>ikon</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">11:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536929/dudu_xerju1.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>DU DU DU DU</b><br>
+                          <small>BlackPink</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">11:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536796/baam_rmjw86.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>BAAM</b><br>
+                          <small>MOMOLAND</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536847/bts_msm8el.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>blood sweat & tears </b><br>
+                          <small>BTS</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536818/bboom_kyraq3.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>BBOOM BBOOM</b><br>
+                          <small>MOMOLAND</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537431/solo_mvqpvr.png"></div>
+                      <div class="NDBaiNhac0">
+                          <b>SOLO</b><br>
+                          <small>Jennie</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537079/how_u_like_that_b25pvl.png"></div>
+                      <div class="NDBaiNhac0">
+                          <b>How You Like That</b><br>
+                          <small>BlackPink</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <!-- <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="/assets/img/how_u_like_that.png"></div>
+                      <div class="NDBaiNhac0">
+                          <b>How You Like That</b><br>
+                          <small>BlackPink</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr> -->
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536907/day_by_day_o9sqwa.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Day By Day</b><br>
+                          <small>T-Ara</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536961/everytime_cygboj.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Everytime</b><br>
+                          <small>Punch x Chen</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537256/on_the_ground_uprroc.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>On The Ground</b><br>
+                          <small>Róse</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537160/lalisa_ycqyqb.png"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Lalisa</b><br>
+                          <small>Lisa</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537276/Pink_Venom_Cover_rwkegx.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>Pink Venom</b><br>
+                          <small>BlackPink</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                <tr class="BaiNhac1">
+                  <td class="BaiNhac0">
+                      <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536836/blue_aln3rm.jpg"></div>
+                      <div class="NDBaiNhac0">
+                          <b>BLUE</b><br>
+                          <small>BigBang</small><br>
+                          <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                      </div>
+                        <div class="PH1">Hôm qua</div>
+                        <div class="TG1">13:20</div>
+                  </td>
+                </tr>
+                </table>
+                <table class="CacBaiNhac" data-category="khac" style="display: none;">
+                  <tr class="BangNhac">
+                    <td class="BH">Bài Hát</td>
+                    <td class="PH">Phát Hành</td>
+                    <td class="TG">Thời Gian</td>
+                  </tr>
+                  <tr class="BaiNhac1">
+                      <td class="BaiNhac0" onclick="playMusic(this)" 
+                      data-title="Yume To Hazakura" data-artist="Wotamin" 
+                      data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592494/YumeToHazakura_rkx1zp.mp3"
+                      data-lyrics="  
+    kono kawa no nagareru ga gotoku
+    odayaka ni neiro ga kikoeru
+    fuku kaze ga hō wo nadete iku
+    natsukashii omoide ga nijimu
+    
+    haruka naru sora wa
+    mune wo saku yō ni
+    wasurekaketa kioku wo samasu
+    afureru wa namida
+    
+    shiroi sakura no hana no kisetsu wa
+    tōku yume no naka ni dake
+    mai chiru hanabira no sasayaita
+    wasurerare nai kotoba
+    
+    nemurenai yoru wo hitori kiri
+    aruki dasu nurui kaze no naka
+    itazura ni hashaide ita mama
+    kigatsukeba omoide ni kawaru
+    
+    tsuki mo kumogakure
+    mushiatsu i hibi no
+    keshitai kioku mo hakanaku wa
+    tomaranai namida
+    
+    kizamareru jikan wa zankoku ni
+    hito wo shibaritsuke asobu
+    aoao to shigeru sakura no ha wa
+    nanimo katari wa shinai
+    
+    shiroi sakura no hana no kisetsu wa
+    tōku yume no naka ni dake
+    mai chiru hanabira no sasayaita
+    wasurerare nai kotoba
+                          ">
+                          <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537697/YumeToHazakura_yxyw4m.jpg"></div>
+                          <div class="NDBaiNhac0">
+                              <b>Yume To Hazakura</b><br>
+                              <small>Wotamin</small><br>
+                              <small class="Heart"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                          </div>
+                            <div class="PH1">Hôm qua</div>
+                            <td class="TG1">03:20</td>
+                      </td>
+                  </tr>
+                  </table>
+          <table class="Album1 Album" data-category="tatca" style="display: none;">
+            <tr class="BangAlbum">
+              <td>Album</td>
+              <td class="PH0">Phát Hành</td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+                <td class="BaiNhac0">
+                    <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536799/BacPhan_sw3uis.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                    <div class="NDBaiAlbum">
+                        <b>Bạc Phận</b><br>
+                        <small>Jack-J97</small><br>
+                        <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                    </div>
+                      <div class="PH01">2 ngày trước</div>
+                </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537486/super_mjsebw.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>SUPER</b><br>
+                      <small>SEVENTEEN</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537255/obito_album_gsyrfq.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Đánh Đổi</b><br>
+                      <small>Obito</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537013/hieu2_rflonc.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Ai Cũng Phải Bắt Đầu Từ Đâu Đó</b><br>
+                      <small>HIEUTHUHAI</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536962/exist_qnhej3.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>EXIST</b><br>
+                      <small>EXO</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537412/shiki_kvqdmv.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Lặng</b><br>
+                      <small>Shiki</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537183/loichoi_album_hea8sj.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Loi Choi</b><br>
+                      <small>Wren Evans</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536737/ai_album_ydgdd3.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Ái</b><br>
+                      <small>tlinh</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537661/vu_album_uevce1.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Bảo Tàn Của Tiếc Nuối</b><br>
+                      <small>Vũ.</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537439/soobin_album_y9xneq.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Bật Nó Lên</b><br>
+                      <small>Soobin Hoàng Sơn</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537646/utopia_travis_g0diba.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Utopia</b><br>
+                      <small>Travis Scott</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536848/bts_album_tjjgow.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>MAP OF THE SOUL: 7</b><br>
+                      <small>BTS</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536841/bp_album_xzbk30.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>BORN PINK</b><br>
+                      <small>Black Pink</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537569/theweeknd_album_k1t6pe.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>After Hours</b><br>
+                      <small>The Weekend</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537130/justin_chet6n.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Justice</b><br>
+                      <small>Justin Bieber</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum"onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537546/taylor_kkborv.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>1989</b><br>
+                      <small>Taylor Swift</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536861/chairlie_gf99q1.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Nine track mind</b><br>
+                      <small>Charlie Puth</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536864/ChayNgayDi_mecy7d.png" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Chạy Ngay Đi</b><br>
+                      <small>Sơn Tùng MTP</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+          </table>
+          <!--Album 2-->
+          <table class="Album2 Album" data-category="vietnam" style="display: none;">
+            <tr class="BangAlbum">
+              <td>Album</td>
+              <td class="PH0">Phát Hành</td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536864/ChayNgayDi_mecy7d.png" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Chạy Ngay Đi</b><br>
+                      <small>Sơn Tùng MTP</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537255/obito_album_gsyrfq.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Đánh Đổi</b><br>
+                      <small>Obito</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537013/hieu2_rflonc.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Ai Cũng Phải Bắt Đầu Từ Đâu Đó</b><br>
+                      <small>HIEUTHUHAI</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537412/shiki_kvqdmv.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Lặng</b><br>
+                      <small>Shiki</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537183/loichoi_album_hea8sj.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Loi Choi</b><br>
+                      <small>Wren Evans</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536737/ai_album_ydgdd3.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Ái</b><br>
+                      <small>tlinh</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537661/vu_album_uevce1.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Bảo Tàn Của Tiếc Nuối</b><br>
+                      <small>Vũ.</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537439/soobin_album_y9xneq.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Bật Nó Lên</b><br>
+                      <small>Soobin Hoàng Sơn</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+          </table>
+          <!--Album3-->
+          <table class="Album3 Album" data-category="aumy" style="display: none;">
+            <tr class="BangAlbum">
+              <td>Album</td>
+              <td class="PH0">Phát Hành</td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537566/TheSpectre_cldyuq.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>The Spectre</b><br>
+                      <small>Alan Walker</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td> 
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537646/utopia_travis_g0diba.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Utopia</b><br>
+                      <small>Travis Scott</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537569/theweeknd_album_k1t6pe.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>After Hours</b><br>
+                      <small>The Weekend</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537130/justin_chet6n.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Justice</b><br>
+                      <small>Justin Bieber</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537546/taylor_kkborv.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>1989</b><br>
+                      <small>Taylor Swift</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536861/chairlie_gf99q1.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>Nine track mind</b><br>
+                      <small>Charlie Puth</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                  <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+          </table>
+          <table class="Album4 Album" data-category="hanquoc" style="display: none;">
+            <tr class="BangAlbum">
+              <td>Album</td>
+              <td class="PH0">Phát Hành</td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536759/APT_rzntyy.webp" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>APT</b><br>
+                      <small>Rosé</small><br>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                  <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536962/exist_qnhej3.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>EXIST</b><br>
+                      <small>EXO</small><br>
+                      <small class="Heart1" onclick="window.location.href='Album.html'"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536848/bts_album_tjjgow.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>MAP OF THE SOUL: 7</b><br>
+                      <small>BTS</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536841/bp_album_xzbk30.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>BORN PINK</b><br>
+                      <small>Black Pink</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537486/super_mjsebw.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum"></div>
+                  <div class="NDBaiAlbum">
+                      <b>SUPER</b><br>
+                      <small>SEVENTEEN</small>
+                      <small class="Heart1"><i class="fas fa-heart" onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                    <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+          </table>
+          <!--Album 5-->
+          <table class="Album5 Album" data-category="khac" style="display: none;">
+            <tr class="BangAlbum">
+              <td>Album</td>
+              <td class="PH0">Phát Hành</td>
+            </tr>
+            <tr class="BaiNhac1 Al1">
+              <td class="BaiNhac0" onclick="playMusic(this)" 
+                  data-title="Yume To Hazakura" data-artist="Wotamin" 
+                  data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592494/YumeToHazakura_rkx1zp.mp3"
+                  data-lyrics="  
+kono kawa no nagareru ga gotoku
+odayaka ni neiro ga kikoeru
+fuku kaze ga hō wo nadete iku
+natsukashii omoide ga nijimu
+
+haruka naru sora wa
+mune wo saku yō ni
+wasurekaketa kioku wo samasu
+afureru wa namida
+
+shiroi sakura no hana no kisetsu wa
+tōku yume no naka ni dake
+mai chiru hanabira no sasayaita
+wasurerare nai kotoba
+
+nemurenai yoru wo hitori kiri
+aruki dasu nurui kaze no naka
+itazura ni hashaide ita mama
+kigatsukeba omoide ni kawaru
+
+tsuki mo kumogakure
+mushiatsu i hibi no
+keshitai kioku mo hakanaku wa
+tomaranai namida
+
+kizamareru jikan wa zankoku ni
+hito wo shibaritsuke asobu
+aoao to shigeru sakura no ha wa
+nanimo katari wa shinai
+
+shiroi sakura no hana no kisetsu wa
+tōku yume no naka ni dake
+mai chiru hanabira no sasayaita
+wasurerare nai kotoba
+                  ">
+                  <div class="AnhAlbum" onclick="window.location.href='Album.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537697/YumeToHazakura_yxyw4m.jpg" class="AnhAlbum1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536914/DiaAlbum_yon6bc.png" class="DiaAlbum">
+                  </div>
+                  <div class="NDBaiAlbum">
+                      <b>Yume To Hazakura</b><br>
+                      <small>Wotamin</small><br>
+                      <small class="Heart1"><i class="fas fa-heart"  onclick="toggleHeart(this)"></i>Thích</small>
+                  </div>
+                  <div class="PH01">2 ngày trước</div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- Trình phát nhạc -->
+<div class="music-player">
+  <div class="player-container">
+
+    <!-- Thông tin bài hát -->
+    <div class="song-info1">
+      <img id="song-thumbnail" src="assets/img/default.jpg" alt="Thumbnail">
+      <div class="text">
+        <b id="song-title">Tên bài hát</b>
+        <small id="song-artist">Ca sĩ</small>
+      </div>
+    </div>
+
+    <!-- Điều khiển trung tâm -->
+    <div class="center-controls">
+      <div class="controls">
+        <button onclick="prevSong()" title="Bài trước">
+          <i class="fa-solid fa-backward-step"></i>
+        </button>
+        <button id="play-btn" title="Phát / Tạm dừng">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button onclick="nextSong()" title="Bài tiếp theo">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+      </div>
+
+      <div class="progress-container">
+        <span id="current-time">0:00</span>
+        <input type="range" id="progress-bar" value="0" min="0" max="100">
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <!-- Điều khiển mở rộng + nút đóng -->
+    <div class="extra-controls-wrapper">
+      <!-- Các nút phụ -->
+      <div class="extra-controls">
+        <button id="repeat-btn" title="Lặp lại">
+          <i class="fa-solid fa-repeat"></i>
+        </button>
+
+        <div class="volume-container" title="Âm lượng">
+          <button id="volume-down"><i class="fa-solid fa-volume-down"></i></button>
+          <input type="range" id="volume-bar" value="100" min="0" max="100">
+          <button id="volume-up"><i class="fa-solid fa-volume-up"></i></button>
+        </div>
+
+        <button id="download-btn" title="Tải xuống">
+          <i class="fa-solid fa-download"></i>
+        </button>
+
+        <button id="like-btn" title="Yêu thích">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+
+        <button id="lyrics-btn" title="Lời bài hát">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+      </div>
+
+      <!-- Nút đóng player -->
+      <div class="exit-btn">
+        <button id="close-player" title="Đóng trình phát">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Audio -->
+  <audio id="audio-player">
+    <source id="audio-source" src="" type="audio/mp3">
+  </audio>
+</div>
+
+<!-- Popup lời bài hát -->
+<div id="lyrics-popup" class="lyrics-popup hidden">
+  <div class="lyrics-content">
+    <button id="close-lyrics">&times;</button>
+    <h3>Lời bài hát</h3>
+    <div id="lyrics-text">Lời bài hát sẽ hiển thị tại đây...</div>
+  </div>
+</div>
+    </main>
+    <script src="CacBaiNhac.js"></script>
+</body>
+</html>

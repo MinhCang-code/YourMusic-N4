@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="TheLoai.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+        </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+                <ul>
+                    <li class="has-submenu" onclick="togglePopup()">
+                        <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                    <hr>
+                    <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                    <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                    <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                    <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                    <li class="version">Version: 1.1.10</li>
+                </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+                <div class="GiaoDien">
+                    <div class="GDvCL">
+                       <h2>Giao Diện</h2>
+                       <div class="NutDong" onclick="togglePopup()">&times;</div>
+                    </div>
+                    <div class="GD GD1">
+                        <h3 class="h3-GD">Dynamic</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                                <div class="ten-nen">Vàng Tím</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                                <div class="ten-nen">Sáng Tối</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                                <div class="ten-nen">Bầu Trời</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                                <div class="ten-nen">Xanh Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                                <div class="ten-nen">Cam Nâu</div>
+                            </div>     
+                        </div>
+                        <h3 class="h3-GD">Color</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('#2c2340')">
+                                <div class="mau-nen" style="background: #2c2340"></div>
+                                <div class="ten-nen">Mặc Định</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                                <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                                <div class="ten-nen">Xanh Dương</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('plum')">
+                                <div class="mau-nen" style="background: plum"></div>
+                                <div class="ten-nen">Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('greenyellow')">
+                                <div class="mau-nen" style="background: greenyellow"></div>
+                                <div class="ten-nen">Xanh Lá</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('orange')">
+                                <div class="mau-nen" style="background: orange"></div>
+                                <div class="ten-nen">Cam</div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <!--Nhạc Trữ Tình & Bolero-->
+    <div class="h1-NutTatCa">
+    <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Trữ Tình & Bolero</h1>
+    <div class="NutTatCa1">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+       </div>
+       
+       <div class="Top100">
+        <div class="Top100-1 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537628/trutinh1_drfyxz.jpg" alt="Top 100 Nhạc Trữ Tình">
+            <div class="music-info">
+                <h3>Top 100 Bolero 2025</h3>
+                <p>Quang Linh, Tuấn Ngọc,...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-2 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537630/trutinh2_izbfzn.jpg" alt="Top 100 Nhạc Trữ Tình">
+            <div class="music-info">
+                <h3>Top 100 Bolero Quê Hương</h3>
+                <p>Phi Nhung,Chế Linh,Hương Lan,....</p>
+            </div>
+        </div>
+    </div>
+    <!--Nhạc Dance/Electronic-->
+    <div class="h1-NutTatCa">
+    <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Dance/Electronic</h1>
+    <div class="NutTatCa1">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+       </div>
+       <div class="Top100">
+        <div class="Top100-1 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536963/edm12_okswgl.png" alt="Top 100 EDM">
+            <div class="music-info">
+                <h3>Top 100 EDM music</h3>
+                <p>Alan Walker, Zedd,....</p>
+            </div>
+        </div>
+        
+        <div class="Top100-2 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536776/avicii12_ygakr6.png" alt="Top Nhạc EDM avicii">
+            <div class="music-info">
+                <h3>Tổng Hợp Nhạc Của Avicii</h3>
+                <p>The Night, Waiting For You,...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-3 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537266/masew12_nxm2pi.png" alt="Top nhạc của Masew" onclick="window.location.href='/Album.html'">
+            <div class="music-info">
+                <h3>Tổng Hợp Nhạc Masew</h3>
+                <p>Túy Âm, Ta Say, Người Được Chọn,..</p>
+            </div>
+        </div>
+        
+        <div class="Top100-4 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536745/alan12_k4h7tn.png" alt="Top nhạc của Alan Walker">
+            <div class="music-info">
+                <h3>Tổng Hợp Nhạc Alan Walker</h3>
+                <p>Faded, Alone, On My Way,...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-5 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537640/tuyam12_utcnbp.png" alt="Top nhạc điện tử VN">
+            <div class="music-info">
+                <h3>Top Nhạc Điện Tử Hay Nhất VN</h3>
+                <p>Túy ÂM, Ngẫu Hứng , Vị Thần Gọi Gió,....</p>
+            </div>
+        </div>
+    </div>
+    <!--Remix-->
+    <div class="h1-NutTatCa">
+      <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Remix</h1>
+      <div class="NutTatCa1">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+         </div>
+         <div class="Top100">
+            <div class="Top100-1 Top">
+                <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537601/tiktok12_isdmsl.png" alt="Top 100 Nhạc Trẻ">
+                <div class="music-info">
+                    <h3>Top Nhạc Trẻ Trending</h3>
+                    <p>Nỗi Đau Ngự Trị , Vở Kịch Của Em,...</p>
+                </div>
+            </div>
+      </div>
+    <!--Hip-Hop-->
+    <div class="h1-NutTatCa">
+      <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Hip-Hop</h1>
+      <div class="NutTatCa1">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+         </div>
+         <div class="Top100">
+            <div class="Top100-1 Top">
+                <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744734341/hiphop12_jmyjka.jpg" alt="Top hiphop">
+                <div class="music-info">
+                    <h3>Top Nhạc Undergrounds</h3>
+                    <p>Tim Anh Ghen, Lối Sống, Đánh Đổi,...</p>
+                </div>
+            </div>
+          
+          <div class="Top100-2 Top">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537057/hiphopus12_ywzwvp.png" alt="Top hip hop mẽo">
+              <div class="music-info">
+                  <h3>Rap & Hip Hop US UK</h3>
+                  <p>Humble, Not Like Us, Sad,...</p>
+              </div>
+          </div>
+          
+          <div class="Top100-3 Top">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537360/savage12_no5quf.png" alt="Top savage" onclick="window.location.href='/Album.html'">
+              <div class="music-info">
+                  <h3>Tổng Hợp Nhạc 21 SAVAGE</h3>
+                  <p>A lot, Red Rum, rockstar,....</p>
+              </div>
+          </div>
+          
+          <div class="Top100-4 Top">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537343/rapviet12_m1v2bl.png" alt="Top nhạc rap viet">
+              <div class="music-info">
+                  <h3>Tổng Hợp RAPVIET 2025</h3>
+                  <p>Qua Từng Khung Hình, Cánh Chim Bình Thạnh,...</p>
+              </div>
+          </div>
+          
+          <div class="Top100-5 Top">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537049/hieuthuhai12_kjxg5h.png" alt="Top nhạc hieuthuhai">
+              <div class="music-info">
+                  <h3>Tổng Hợp Nhạc HIEUTHUHAI</h3>
+                  <p>Exit Sign,Siêu Sao, Giờ Này Ai Cười,...</p>
+              </div>
+          </div>
+      </div>
+      <!--Nhạc Phim-->
+      <div class="h1-NutTatCa">
+      <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Phim</h1>
+      <div class="NutTatCa1">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+         </div>
+         <div class="Top100">
+            <div class="Top100-1 Top">
+                <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537248/music_ost_et8wpt.png" alt="Top nhạc phim">
+                <div class="music-info">
+                    <h3>Nhạc Hay Về Mùa Hạ</h3>
+                    <p>Từ Đó , Tôi Thấy Hoa Vàng Trên Cỏ Xanh,...</p>
+                </div>
+            </div>
+          
+          <div class="Top100-2 Top">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537265/phan12_iworhr.png" alt="Top nhạc phim của phan mạnh quỳnh">
+              <div class="music-info">
+                  <h3>Nhạc Phim Sầu Lắng Của Mạnh Quỳnh</h3>
+                  <p>Sau Lời Từ Khước, Từ Đó , Hà Lan,...</p>
+              </div>
+          </div>
+          
+          <div class="Top100-3 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537209/mai12_vnpkp1.png" alt="Top nhạc phim nhiều views" onclick="window.location.href='/Album.html'">
+            <div class="music-info">
+                <h3>Nhạc Phim Nổi Bật Nhất V-pop</h3>
+                <p>Bống Bóng Bang Bang,Sau Lời Từ Khước,....</p>
+            </div>
+        </div>
+        </div>
+       <!--Nhạc Thiếu Nhi-->
+       <div class="h1-NutTatCa">
+        <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Thiếu Nhi</h1>
+        <div class="NutTatCa1">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+           </div>
+           <div class="Top100">
+            <div class="Top100-1 Top">
+                <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537588/thienhi12_fnpjrf.png" alt="Top nhạc thiếu nhi">
+                <div class="music-info">
+                    <h3>Nhạc Thiếu Nhi Tuyển Tập</h3>
+                    <p>Bóng Bóng Bang Bang,Co Vịt,....</p>
+                </div>
+            </div>
+        </div>
+       <!--Nhạc Rock-->
+       <div class="h1-NutTatCa">
+        <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Rock</h1>
+        <div class="NutTatCa1">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+           </div>
+           <div class="Top100">
+            <div class="Top100-1 Top">
+                <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537362/rock12_uojyy8.png" alt="Top nhạc rock">
+                <div class="music-info">
+                    <h3>Những Bài Nhạc Rock Hay Nhất</h3>
+                    <p>In The End , Nối Vòng Tay Lớn, Numb,...</p>
+                </div>
+            </div>
+        </div>
+       <!--Nhạc Cổ Điển-->
+       <div class="h1-NutTatCa">
+        <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Cổ Điển</h1>
+        <div class="NutTatCa1" >Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+           </div>
+           <div class="Top100-1 Top">
+                <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536876/classical_music12_stb9t5.png" alt="Top nhạc cổ điển">
+                <div class="music-info">
+                    <h3>Những Bản Giao Hưởng Của Thế Kỷ</h3>
+                    <p>Icaruss,Ludwig van Beethoven,...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="TheLoai.js"></script>
+</body>
+</html>

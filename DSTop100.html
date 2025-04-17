@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="DSTop100.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+          <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" id="searchInput"placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+            <ul id="suggestionList"></ul>
+          </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+                <ul>
+                    <li class="has-submenu" onclick="togglePopup()">
+                        <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                    <hr>
+                    <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                    <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                    <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                    <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                    <li class="version">Version: 1.1.10</li>
+                </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+                <div class="GiaoDien">
+                    <div class="GDvCL">
+                       <h2>Giao Diện</h2>
+                       <div class="NutDong" onclick="togglePopup()">&times;</div>
+                    </div>
+                    <div class="GD GD1">
+                        <h3 class="h3-GD">Dynamic</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                                <div class="ten-nen">Vàng Tím</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                                <div class="ten-nen">Sáng Tối</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                                <div class="ten-nen">Bầu Trời</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                                <div class="ten-nen">Xanh Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                                <div class="ten-nen">Cam Nâu</div>
+                            </div>     
+                        </div>
+                        <h3 class="h3-GD">Color</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('#2c2340')">
+                                <div class="mau-nen" style="background: #2c2340"></div>
+                                <div class="ten-nen">Mặc Định</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                                <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                                <div class="ten-nen">Xanh Dương</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('plum')">
+                                <div class="mau-nen" style="background: plum"></div>
+                                <div class="ten-nen">Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('greenyellow')">
+                                <div class="mau-nen" style="background: greenyellow"></div>
+                                <div class="ten-nen">Xanh Lá</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('orange')">
+                                <div class="mau-nen" style="background: orange"></div>
+                                <div class="ten-nen">Cam</div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <!--Album-->
+    <h1 onclick="history.back()"><i class="fa-solid fa-chevron-left"></i>&nbsp;Quay Lại</h1>
+    <div class="Album">
+      <div class="NDLeft">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536669/100CSNhacTre_fjfbpt.webp" alt="Top 100 Nhạc EDM">
+          <h2>Top 100 Bài Hát Nhạc Trẻ</h2>
+          <p>Cập nhật: 27/03/2025</p>
+          <p>Erik, Amee, Hoàng Dũng, Đức Phúc, Hoài Lâm...</p>
+          <p>265K người yêu thích</p>
+          <a href="#" class="play-btn random-play-btn">▶ PHÁT NGẪU NHIÊN</a>
+      </div>
+      <div class="NDRight">
+          <div class="song">
+            <h3 class="BH">Bài Hát</h3>
+            <h3 class="TG">Thời Gian</h3>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Sự Nghiệp Chướng" 
+               data-artist="Pháo" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592538/Sunghiepchuong_q4hizj.mp3"
+               data-lyrics="
+Giọt nước mắt vướng trên khuôn nhạc
+Tưởng ngọc ngà đá quý, anh yêu bạc
+Thấy tiếng vang oanh tạc
+Nàng đành lòng lấy bức tranh sơn vàng
+Vốn có một vườn hồng
+Chuyện tình yêu có một người trồng
+Người tôi yêu xa hoa, trăng hoa, tính đào hoa
+Tiếc thay bản nhạc tình
+Vướng hay cách khác thì em đây gọi anh là chướng
+Chướng ngại, chướng mắt và chướng tai
+Ngủ nướng cụ thể là nướng khoai
+Làm nhạc diss như này là quá nice rồi
+Em nào nhân viên, em nào đối tác?
+Con lợn này chối ác
+Họ đâu biết em là ai
+Cô ta biết em là ai
+Chỉ mình anh không biết em là ai cả
+Tối đó
+Anh ta đã dắt cô ta vào trong căn phòng nhỏ đóng kín
+Nghe thôi cũng biết câu chuyện xảy ra hệt tại trong phim
+Nô đùa trong trái tim ta
+Hệt tại tối đó
+Điều đáng nói hơn bây giờ
+Giọt nước mắt vướng trên khuôn nhạc
+Tưởng ngọc ngà đá quý, anh yêu bạc
+Thấy tiếng vang oanh tạc
+Nàng đành lòng lấy bức tranh sơn vàng
+Vốn có một vườn hồng
+Chuyện tình yêu có một người trồng
+Người tôi yêu xa hoa, trăng hoa, tính đào hoa
+Tiếc thay bản nhạc tình
+Tối đó
+Anh ta có thiết tha hương mùi hoa em để lại
+Tối đó
+Anh ta đâu biết hái một nhành hoa em đặt lại
+Tối đó
+Trên đầu bao đám mây đen gầm gừ
+Kéo tới
+Điều đáng nói hơn bây giờ
+Trông em như kiểu model, Prada, M.T.F ex xa ra
+Eyeliner kiểu ra ta ta
+Đêm nay quẩy cha cha cha
+Trên răng dưới chàng không có gì
+Phiền lo thêm gì ngoài câu sorry
+YSL em bo thêm cả kí
+Nếu như chàng bỏ phí cứ đem trợ lí anh cho đi
+Một nhành em hồng em để lại từ biệt
+Những món quà người khác xin lỗi em từ khước
+Một bài nhạc để thể hiện lòng thành
+Những bài nhạc nào khác tương tự em dừng bước
+Em không tin nhưng điều đó là sự thật
+Peter Pan thì có nghĩa là không bao giờ lớn được
+Mai ra đi tên em đẹp cho đời
+Còn tên anh thì gây hại cho tổ quốc và cả nước nhà
+Anh ơi em bảo anh này
+Yêu đương như thế thì có ngày tao tát cho một phát là đi vào viện răng hàm mà khoa chấn thương chỉnh hình răng môi mày lẫn lộn trộn vào với nhau
+Tao ra đi trong yên lặng thì mày khôn hồn mày sống cho đàng hoàng tử tế
+Đừng có để tao gặp cái mặt mày thêm lần nào nữa
+Giọt nước mắt vướng trên khuôn nhạc
+Tưởng ngọc ngà đá quý, anh yêu bạc
+Thấy tiếng vang oanh tạc
+Nàng đành lòng lấy bức tranh sơn vàng
+Vốn có một vườn hồng
+Chuyện tình yêu có một người trồng
+Người tôi yêu xa hoa, trăng hoa, tính đào hoa
+Tiếc thay bản nhạc tình
+Tối đó
+Anh ta có thiết tha hương mùi hoa em để lại
+Tối đó
+Anh ta đâu biết hái một nhành hoa em đặt lại
+Tối đó
+Trên đầu bao đám mây đen gầm gừ
+Kéo tới
+Điều đáng nói hơn bây giờ
+Em
+Em phải tin anh chứ
+Đây chỉ là công việc của anh thôi
+Chứ anh lúc nào cũng dành tình cảm cho em, lúc nào cũng nghĩ về em mà
+Còn nếu như bây giờ em không muốn nói chuyện ấy
+Thì thôi..
+Em vui là được!
+               ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537483/sunghiepchuong_mt0ukq.jpg" alt="">
+              <div class="song-info">
+                  <h3>Sự Nghiệp Chướng</h3>
+                  <p>Pháo</p>
+              </div>
+              <span>03:07</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Hãy Trao Cho Anh" 
+               data-artist="Sơn Tùng MTP" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537975/Haytraochoanh_oicupe.mp3"
+               data-lyrics="
+Lala lala lala
+Hình bóng ai đó nhẹ nhàng vụt qua nơi đây
+Quyến rũ ngây ngất loạn nhịp làm tim mê say
+Cuốn lấy áng mây theo cơn sóng xô dập dìu
+Nụ cười ngọt ngào cho ta tan vào phút giây miên man quên hết con đường về eh
+Let me know your name
+Chẳng thể tìm thấy lối về eh
+Let me know your name
+Điệu nhạc hòa quyện trong ánh mắt đôi môi
+Dẫn lối những bối rối rung động khẽ lên ngôi
+Và rồi khẽ và rồi khẽ khẽ
+Chạm nhau mang vô vàn đắm đuối vấn vương dâng tràn
+Lấp kín chốn nhân gian làn gió hoá sắc hương mơ màng
+Một giây ngang qua đời cất tiếng nói không nên lời
+Ấm áp đến trao tay ngàn sao trời thêm chơi vơi
+Dịu êm không gian bừng sáng đánh thức muôn hoa mừng
+Quấn quít hát ngân nga từng chút níu bước chân em dừng
+Bao ý thơ tương tư ngẩn ngơ (la la la)
+Lưu dấu nơi mê cung đẹp thẫn thờ
+Oh oh oh oh uh
+Hãy trao cho anh hãy trao cho anh
+Hãy trao cho anh thứ anh đang mong chờ (oh oh oh oh)
+Hãy trao cho anh hãy trao cho anh
+Hãy mau làm điều ta muốn vào khoảnh khắc này đê (oh oh oh oh)
+Hãy trao cho anh đê hãy trao cho anh đê
+Hãy trao anh trao cho anh đi những yêu thương nồng cháy (chỉ mình anh thôi)
+Trao anh ái ân nguyên vẹn đong đầy
+Lala lala
+Lala lala
+Lala lala
+Lala lala
+Looking at my Gucci is about that time
+We can smoke a blunt and pop a bottle of wine
+Now get yourself together and be ready by nine
+Cuz we gon' do some things that will shatter your spine
+Come one undone Snoop Dogg Son Tung
+Long Beach is the city that I come from
+So if you want some get some
+Better enough take some take some
+Chạm nhau mang vô vàn đắm đuối vấn vương dâng tràn
+Lấp kín chốn nhân gian làn gió hóa sắc hương mơ màng
+Một giây ngang qua đời cất tiếng nói không nên lời
+Ấm áp đến trao tay ngàn sao trời lòng càng thêm chơi vơi
+Dịu êm không gian bừng sáng đánh thức muôn hoa mừng
+Quấn quít hát ngân nga từng chút níu bước chân em dừng
+Bao ý thơ tương tư ngẩn ngơ (la la la)
+Lưu dấu nơi mê cung đẹp thẫn thờ
+Oh oh oh oh uh
+Hãy trao cho anh hãy trao cho anh
+Hãy trao cho anh thứ anh đang mong chờ (oh oh oh oh)
+Hãy trao cho anh hãy trao cho anh
+Hãy mau làm điều ta muốn vào khoảnh khắc này đê (oh oh oh oh)
+Hãy trao cho anh đê hãy trao cho anh đê
+Hãy trao anh trao cho anh đi những yêu thương nồng cháy (chỉ mình anh thôi)
+Trao anh ái ân nguyên vẹn đong đầy
+Lala lala
+Lala lala
+Lala lala
+Lala lala
+Làm cho ta ngắm thêm nàng vội vàng qua chốc lát
+Như thanh âm chứa bao lời gọi mời trong khúc hát
+Liêu xiêu ta xuyến xao rạo rực khát khao trông mong
+Dịu dàng lại gần nhau hơn dang tay ôm em vào lòng
+Thôi trao đi trao hết đi đừng ngập ngừng che dấu nữa
+Quên đi quên hết đi ngại ngùng lại gần thêm chút nữa
+Chìm đắm giữa khung trời riêng hai ta như dần hòa quyện
+Mắt nhắm mắt tay đan tay hồn lạc về miền trăng sao
+Buông lơi cho ta ngắm thêm nàng vội vàng qua chốc lát
+Như thanh âm chứa bao lời gọi mời trong khúc hát
+Liêu xiêu ta xuyến xao rạo rực khát khao trông mong
+Dịu dàng lại gần nhau hơn dang tay ôm em vào lòng
+Trao đi trao hết đi đừng ngập ngừng che dấu nữa
+Quên đi quên hết đi ngại ngùng lại gần thêm chút nữa
+Chìm đắm giữa khung trời riêng hai ta như dần hòa quyện
+Mắt nhắm mắt tay đan tay hồn lạc về miền trăng sao
+Hãy trao cho anh hãy trao cho anh (let's go)
+Hãy trao cho anh cho anh cho anh (lala)
+Hãy trao cho anh hãy trao cho anh
+Hãy trao cho anh cho anh cho anh (lala)
+Hãy trao cho anh hãy trao cho anh
+Hãy trao cho anh cho anh cho anh (lala)
+Hãy trao cho anh hãy trao cho anh
+Hãy trao cho anh thứ anh đang mong chờ
+               ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537003/HayTraoChoAnh_xspdp3.jpg" alt="">
+              <div class="song-info">
+                  <h3>Hãy Trao Cho Anh</h3>
+                  <p>Sơn Tùng MTP</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Hồng Nhan" 
+               data-artist="Jack-J97" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538077/hongnhan_my3meb.mp3"
+               data-lyrics="
+Và dòng thư tay em gửi trao anh ngày nào
+Giờ còn lại hư vô, em gửi anh đây lời chào
+Mà nhìn người đi vội, mình làm gì nên tội?
+Tại sao lại cách xa? Còn yêu như thế mà
+Để lệ hoen mi khi mùa xuân đang thầm thì
+Nhìn người mà ra đi, anh chẳng níu kéo điều gì
+Mà nghe sao đáng thương, nhìn nhau như cố hương
+Tìm em ở bốn phương, vì say nên vấn vương
+Em ơi vô tình, cuộc tình mình gặp không may
+Em xa nơi này, để giọt lệ ở bên đây
+Bầu trời giờ hắt hiu, nhìn về nơi đó đây
+Ngoài trời thì có mây, chỉ còn lại là đắng cay
+Thương cha, thương mẹ, để đành lòng mà quay lưng
+25 âm lịch, nhìn người cười mà rưng rưng
+Kia kia là pháo hoa, rộn ràng người đến xem
+Họ hàng mừng kết duyên, còn phần mình là hết duyên
+Oh
+Anh như trẻ lạc còn tâm tối giữa rừng thông
+Nơi cánh chim nhỏ lạc đàn, tìm bến đỗ để ngừng trông
+Anh là một con đom đóm, mắt anh sáng đến xoay vòng
+Gieo cho anh cả một mầm sống nhưng chẳng chịu công vun trồng
+Vì lúc ấy ta còn trẻ nên đời bạc và mưu sinh
+Anh chưa học hết lớp mười, người ta gọi là (lưu linh)
+Anh gắn bó với sông nước và cảnh vật này hữu tình
+Còn người ta cho em áo lụa, hỏi tại sao chẳng phụ mình
+Tình yêu ơi, bình yên ơi, về đây đi
+Để anh ôm, để gió cuốn đêm nay ai đưa về nhà
+Để gió vang lên câu tình ca
+Để lệ hoen mi khi mùa xuân đang thầm thì
+Nhìn người mà ra đi, anh chẳng níu kéo điều gì
+Mà nghe sao đáng thương, nhìn nhau như cố hương
+Tìm em ở bốn phương, vì say nên vấn vương
+Hết rồi, cuối cùng nắng thì cũng đã ngã vàng
+Bên người nhân tình, em phải thương bản thân mình
+Buồn lắm phải không? Giã tràng lấp biển Đông
+Biết người cũng chả trông nên thôi câu chuyện thả ra sông
+Nhưng nếu anh say như thế này thì ai xem?
+Người ta sẽ nói anh tệ với những thứ mà em đem
+Vì thế nên anh phải sống như cái cách anh từng mơ
+Dù cho bản thân này hóa đá nhưng trái tim chẳng ngừng thở
+Và ba của anh là lính, má anh từng làm cán bộ
+Anh không cho phép mình khóc, xe có hư cũng ráng nổ
+Đời người là kiếp lãng du, anh chẳng may làm lữ khách
+Đi với nhau cả một hành trình, giờ có xa chẳng nỡ trách
+Em ước là đời của em bình yên, chẳng buồn phiền như người ta
+Mà giờ ra đây mà xem có người đang lên kiệu hoa
+Và rồi sẽ tốt nhưng mà ở nơi khác, chẳng còn bận lòng như ở đây
+Tình yêu của anh thì có đủ mùi vị nhưng mà chẳng ngọt như ở Tây
+Nà-na-ná-ná-nà-ná-na-nà-na
+Nà-na-nà-na-ná-ná-nà-ná-na-nà-na
+Nà-na-na-ná-na, nà-na-na-ná-na
+Nà-na-na-ná-na-nà-na-na-ná-na
+Để lệ hoen mi khi mùa xuân đang thầm thì
+Nhìn người mà ra đi, anh chẳng níu kéo điều gì
+Mà nghe sao đáng thương, nhìn nhau như cố hương
+Tìm em ở bốn phương, vì say nên vấn vương
+À-há-hà-ha
+               ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537066/HongNhan_gsvz3z.jpg" alt="">
+              <div class="song-info">
+                  <h3>Hồng Nhan</h3>
+                  <p>Jack-J97</p>
+              </div>
+              <span>00:30</span>
+          </div>
+         <div class="song" onclick="playMusic(this)" 
+              data-title="Sóng Gió" 
+              data-artist="Jack-J97" 
+              data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538088/songgio_wsa0wf.mp3"
+              data-lyrics="
+Hồng trần trên đôi cánh tay
+Họa đời em trong phút giây
+Từ ngày thơ ấy còn ngủ mơ
+Đến khi em thờ ơ ờ
+
+
+Lòng người anh đâu có hay
+Một ngày khi vỗ cánh bay
+Từ người yêu hóa thành người dưng
+Đến khi ta tự xưng à
+
+Thương em bờ vai nhỏ nhoi
+Đôi mắt hóa mây đêm
+Thương sao mùi dạ lý hương
+Vương vấn mãi bên thềm
+
+Đời phiêu du cố tìm một người thật lòng
+Dẫu trời mênh mong anh nhớ em
+Chim kia về vẫn có đôi
+Sao chẳng số phu thê
+
+Em ơi đừng xa cách tôi
+Trăng cố níu em về
+Bình yên trên mái nhà
+Nhìn đời ngược dòng
+
+Em còn bên anh có phải không?
+Trời ban ánh sáng, năm tháng tư bề
+Dáng ai về chung lối
+Người mang tia nắng
+
+Nhưng cớ sao còn tăm tối
+Một mai em lỡ vấp ngã trên đời thay đổi
+Nhìn về anh, người chẳng khiến em lẻ loi
+Oh! Nếu em có về
+
+Anh sẽ mang hết những suy tư
+Mang hết hành trang
+Những ngày sống khổ
+Để cho gió biển di cư
+
+Anh thà lênh đênh không có ngày về
+Hóa kiếp thân trai như Thủy Hử
+Chẳng đành để em từ một cô bé
+Sóng gió vây quanh thành quỷ dữ
+
+Ta tự đẩy mình hay tự ta trói
+Bây giờ có khác gì đâu
+Ta chả bận lòng hay chẳng thể nói
+Tụi mình có khác gì nhau
+
+
+Yêu sao cánh điệp phủ mờ nét bút
+Dẫu người chẳng hẹn đến về sau
+Phố thị đèn màu ta chỉ cần chung lối
+Để rồi sống chết cũng vì nhau
+
+Nhặt một nhành hoa rơi
+Đoạn đường về nhà thật buồn em ơi
+Dòng người vội vàng giờ này
+Tình ơi tình ơi tình ơi em ở đâu rồi
+
+Lặng nhìn bờ vai xưa
+Tựa đầu mình hỏi rằng khổ chưa
+Đành lòng chặn đường giờ
+Đừng đi đừng đi đừng đi vì câu hứa
+
+Trời ban ánh sáng năm tháng tư bề
+Dáng ai về chung lối
+Người mang tia nắng
+Nhưng cớ sao còn tăm tối
+
+Một mai em lỡ vấp ngã trên đời thay đổi
+Nhìn về anh, người chẳng khiến em lẻ loi
+Ngày buồn giờ áo ai khâu vá quàng rồi
+Lặng nhìn dòng nước con sông phút bồi hồi
+
+Một lần này hỡi em ơi ở lại đi
+Vạn trùng cơn đau
+Ngoài kia chỉ là bão tố
+Trời ban ánh sáng năm tháng tư bề
+
+Dáng ai về chung lối
+Người mang tia nắng
+Nhưng cớ sao còn tăm tối
+Một mai em lỡ vấp ngã trên đời thay đổi
+
+Nhìn về anh, người chẳng khiến em lẻ loi
+Người thì vẫn đây
+Người thì cách vạn ngàn mây
+Không say không về
+
+Rượu nào mà chả đắng
+Đoạn đường dài giờ này quạnh vắng
+Ai buông câu thề
+Chỉ còn lại nỗi nhớ
+
+Ngày nào chuyện tình mình vụn vỡ
+Tơ duyên lỡ làng
+Lùi lại về đằng xa
+Cuộc đời mình chẳng bằng người ta
+Tiếng lòng thở than
+              ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537435/SongGio_tx4ywi.jpg" alt="">
+              <div class="song-info">
+                  <h3>Sóng Gió</h3>
+                  <p>Jack-J97</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Ngủ Một Mình" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744815873/NGUMOTMINH_jkqhlq.mp3"
+               data-lyrics="
+Hãy ở lại với anh thêm một ngày nữa thôi
+Vì anh không muốn phải ngủ một mình đêm nay đâu
+Bên ngoài và uống say hay là ta nằm đây cả đêm
+Chỉ là anh không muốn phải ngủ một mình đêm nay
+Yeah yeah
+Baby nói cho anh nghe em hãy nói cho anh nghe những điều mà
+Điều em muốn sau khi đêm nay trôi qua
+Là một trái tim hay những món quà
+Em muốn đôi tay anh đặt ở những nơi đâu
+Anh đã nhắm đôi môi từ những ngày đầu
+I'm needing all your love
+Nhưng em sẽ chẳng thể thấy anh khi qua ngày mai
+Bởi vì thiên bình đây chẳng thể nào bên ai mãi mãi
+Hãy hứa không nói cho ai
+Hình em gửi anh làm sao mà có thể yeah
+Thay những khi mà em đằng sau nằm ôm anh
+Hãy ở lại với anh thêm một ngày nữa thôi
+Vì anh không muốn phải ngủ một mình đêm nay đâu
+Bên ngoài và uống say hay là ta nằm đây cả đêm
+Bởi vì anh không muốn phải ngủ một mình đêm nay
+Chẳng phải đón hay đưa
+Cứ việc lên nhà anh như cách em từng đến thôi
+Đây đâu phải là lần duy nhất của em ở đây
+Uh dù là ta chẳng phải của nhau
+Nhưng chỉ mình anh được hôn lên tóc em
+Chẳng phải quay mặt về nơi khác lúc em thay đồ
+Hoh oh
+Anh biết điều đó là sai nhưng không cho em gặp ai
+Phải ở bên anh đến ngày mai yah
+Phải ở đến ngày mai yah
+Bởi vì chúng ta cũng chỉ là
+Hai con người cô đơn đến với nhau
+Hãy ở lại với anh thêm một ngày nữa thôi
+Vì anh không muốn phải ngủ một mình đêm nay đâu
+Bên ngoài và uống say hay là ta nằm đây cả đêm
+Chỉ là anh không muốn phải ngủ một mình đêm nay
+Bởi vì anh không muốn phải ngủ một mình đêm nay
+Chỉ là anh không muốn phải ngủ một mình đêm nay
+Yeah yeah
+Baby nói cho anh nghe baby nói cho anh nghe những điều là
+               ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537251/ngumotminh_nt4jcz.jpg" alt="">
+              <div class="song-info">
+                  <h3>Ngủ Một Mình</h3>
+                  <p>HIEUTHUHAI</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Hà Nội" 
+               data-artist="Obito" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744815983/HANOI_c1vxld.mp3"
+               data-lyrics="
+Họ gọi thành phố này là nơi khó tồn tại nhưng đây là nhà
+Chỉ một mình em hiểu được buốt giá yêu sự buốt giá
+Là vì lòng lạnh lẽo nhiều rồi không có điều gì em không hiểu được
+Chỉ một tình yêu một lòng em đã lựa chọn không ai lay được
+Ai làm đau anh à không sao đâu babe
+Baby hãy hãy nắm lấy tay em oh-oh
+Ai lừa dối anh à không sao đâu babe
+Babe có thể tin em
+Em xua đi cơn mưa buồn em nuôi anh trong tâm hồn
+Em không chơi em không đùa em yêu thôi
+Em cho anh thế giới đẹp em cho anh thấy hết rồi
+Nếu có ngã anh sẽ dìu đi thôi
+Baby anh đang lo gì baby anh đang nghĩ gì
+Suỵt nghĩ nhiều mệt thêm thôi
+My babe (my babe)
+Rơi sâu vô xuống bóng tối những góc tối
+Chỉ mình anh thấy (chỉ mình anh thấy)
+Nước mắt giá buốt vết xước những nhức nhối (hmm)
+Vờ rằng không thấy
+Anh chỉ đang cố nuốt hết vào trong hoh-oh hmm
+Chờ một ngày nắng lên như em hằng mong
+Chợt bỗng dưng thấy em đến bên healing all of my scars (healing all of my scars)
+Đuổi đám mây tối đen vẽ lên cảnh chiều vươn xa (cảnh chiều vươn xa hmm)
+Làm anh hiểu ra ya làm anh hiểu ra yah
+Làm anh hiểu ra nhiều điều
+Em khiến anh nhìn sâu vào tâm hồn (sâu vào tâm hồn)
+Là tiếng ai mặc kệ bên ngoài kia ồn (bên ngoài kia ồn)
+Dẫn anh đi trong đêm soi sáng bước anh đến hah-hah
+Lung linh như ánh nến trước gió
+Hoh, hoh, oh-no-oh-oh, no-no-no
+               ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536998/hanoi_f2sclm.jpg" alt="">
+              <div class="song-info">
+                  <h3>Hà Nội</h3>
+                  <p>Obito</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Là 1 Thằng Con Trai" 
+               data-artist="Jack-J97" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538088/Lamotthangcontrai_mnyang.mp3"
+               data-lyrics="
+Là 1 thằng con trai nghèo như anh
+Màu trắng đôi bàn tay
+Rượu này không say vậy uống cho vơi đầy
+Rồi mình kể nhau nghe
+ chuyện đêm mưa chẳng có ô mà che
+Phố xá đêm ai vô tình thôi cũng vì
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Vung tay hỉ nộ ái ố
+Cái số trời định rất tiếc là thân cô
+Hồ đồ viết lên trang tình yêu này vô bổ
+Khổ cả chặng đường khi tờ giấy này photo
+Dù có nỗi nhớ muốn kêu tên
+Những ký ức mãi không quên
+Giờ này có được gì, như đóa hoa dã quỳ
+Chẳng thể hóa diệu kỳ
+Là 1 thằng con trai nghèo như anh
+Màu trắng đôi bàn tay
+Rượu này không say vậy uống cho vơi đầy
+Rồi mình kể nhau nghe
+Chuyện đêm mưa chẳng có ô mà che
+Phố xá đêm ai vô tình thôi cũng vì
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Vung tay hỉ nộ ái ố
+Cái số trời định rất tiếc là thân cô
+Hồ đồ viết lên trang tình yêu này vô bổ
+Khổ cả chặng đường khi tờ giấy này photo
+Dù có nỗi nhớ muốn kêu tên
+Những ký ức mãi không quên
+Giờ này có được gì, như đóa hoa dã quỳ
+Chẳng thể hóa diệu kỳ
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Chào nhé, anh chuc yên bình
+Sau tất cả, ta vẫn là người nhà
+Và đừng khóc, xin giữ món quà
+Cho mối tình, cho ước mơ của mình
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+Vung tay hỉ nộ ái ố
+Cái số trời định rất tiếc là thân cô
+Hồ đồ viết lên trang tình yêu này vô bổ
+Khổ cả chặng đường khi tờ giấy này photo
+Dù có nỗi nhớ muốn kêu tên
+Những ký ức mãi không quên
+Giờ này có được gì, như đóa hoa dã quỳ
+Chẳng thể hóa diệu kỳ
+Vì rằng ngày mai, mai, mai em bước đi cùng ai
+Anh lẽ loi, bờ môi khẽ run anh buồn
+Tiếng pháo vu quy muốn giữ em đừng đi
+Những cớ sao mình chẳng nói nhau câu gì
+               ">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537153/La1ThangConTrai_pcqxgn.jpg" alt="">
+              <div class="song-info">
+                  <h3>Là 1 Thằng Con Trai</h3>
+                  <p>Jack-J97</p>
+              </div>
+              <span>00:30</span>
+          </div>
+          <div class="song" onclick="playMusic(this)" 
+               data-title="Vệ Tinh" 
+               data-artist="HIEUTHUHAI" 
+               data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744810520/VETINH_crz7bv.mp3"
+               data-lyrics="
+Baby, em là một ngôi sao (sao)
+Vệ tinh luôn quay mỗi đêm
+Với được thì cũng phải hơi cao (cao)
+May anh ngay kế bên
+Tới gần lại thêm đây ngay đi-i (í-i-ì)
+Cho đêm nay cái tên
+Nên em chỉ cần nói, yah
+Người như em thì không có nên cô đơn
+Eh, one, two, three, four (three, four)
+Đôi chân kia sải bước, em thì đang đi đâu?
+Đàn ông phía sau là muỗi và cá là đang thi bâu
+Nhưng mà thính anh đầy trong túi nên để anh sang đi câu
+Yeah, I'm rock like A$AP and you're bad like RiRi
+Anh thì chưa từng dừng lại, ba năm không như Yeezy
+Chỉ cần nghe giọng anh nói, turn you on like Siri
+Cho một icon kaka, do you love me, kiki?
+So bae?
+OK đi, mình go out (go out)
+Nơi không ai nhìn go in
+Anh boy chung tình lâu mau (lâu mau)
+Nhưng ngôi sao như này, sold out
+Hai bên anh và người em mơ trăm phần trăm là không lằn ranh (yeah)
+Đây thêm thằng trong gương bởi vì nó còn mơ bằng anh (hah)
+Yên tâm đi vì anh chỉ thấy em lời
+Dù là ngôi sao anh sẽ hái trên trời
+Baby, em là một ngôi sao (ooh, yeah)
+Vệ tinh luôn quay mỗi đêm
+Với được thì cũng phải hơi cao (hơi cao)
+May anh ngay kế bên
+Tới gần lại thêm đây ngay đi-i (í-i-ì)
+Cho đêm nay cái tên
+Nên em chỉ cần nói (eh-eh, yah)
+Người như em thì không có nên cô đơn
+Babe, what you doin'?
+Xích lại thêm một chút, chúng ta groovin'
+And I am with the crew now
+Nhưng khi thấy em I wanna lock it down
+Tỏa sáng từ trong đêm đen (ooh)
+Em luôn go on top mà chẳng cần game plan (no-oh-oh)
+Poppin' tựa một ly champage (ooh)
+Em đang cho anh say mà chẳng cần thêm men
+We be turnin' up like in the club, nah-nah
+Ta nên đi đến nơi nào khác?
+Come show me some love, 'cause I want it, nah-nah-nah
+(Em có thấy được sự hào nhoáng babe?)
+Make it clap, clap, clap for me
+Pick it up, pour it all over on your body (body)
+Không thiếu gì là money
+Baby, call me and I'll be there
+Baby, em là một ngôi sao (sao)
+Vệ tinh luôn quay mỗi đêm
+Với được thì cũng phải hơi cao (yeah-eh-eh)
+May anh ngay kế bên
+Tới gần lại thêm đây ngay đi-i (í-i-ì)
+Cho đêm nay cái tên
+Nên em chỉ cần nói (eh, yah)
+(Let's go!) Người như em thì không có nên cô đơn
+Em đây thông minh không cần đôi co
+Hoa xinh trưng lên đưa anh làm voi cho
+Anh không muốn nghe hai từ thôi mò (no)
+'Cause I know you're bad (hah), cho một roi ho
+Anh thừa nhận anh không hoàn hảo, anh không có xa vời (xa vời)
+Anh chỉ mới đẹp trai gần đây từ khi ra đời (ra đời)
+Nhưng mà babe, you're hot như là Cali (li)
+Đến tóc anh còn phải dựng đứng like Kakashi
+Quên đi số phone của mọi cô bây giờ ai cần
+Như dopamine, em làm tim không còn chai sần
+Cho em tra anh trong hồ sơ Panama
+Chăng là anh giấu mua cho em Dolce and Gabana?
+Ayo (hah), nên đừng say no (no)
+Khi vệ tinh khác ở xung quanh giờ K.O (K.O)
+Đưa em xem store hạn mức cao mình bay vô
+Anh make it rain nên là cho em cây ô
+baby, em là một ngôi sao
+Vệ tinh luôn quay mỗi đêm
+Với được thì cũng phải hơi cao
+May anh ngay kế bên
+Tới gần lại thêm đây ngay đi-i (í-i-ì)
+Cho đêm nay cái tên
+Nên em chỉ cần nói, nói, yah
+Người như em thì không có nên cô đơn
+Người như em thì không có nên cô đơn
+               ">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537655/vetinh_kvvgnb.jpg" alt="">
+            <div class="song-info">
+                <h3>Vệ Tinh</h3>
+                <p>HIEUTHUHAI</p>
+            </div>
+            <span>00:30</span>
+        </div>
+        <div class="song" onclick="playMusic(this)" 
+            data-title="Anh Thanh Niên" 
+            data-artist="HuyR" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744588697/Anhthanhnien_zcorhb.mp3"
+            data-lyrics="">
+          <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536752/AnhThanhNien_fnczcg.jpg" alt="">
+          <div class="song-info">
+              <h3>Anh Thanh Niên</h3>
+              <p>HuyR</p>
+          </div>
+          <span>00:30</span>
+      </div>
+      <div class="song" onclick="playMusic(this)" 
+           data-title="Bạc Phận" 
+           data-artist="Jack-J97" 
+           data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538076/bacphan_jtihcu.mp3"
+           data-lyrics="">
+        <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536799/BacPhan_sw3uis.jpg" alt="">
+        <div class="song-info">
+            <h3>Bạc Phận</h3>
+            <p>Jack-J97</p>
+        </div>
+        <span>00:30</span>
+    </div>
+      </div>
+  </div>
+      <!-- Trình phát nhạc -->
+<div class="music-player">
+    <div class="player-container">
+  
+      <!-- Thông tin bài hát -->
+      <div class="song-info1">
+        <img id="song-thumbnail" src="assets/img/default.jpg" alt="Thumbnail">
+        <div class="text">
+          <b id="song-title">Tên bài hát</b>
+          <small id="song-artist">Ca sĩ</small>
+        </div>
+      </div>
+  
+      <!-- Điều khiển trung tâm -->
+      <div class="center-controls">
+        <div class="controls">
+          <button onclick="prevSong()" title="Bài trước">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button id="play-btn" title="Phát / Tạm dừng">
+            <i class="fa-solid fa-play"></i>
+          </button>         
+          <button onclick="nextSong()" title="Bài tiếp theo">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>
+  
+        <div class="progress-container">
+          <span id="current-time">0:00</span>
+          <input type="range" id="progress-bar" value="0" min="0" max="100">
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+  
+      <!-- Điều khiển mở rộng + nút đóng -->
+      <div class="extra-controls-wrapper">
+        <!-- Các nút phụ -->
+        <div class="extra-controls">
+          <button id="repeat-btn" title="Lặp lại">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+  
+          <div class="volume-container" title="Âm lượng">
+            <button id="volume-down"><i class="fa-solid fa-volume-down"></i></button>
+            <input type="range" id="volume-bar" value="100" min="0" max="100">
+            <button id="volume-up"><i class="fa-solid fa-volume-up"></i></button>
+          </div>
+  
+          <button id="download-btn" title="Tải xuống">
+            <i class="fa-solid fa-download"></i>
+          </button>
+  
+          <button id="like-btn" title="Yêu thích">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+  
+          <button id="lyrics-btn" title="Lời bài hát">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+        </div>
+  
+        <!-- Nút đóng player -->
+        <div class="exit-btn">
+          <button id="close-player" title="Đóng trình phát">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Audio -->
+    <audio id="audio-player">
+      <source id="audio-source" src="" type="audio/mp3">
+    </audio>
+  </div>
+  
+  <!-- Popup lời bài hát -->
+  <div id="lyrics-popup" class="lyrics-popup hidden">
+    <div class="lyrics-content">
+      <button id="close-lyrics">&times;</button>
+      <h3>Lời bài hát</h3>
+      <div id="lyrics-text">Lời bài hát sẽ hiển thị tại đây...</div>
+    </div>
+  </div>
+    </main>
+    <script src="DSTop100.js"></script>
+  
+</body>
+</html>

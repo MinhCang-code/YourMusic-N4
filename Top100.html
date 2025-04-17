@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="Top100.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+                <li class="Logo-Sideber"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+        <div class="search-bar">
+            <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+        </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+                <ul>
+                    <li class="has-submenu" onclick="togglePopup()">
+                        <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                    <hr>
+                    <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                    <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                    <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                    <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                    <li class="version">Version: 1.1.10</li>
+                </ul>
+            </div>
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+                <div class="GiaoDien">
+                    <div class="GDvCL">
+                       <h2>Giao Diện</h2>
+                       <div class="NutDong" onclick="togglePopup()">&times;</div>
+                    </div>
+                    <div class="GD GD1">
+                        <h3 class="h3-GD">Dynamic</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                                <div class="ten-nen">Vàng Tím</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                                <div class="ten-nen">Sáng Tối</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                                <div class="ten-nen">Bầu Trời</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                                <div class="ten-nen">Xanh Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                                <div class="ten-nen">Cam Nâu</div>
+                            </div>     
+                        </div>
+                        <h3 class="h3-GD">Color</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('#2c2340')">
+                                <div class="mau-nen" style="background: #2c2340"></div>
+                                <div class="ten-nen">Mặc Định</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                                <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                                <div class="ten-nen">Xanh Dương</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('plum')">
+                                <div class="mau-nen" style="background: plum"></div>
+                                <div class="ten-nen">Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('greenyellow')">
+                                <div class="mau-nen" style="background: greenyellow"></div>
+                                <div class="ten-nen">Xanh Lá</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('orange')">
+                                <div class="mau-nen" style="background: orange"></div>
+                                <div class="ten-nen">Cam</div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END Bảng Giao Diện Hiển Thị-->
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</a></button>
+            </div>
+        </div>
+    </div>
+    <!--Nổi Bật-->
+    <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nổi Bật</h1>
+    <div class="Top100">
+        <div class="Top100-1 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536669/100CSNhacTre_fjfbpt.webp" alt="Top 100 Nhạc Trẻ">
+            <div class="music-info">
+                <h3>Top 100 Bài Hát Nhạc Trẻ</h3>
+                <p>Erik, Amee, Hoàng Dũng, Đức Phúc, Hoài Lâm...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-2 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536661/100CSAuMy_zrimcr.jpg" alt="Top 100 Pop Âu Mỹ">
+            <div class="music-info">
+                <h3>Top 100 Pop Âu Mỹ Hay Nhất</h3>
+                <p>Ed Sheeran, Taylor Swift, Justin Bieber, Ariana Grande...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-3 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536662/100CSEDM_stahu8.jpg" alt="Top 100 EDM">
+            <div class="music-info">
+                <h3>Top 100 Bài Hát EDM</h3>
+                <p>Alan Walker, The Chainsmokers, Martin Garrix, David Guetta...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-4 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536671/100CSTruTinh_l60xkq.jpg" alt="Top 100 Nhạc Trữ Tình">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Trữ Tình</h3>
+                <p>Quang Lê, Như Quỳnh, Trường Vũ, Phi Nhung, Đan Nguyên...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536667/100CSHQ_pavjwe.webp" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Hàn Quốc</h3>
+                <p>BTS, Blackpink, EXO, IU, TWICE, Seventeen...</p>
+            </div>
+        </div>
+    </div>
+    <h1 onclick="window.location.href='/Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Việt Nam</h1>
+    <div class="Top100">
+        <div class="Top100-1 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536671/100CSTruTinh_l60xkq.jpg" alt="Top 100 Nhạc Trữ Tình">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Trữ Tình</h3>
+                <p>Quang Lê, Như Quỳnh, Trường Vũ, Phi Nhung, Đan Nguyên...</p>
+            </div>
+        </div>
+
+        <div class="Top100-2 Top" onclick="window.location.href='/DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536681/100hiphop1_hsf0eg.png" alt="Top 100 Hip Hop Việt">
+            <div class="music-info">
+                <h3>Top 100 Hip Hop Việt</h3>
+                <p>HIEUTHUHAI, Obito, Robber, Gill, ....</p>
+            </div>
+        </div>
+        
+        <div class="Top100-3 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536704/100trutinh_edcjfg.png" alt="Top 100 Trữ Tình" >
+            <div class="music-info">
+                <h3>Top 100 Bài Hát Trữ Tình</h3>
+                <p>Quang Lê, Tuấn Ngọc,Như Quỳnh, Trường Vũ, Phi Nhung, Đan Nguyên......</p>
+            </div>
+        </div>
+        
+        <div class="Top100-4 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536661/100ballad_l4am0n.png" alt="Top 100 Nhạc Ballad">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Ballad Nhẹ Nhàng</h3>
+                <p>Soobin Hoàng Sơn, Erik, Bích Phương,...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536684/100indie1_hmsznj.png" alt="Top 100 Indie">
+            <div class="music-info">
+                <h3>Top 100 Indie</h3>
+                <p>Vũ Thanh Vân, Vũ, Thịnh Suy....</p>
+            </div>
+        </div>
+    </div>
+    <div class="Top100">
+        <div class="Top100-1 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536810/band1_fhgcl9.png" alt="Top Music Band">
+            <div class="music-info">
+                <h3>Top Music Band</h3>
+                <p>Chillies, Ngọt , Cá Hồi Hoang ,....</p>
+            </div>
+        </div>
+        
+        <div class="Top100-2 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537608/topgenz_gpeobr.png" alt="Top GenZ">
+            <div class="music-info">
+                <h3>Top Nghệ Sĩ GenZ Nổi Bật</h3>
+                <p>Gill,HIEUTHUHAI,Phương Mỹ Chi,tlinh,Vstra...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-3 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536694/100NPVN_otmjou.jpg" alt="Top remix" >
+            <div class="music-info">
+                <h3>Top 100 Nhạc Phim Việt Nam</h3>
+                <p>Phan Mạnh Quỳnh,Trà My Idol,Hương Ly,Đình Dũng...</p>
+            </div>
+        </div>
+
+        <div class="Top100-3 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537610/topremix_uvgkzh.png" alt="Top remix" >
+            <div class="music-info">
+                <h3>Top remix</h3>
+                <p>DJ Thái Hoàng, Ngân 98,...</p>
+            </div>
+        </div>
+
+        <div class="Top100-3 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536700/100RockVN_e6m3qi.jpg" alt="Top remix" >
+            <div class="music-info">
+                <h3>Top 100 Rock Việt Nam</h3>
+                <p>Tùng,Lê Nhật Minh,Hà Lê,Thỏ Bay Màu...</p>
+            </div>
+        </div>
+    </div>
+    <h1 onclick="window.location.href='Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Châu Á</h1>
+    <div class="Top100">
+        <div class="Top100-1 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536687/100kpop_hxbme5.png" alt="Top 100 K-POP">
+            <div class="music-info">
+                <h3>Top 100 K-POP</h3>
+                <p>Jungkook,G-Dragon,Lisa,Rosé,....</p>
+            </div>
+        </div>
+        
+        <div class="Top100-2 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537121/jpop100_bvrmhg.png" alt="Top 100 Nhạc Nhật Bản">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Nhật Bản Hay Nhất</h3>
+                <p>Utada Hikaru , LiSA,YOASOBI,...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-4 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536671/100CSTruTinh_l60xkq.jpg" alt="Top 100 Nhạc Trữ Tình">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Trữ Tình</h3>
+                <p>Quang Lê, Như Quỳnh, Trường Vũ, Phi Nhung, Đan Nguyên...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536667/100CSHQ_pavjwe.webp" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Hàn Quốc</h3>
+                <p>BTS, Blackpink, EXO, IU, TWICE, Seventeen...</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536665/100CSHoa_ntisn7.jpg" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Hoa Lời Việt</h3>
+                <p>Dickson, Dee Trần, Lý Hải, Hoàng Châu,...</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536680/100Hoa_eu4xri.webp" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Hoa</h3>
+                <p>Trần Tử Tình,Cát Đông Kỳ,Mộng Nhiên...</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536696/100QueHuong_rqxzdm.jpg" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Quê Hương</h3>
+                <p>Lâm Hoài Phong,Dương Hồng Loan,Hồ Văn Cường...</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536689/100NhacTrinh_euxowg.jpg" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Trịnh</h3>
+                <p>Lân Nhã,Mộc San...</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536673/100DCVN_buczsx.jpg" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Dance Việt Nam</h3>
+                <p>Lê Bảo Bình,Diệu Vân,Khả Hiệp,Thanh Hưng,ACV...</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536692/100NKL_z4f4i1.jpg" alt="Top 100 Nhạc Hàn Quốc">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Không Lời Việt Nam</h3>
+                <p>Minh Thống,AudioBay,Phúc Chinh...</p>
+            </div>
+        </div>
+    </div>
+    <h1 onclick="window.location.href='/Home.html'"><i class="fa-solid fa-chevron-left"></i>&nbsp;Nhạc Âu Mỹ</h1>
+    <div class="Top100">
+        <div class="Top100-1 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536710/100usukp_n8yske.png" alt="Top 100 US & UK">
+            <div class="music-info">
+                <h3>Top 100 US & UK</h3>
+                <p>TayLor Swift, Post Malone , Bruno Mars,....</p>
+            </div>
+        </div>
+        
+        <div class="Top100-2 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536711/100USUKRap_qhomfh.jpg" alt="Top 100 us uk rap">
+            <div class="music-info">
+                <h3>Top 100 US & UK Rap</h3>
+                <p>Travis Scott,Playboi Carti,Kendrick Lamar,....</p>
+            </div>
+        </div>
+        
+        <div class="Top100-3 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536836/billgenz_gq9ojq.png" alt="Top GenZ Artists">
+            <div class="music-info">
+                <h3>Top GenZ Artists</h3>
+                <p>Billies Eilish,Olivia Rodrigo,Lil Nas X,...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-4 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536804/band_usuk11_n00uab.png" alt="Top Band Music ">
+            <div class="music-info">
+                <h3>Top Band Music US & UK</h3>
+                <p>Coldplay,Imagine Dragons , Maroon 5,..</p>
+            </div>
+        </div>
+        
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536677/100edm_xnqadv.png" alt="Top 100 EDM">
+            <div class="music-info">
+                <h3>Top EDM</h3>
+                <p>Alan Walker,Zedd,Marshmello,David Guetta....</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536684/100JazzBlues_irflaq.webp" alt="Top 100 EDM">
+            <div class="music-info">
+                <h3>Top 100 Jazz/Blues</h3>
+                <p>Michael Buble,John Adams, Tove Lo....</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536698/100R_B_ddtbxd.jpg" alt="Top 100 EDM">
+            <div class="music-info">
+                <h3>Top 100 R&B</h3>
+                <p>Pitbull,Ne-Yo,Nayer....</p>
+            </div>
+        </div>
+
+        <div class="Top100-5 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536687/100LaTin_n8yrua.webp" alt="Top 100 EDM">
+            <div class="music-info">
+                <h3>Top 100 Latin</h3>
+                <p>Mini Stars,Luis Fonsi,Karol G,Kaoma....</p>
+            </div>
+        </div>
+    </div>
+    </main>
+    <script src="Top100.js"></script>
+</body>
+</html>

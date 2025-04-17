@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta >
+    <title>Nhạc của Bạn</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg">
+    <link rel="stylesheet" href="Home.css">
+    <script src="https://kit.fontawesome.com/7b535d27ad.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+              <li class="Logo-Sideber" onclick="window.location.href='index.html'"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg"></li>
+              <li onclick="window.location.href='Home.html'"><i class="fas fa-music"></i><span>Khám Phá</span></li>
+              <li onclick="window.location.href='BXH.html'"><i class="fas fa-chart-line"></i> <span>Bảng xếp hạng</span></li>
+              <li onclick="window.location.href='Radio.html'"><i class="fas fa-broadcast-tower"></i> <span>Radio</span>&nbsp;<span class="Live-Radio">Live</span></li>
+              <li onclick="window.location.href='CaNhan.html'"><i class="fas fa-user"></i> <span>Cá nhân</span></li>
+              <hr class="DuongKe">
+              <li class="ThanhDuoi" onclick="window.location.href='TheLoai.html'"><i class="fas fa-icons"></i> <span>Thể Loại</span></li>
+              <li onclick="window.location.href='Top100.html'"><i class="fa-solid fa-star"></i> <span>Top 100</span></li>
+            </ul>
+        </div>
+    </header>
+      <!-- Nội dung chính -->
+      <main class="content">
+        <div class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" id="searchInput"placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+                <ul id="suggestionList"></ul>
+            </div>
+        <div class="user-options">
+            <div class="container">
+                <!-- <h2 class="text" id="text">Chế độ Sáng</h2> -->
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-btn">
+                    <span class="slider"></span> 
+                </label>
+            </div>
+            <!-- Biểu tượng Cài đặt -->
+            <div class="settings-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <!-- Menu Cài đặt -->
+            <div id="settingsMenu" class="settings-menu">
+                <ul>
+                    <li class="has-submenu" onclick="togglePopup()">
+                        <i class="fa-solid fa-paint-brush"></i>Giao diện</li>
+                    <hr>
+                    <li onclick="window.location.href='GioiThieu.html'"><i class="fa-solid fa-info-circle"></i>Giới thiệu</li>
+                    <li onclick="window.location.href='LienHe.html'"><i class="fa-solid fa-envelope"></i>Liên hệ</li>
+                    <li onclick="window.location.href='ChinhSachBaoMat.html'"><i class="fa-solid fa-shield-halved"></i>Chính Sách Bảo Mật</li>
+                    <li onclick="window.location.href='DieuKhoanSuDung.html'"><i class="fa-solid fa-file-contract"></i> Điều Khoản Sử Dụng</li>
+                    <li class="version">Version: 1.1.10</li>
+                </ul>
+            </div>
+            <!-- <span class="settings-icon"><i class="fa-solid fa-gear"></i></span> -->
+            <!--Bảng Giao Diện Hiển Thị-->
+            <div id="BangGiaoDien" class="BangGiaoDien">
+                <div class="GiaoDien">
+                    <div class="GDvCL">
+                       <h2>Giao Diện</h2>
+                       <div class="NutDong" onclick="togglePopup()">&times;</div>
+                    </div>
+                    <div class="GD GD1">
+                        <h3 class="h3-GD">Dynamic</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right, yellow, purple)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, yellow, purple);"></div>
+                                <div class="ten-nen">Vàng Tím</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, black )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, black);"></div>
+                                <div class="ten-nen">Sáng Tối</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,white, #2a5298 )')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, white, #2a5298);"></div>
+                                <div class="ten-nen">Bầu Trời</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(155, 199, 155), #b03060)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(155, 199, 155), #b03060);"></div>
+                                <div class="ten-nen">Xanh Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('linear-gradient(to right,rgb(221, 170, 76), #654321)')">
+                                <div class="mau-nen" style="background: linear-gradient(to right, rgb(221, 170, 76), #654321);"></div>
+                                <div class="ten-nen">Cam Nâu</div>
+                            </div>     
+                        </div>
+                        <h3 class="h3-GD">Color</h3>
+                        <div class="NDGiaoDien">
+                            <div class="theme-item" onclick="changeBackground('#2c2340')">
+                                <div class="mau-nen" style="background: #2c2340"></div>
+                                <div class="ten-nen">Mặc Định</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('rgb(76, 76, 212)')">
+                                <div class="mau-nen" style="background: rgb(76, 76, 212)"></div>
+                                <div class="ten-nen">Xanh Dương</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('plum')">
+                                <div class="mau-nen" style="background: plum"></div>
+                                <div class="ten-nen">Hồng</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('greenyellow')">
+                                <div class="mau-nen" style="background: greenyellow"></div>
+                                <div class="ten-nen">Xanh Lá</div>
+                            </div>
+                            <div class="theme-item" onclick="changeBackground('orange')">
+                                <div class="mau-nen" style="background: orange"></div>
+                                <div class="ten-nen">Cam</div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="avatar-icon"><i class="fa-solid fa-user-circle"></i></span>
+            <div class="menu-dropdown Login" id="dropdownMenu">
+                <div id="userInfo">
+                    <p id="welcomeText"></p>
+                    <button class="menu-item" id="logoutBtn">Đăng xuất</button>
+                </div>
+                <div id="authLinks">
+                    <button class="menu-item" onclick="window.location.href='DangNhap.html'">Đăng nhập</button>
+                    <button class="menu-item" onclick="window.location.href='DangKi.html'">Đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <section class="banner"></section>
+        <h1>Nổi Bật</h1>
+        <!--Mới Cập Nhật Ngày 26.3.2005-->
+        <div class="All">
+            <table>
+                <tr class="TatCa-VietNam-QuocTe">
+                   <td class="TVQ"><button data-category="tatca" class="active">Tất Cả</button></td> 
+                   <td class="TVQ"><button data-category="vietnam">Việt Nam</button></td> 
+                   <td class="TVQ"><button data-category="quocte">Quốc Tế</button></td> 
+                   <td class="NutTatCa" onclick="window.location.href='CacBaiNhac.html'">Xem Tất Cả&nbsp<i class="fa-solid fa-chevron-right"></i></td>
+                </tr>
+            </table>
+            <!--Danh Sách Nhạc Việt Nam-->
+            <table class="CacBaiNhac" data-category="vietnam" style="display: none;">
+                <tr class="CacBaiNhac1">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Bạc Phận" data-artist="Jack-J97 x K-ICM" 
+                        data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538076/bacphan_jtihcu.mp3">
+                        <div class="AnhBaiNhac0">
+                            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536799/BacPhan_sw3uis.jpg" alt="Bạc Phận">
+                        </div>
+                        <div class="NDBaiNhac0">
+                         <b>Bạc Phận</b><br>
+                         <small>Jack-J97 x K-ICM</small><br>
+                         <small>Hôm qua</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Có Chắc Yêu Là Đây" data-artist="Sơn Tùng MTP" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537976/Cochacyeuladay_zt1jde.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536874/CoChacYeuLaDay_tj5rwm.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Có Chắc Yêu Là Đây</b><br>
+                            <small>Sơn Tùng MTP</small><br>
+                            <small>2 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="Hồng Nhan" data-artist="Jack-J97 x K-ICM" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538077/hongnhan_my3meb.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537066/HongNhan_gsvz3z.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Hồng Nhan</b><br>
+                            <small>Jack-J97 x K-ICM</small><br>
+                            <small>10 ngày trước</small>
+                        </div>
+                    </td> 
+                </tr>
+                <tr class="CacBaiNhac2">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Sóng Gió" data-artist="Jack-J97 x K-ICM" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538088/songgio_wsa0wf.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537435/SongGio_tx4ywi.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Sóng Gió</b><br>
+                            <small>Jack-J97 x K-ICM</small><br>
+                            <small>1 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Yêu Từ Đâu Mà Ra" data-artist="Lil ZPOET x Nguyen" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744588464/Yeutudaumara_fhfo7b.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537690/YeuTuDauMaRa_jpb5zt.jpg" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>Yêu Từ Đâu Mà Ra</b><br>
+                            <small>Lil ZPOET x Nguyen</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="Simple Love" data-artist="Obito x Seachains" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744588531/SimpleLove_ozaq24.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537427/SimpleLove_cxuvik.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Simple Love</b><br>
+                            <small>Obito x Seachains</small><br>
+                            <small>3 ngày trước</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="CacBaiNhac3">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Anh Thanh Niên" data-artist="HuyR" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744588697/Anhthanhnien_zcorhb.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536752/AnhThanhNien_fnczcg.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Anh Thanh Niên</b><br>
+                            <small>HuyR</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Là 1 Thằng Con Trai" data-artist="Jack-J97 x K-ICM" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538088/Lamotthangcontrai_mnyang.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537153/La1ThangConTrai_pcqxgn.jpg" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>Là 1 Thằng Con Trai</b><br>
+                            <small>Jack-J97 x K-ICM</small><br>
+                            <small>1 giờ trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="Thiên Lý Ơi" data-artist="Jack-J97 x K-ICM" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538087/thienlyoi_djnrvh.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537578/ThienLyOi_om3uhj.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Thiên Lý Ơi</b><br>
+                            <small>Jack-J97 x K-ICM</small><br>
+                            <small>12 giờ trước</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="CacBaiNhac4">
+                    <td class="BaiNhac0 BN1"  onclick="playMusic(this)" 
+                        data-title="Chạy Ngay Đi" data-artist="Sơn Tùng MTP" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537970/Chayngaydi_dq87gi.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536864/ChayNgayDi_mecy7d.png"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Chạy Ngay Đi</b><br>
+                            <small>Sơn Tùng MTP</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Hãy Trao Cho Anh" data-artist="Sơn Tùng MTP" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537975/Haytraochoanh_oicupe.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537003/HayTraoChoAnh_xspdp3.jpg" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>Hãy Trao Cho Anh</b><br>
+                            <small>Sơn Tùng</small><br>
+                            <small>10 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="Kết Thúc Lâu Rồi" data-artist="Lê Bảo Bình" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589081/Ketthuclauroi_wi8ync.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537138/KetThucLauRoi_k4ldnf.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Kết Thúc Lâu Rồi</b><br>
+                            <small>Lê Bảo Bình</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!--Danh Sách Nhạc Tất Cả-->
+            <table class="CacBaiNhac" data-category="tatca">
+                <tr class="CacBaiNhac1">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Fade" data-artist="Alan Walker" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589291/Faded_wuzbgu.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536969/Fade_mkh6tq.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Fade</b><br>
+                            <small>Alan Walker</small><br>
+                            <small>2 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Có Chắc Yêu Là Đây" data-artist="Sơn Tùng MTP" 
+                        data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537976/Cochacyeuladay_zt1jde.mp3"
+                        data-lyrics="
+[00:10.00]Good boy
+[00:19.00]Thấp thoáng ánh mắt đôi môi mang theo hương mê say
+[00:22.00]Em cho anh tan trong miên man quên luôn đi đêm ngày
+[00:25.00]Chạm nhẹ vội vàng hai ba giây nhưng con tim đâu hay
+[00:27.00]Bối rối khẽ lên ngôi yêu thương đong đầy thật đầy
+[00:29.00]Anh ngẩn ngơ cứ ngỡ (Đó chỉ là giấc mơ)
+[00:31.00]Anh ngẩn ngơ cứ ngỡ (Như đang ngất ngây trong giấc mơ)
+[00:33.00]Thật ngọt ngào êm dịu đắm chìm
+[00:36.00]Phút chốc viết tương tư gieo nên thơ (yeah, hey)
+[00:39.00]Có câu ca trong gió hát ngân nga, ru trời mây
+[00:41.00]Nhẹ nhàng đón ban mai ngang qua trao nụ cười (trao nụ cười)
+[00:44.00]Nắng đua chen, khoe sắc, vui đùa giữa muôn ngàn hoa
+[00:47.00]Dịu dàng đến nhân gian âu yếm tâm hồn người
+[00:49.00]Hình như chính em (Cho anh mong chờ)
+[00:52.00]Hình như chính là em (Cho anh vấn vương)
+[00:55.00]Đừng thờ ơ, xin hãy lắng nghe
+[00:56.00]Và giúp anh trả lời đôi điều còn băn khoăn
+[00:59.00]Có chắc yêu là đây, đây, đây
+[01:02.00]Có chắc yêu là đây, đây
+[01:04.00]Có chắc yêu là đây, đây, đây
+[01:06.00]Có chắc yêu là đây, đây
+[01:09.00]Em lang thang cả ngày trong tâm trí
+[01:11.00]Đi không ngừng cả ngày trong tâm trí
+[01:14.00]Si mê thêm cuồng quay
+[01:15.00]Oo-ooh, oo-oo-oo-ooh
+[01:19.00]Chắc gì nữa mà chắc
+[01:20.00]Sáng thì nhớ đêm trắng tương tư còn không phải yêu là gì (Có chắc yêu là đây)
+[01:22.00]Rồi thắc gì nữa mà mắc
+[01:23.00]Đến bên nắm tay nói ra ngay ngồi mơ mộng thêm làm gì
+[01:25.00]Nhanh chân chạy mua một bó hoa (hey)
+[01:27.00]Thêm luôn một món quà (hooh)
+[01:29.00]Khuôn mặt tươi cười lên vô tư gạt đi lo âu mạnh mẽ nha
+[01:31.00]Và rồi bước ra, bước ra, bước ra (hey)
+[01:33.00]Có câu ca trong gió hát ngân nga, ru trời mây
+[01:35.00]Nhẹ nhàng đón ban mai ngang qua trao nụ cười (trao nụ cười)
+[01:37.00]Nắng đua chen, khoe sắc, vui đùa giữa muôn ngàn hoa
+[01:39.00]Dịu dàng đến nhân gian âu yếm tâm hồn người
+[01:40.00]Hình như chính em (Cho anh mong chờ)
+[01:42.00]Hình như chính là em (Cho anh vấn vương)
+[01:44.00]Đừng thờ ơ, xin hãy lắng nghe
+[01:46.00]Và giúp anh trả lời đôi điều còn băn khoăn
+[01:48.00]Có chắc yêu là đây, đây, đây
+[01:50.00]Có chắc yêu là đây, đây
+[01:52.00]Có chắc yêu là đây, đây, đây
+[01:54.00]Có chắc yêu là đây, đây
+[01:56.00]Em lang thang cả ngày trong tâm trí
+[01:58.00]Đi không ngừng cả ngày trong tâm trí
+[01:60.00]Si mê thêm cuồng quay
+[02:02.00]Oo-ooh, oo-oo-oo-ooh
+[02:06.00]Có chắc yêu là đây (a-ah, a-ah)
+[02:08.00]Có chắc yêu là đây (ooh-ooh, oo-ooh)
+[02:10.00]Có chắc yêu là đây (a-ah)
+[02:12.00]Please come to me! (Please come to me!)
+[02:14.00]Please come to me!
+[02:15.00]Có chắc yêu là đây, đây, đây
+[02:17.00]Có chắc yêu là đây, đây
+[02:19.00]Có chắc yêu là đây, đây, đây
+[02:22.00]Có chắc yêu là đây, đây
+[02:24.00]Em lang thang cả ngày trong tâm trí
+[02:27.00]Đi không ngừng cả ngày trong tâm trí
+[02:29.00]Si mê thêm cuồng quay
+[02:31.00]Oo-ooh, oo-oo-oo-ooh
+[02:33.00]M-TP (Có chắc yêu là đây, đây)
+[02:35.00]Một bài hát dành đến cho tất cả những ai đang yêu
+[02:37.00](Có chắc yêu là đây, đây, đây)
+[02:39.00]Chưa yêu, và sẽ được yêu
+[02:41.00](Có chắc yêu là đây, đây)
+[02:43.00]Hạnh phúc nhá!
+                    ">
+                    <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536874/CoChacYeuLaDay_tj5rwm.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Có Chắc Yêu Là Đây</b><br>
+                            <small>Sơn Tùng MTP</small><br>
+                            <small>2 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="We Don't Talk Anymore" data-artist="Charlie Puth" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589395/WeDon_tTalkAnymore_noktob.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537675/WeDontTalkAnyMore_ee6ile.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>We Don't Talk Anymore</b><br>
+                            <small>Charlie Puth</small><br>
+                            <small>10 ngày trước</small>
+                        </div>
+                    </td> 
+                </tr>
+
+                <tr class="CacBaiNhac2">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Sóng Gió" data-artist="Jack-J97 x K-ICM" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538088/songgio_wsa0wf.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537435/SongGio_tx4ywi.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Sóng Gió</b><br>
+                            <small>Jack-J97 x K-ICM</small><br>
+                            <small>1 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Save Me" data-artist="Deamn" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589589/Saveme_rhcy3x.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537343/SaveMe_oyquyv.webp" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>Save Me</b><br>
+                            <small>Deamn</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3"  onclick="playMusic(this)" 
+                        data-title="Simple Love" data-artist="Obito x Seachains" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744588531/SimpleLove_ozaq24.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537427/SimpleLove_cxuvik.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Simple Love</b><br>
+                            <small>Obito x Seachains</small><br>
+                            <small>3 ngày trước</small>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="CacBaiNhac2">
+                    <td class="BaiNhac0 BN1"  onclick="playMusic(this)" 
+                        data-title="APT." data-artist="Rosé & Bruno Mars" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589714/APT_wbxzaf.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536759/APT_rzntyy.webp"></div>
+                        <div class="NDBaiNhac0">
+                            <b>APT.</b><br>
+                            <small>Rosé & Bruno Mars</small><br>
+                            <small>5 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2"  onclick="playMusic(this)" 
+                        data-title="Là 1 Thằng Con Trai" data-artist="Jack-J97 x K-ICM" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744538088/Lamotthangcontrai_mnyang.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537153/La1ThangConTrai_pcqxgn.jpg" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>Là 1 Thằng Con Trai</b><br>
+                            <small>Jack-J97 x K-ICM</small><br>
+                            <small>1 giờ trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3"  onclick="playMusic(this)" 
+                        data-title="The Spectre" data-artist="Alan Walker" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589878/TheSpectre_chzuie.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537566/TheSpectre_cldyuq.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>The Spectre</b><br>
+                            <small>Alan Walker</small><br>
+                            <small>13 giờ trước</small>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="CacBaiNhac2">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Chạy Ngay Đi" data-artist="Sơn Tùng MTP" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537970/Chayngaydi_dq87gi.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536864/ChayNgayDi_mecy7d.png"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Chạy Ngay Đi</b><br>
+                            <small>Sơn Tùng MTP</small><br>
+                            <small>2 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Hãy Trao Cho Anh" data-artist="Sơn Tùng MTP" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537975/Haytraochoanh_oicupe.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537003/HayTraoChoAnh_xspdp3.jpg" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>Hãy Trao Cho Anh</b><br>
+                            <small>Sơn Tùng</small><br>
+                            <small>10 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="That Girl" data-artist="Olly Murs" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744590063/ThatGirl_wrqhio.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537552/ThatGirl_sscysy.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>That Girl</b><br>
+                            <small>Olly Murs</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!--Danh Sách Nhạc Quốc Tế-->
+            <table class="CacBaiNhac" data-category="quocte" style="display: none;">
+                <tr class="CacBaiNhac1">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Fade" data-artist="Alan Walker" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589291/Faded_wuzbgu.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536969/Fade_mkh6tq.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Fade</b><br>
+                            <small>Alan Walker</small><br>
+                            <small>2 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Alone" data-artist="Alan Walker" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744536140/Alone_ynkd9x.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536745/Alone_j4bpde.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Alone</b><br>
+                            <small>Alan Walker</small><br>
+                            <small>7 ngày trước</small>
+                        </div>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="We Don't Talk Anymore" data-artist="Charlie Puth" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589395/WeDon_tTalkAnymore_noktob.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537675/WeDontTalkAnyMore_ee6ile.jpg"></div>
+                        <div class="NDBaiNhac0">
+                           <b>We Don't Talk Anymore</b><br>
+                           <small>Charlie Puth</small><br>
+                           <small>10 ngày trước</small>
+                        </div>
+                    </td> 
+                </tr>
+                <tr class="CacBaiNhac2">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="Sigma Boy" data-artist="Betsy" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744590418/Sigmaboy_kxvuzm.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537424/SigmaBoy_yi6imj.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Sigma Boy</b><br>
+                            <small>Betsy</small><br>
+                            <small>1 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2"  onclick="playMusic(this)" 
+                        data-title="Save Me" data-artist="Deamn" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589589/Saveme_rhcy3x.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537343/SaveMe_oyquyv.webp" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>Save Me</b><br>
+                            <small>Đeamn</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="Simple Love" data-artist="Obito x Seachains" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744588531/SimpleLove_ozaq24.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537427/SimpleLove_cxuvik.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Simple Love</b><br>
+                            <small>Obito x Seachains</small><br>
+                            <small>3 ngày trước</small>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="CacBaiNhac2">
+                    <td class="BaiNhac0 BN1" onclick="playMusic(this)" 
+                        data-title="APT." data-artist="Rosé & Bruno Mars" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589714/APT_wbxzaf.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536759/APT_rzntyy.webp"></div>
+                        <div class="NDBaiNhac0">
+                            <b>APT.</b><br>
+                            <small>Rosé & Bruno Mars</small><br>
+                            <small>5 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="On My Way" data-artist="Alan Walker" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744590652/OnMyWay_zg21fq.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537259/OnMyWay_eo2m68.png" ></div>
+                        <div class="NDBaiNhac0">
+                            <b>On My Way</b><br>
+                            <small>Alan Walker</small><br>
+                            <small>1 giờ trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3"  onclick="playMusic(this)" 
+                        data-title="The Spectre" data-artist="Alan Walker" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744589878/TheSpectre_chzuie.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537566/TheSpectre_cldyuq.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>The Spectre</b><br>
+                            <small>Alan Walker</small><br>
+                            <small>13 giờ trước</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="CacBaiNhac2">
+                    <td class="BaiNhac0 BN1"  onclick="playMusic(this)" 
+                        data-title="ShapeOfYou" data-artist="Ed Sheeran" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744590818/ShapeofYou_j8mnau.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537385/ShapeOfYou_cs8ukp.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Shape Of You</b><br>
+                            <small>Ed Sheeran</small><br>
+                            <small>2 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN2" onclick="playMusic(this)" 
+                        data-title="Hãy Trao Cho Anh" data-artist="Sơn Tùng MTP" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744537975/Haytraochoanh_oicupe.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537003/HayTraoChoAnh_xspdp3.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Hãy Trao Cho Anh</b><br>
+                            <small>Sơn Tùng</small><br>
+                            <small>10 ngày trước</small>
+                        </div>
+                    </td>
+                    <td class="BaiNhac0 BN3" onclick="playMusic(this)" 
+                        data-title="Yume To Hazakura" data-artist="Mingoz" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592494/YumeToHazakura_rkx1zp.mp3">
+                        <div class="AnhBaiNhac0"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537697/YumeToHazakura_yxyw4m.jpg"></div>
+                        <div class="NDBaiNhac0">
+                            <b>Yume To Hazakura</b><br>
+                            <small>Mingoz</small><br>
+                            <small>Hôm qua</small>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+        </div>
+    <h1 class="h1-BXH">BXH Nhạc Mới</h1>
+    <!--Danh Sách BXH1-->
+    <button class="button1"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="button2"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="DSBXH1">
+        <div class="song-card" onclick="playMusic(this)" 
+            data-title="Sự Nghiệp Chướng" data-artist="Pháo" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592538/Sunghiepchuong_q4hizj.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537479/sunghiepchuong_-_Copy_ux6upp.jpg" alt="Sự Nghiệp Chướng">
+            <div class="song-info">
+                <b>Sự Nghiệp Chướng</b>
+                <small>Pháo</small>
+                <div class="footer">
+                    <span class="XH">#1</span>
+                    <span class="Day">21.03.2025</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="song-card" onclick="playMusic(this)" 
+            data-title="Nước Mắt Cá Sấu" data-artist="HIEUTHUHAI" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592744/Nuocmatcaxau_igqdrw.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537254/nuocmatcasau_n7nuya.jpg" alt="Nước Mắt Cá Sấu">
+            <div class="song-info">
+                <b>Nước Mắt Cá Sấu</b>
+                <small>HIEUTHUAI</small>
+                <div class="footer">
+                    <span class="XH">#2</span>
+                    <span class="Day">09.11.2024</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="song-card" onclick="playMusic(this)" 
+            data-title="Trưởng Thành" data-artist="DIMZ" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592824/TRUONGTHANHDIMZ_iygrok.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537626/truongthanh_xu2oc2.jpg" alt="Trưởng Thành">
+            <div class="song-info">
+                <b>Trưởng Thành</b>
+                <small>DIMZ</small>
+                <div class="footer">
+                    <span class="XH">#3</span>
+                    <span class="Day">23.01.2025</span>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <!--Danh Sách BXH2-->
+    <div class="DSBXH2">
+        <div class="song-card" onclick="playMusic(this)" 
+            data-title="Sự Ưu Tiên Của Em" data-artist="Lê Gia Bảo" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744592935/Suuutiencuaem_izgazx.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537488/suuutiencuaem_ofcwaw.jpg" alt="Sự Ưu Tiên Của Em">
+             <div class="song-info">
+                <b>Sự Ưu Tiên Của Em</b>
+                <small>Lê Gia Bảo</small>
+                <div class="footer">
+                    <span class="XH">#4</span>
+                    <span class="Day">21.03.2025</span>
+                </div>
+            </div>
+         </div>
+         <div class="song-card" onclick="playMusic(this)" 
+            data-title="Độc Gánh" data-artist="Hades, Yamix Hầu Ca" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744593018/DOCGANH_irtdab.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536920/docganh_krwnx2.jpg" alt="Độc Gánh">
+                <div class="song-info">
+                <b>Độc Gánh</b>
+                <small>Hades, Yamix Hầu Ca</small>
+                <div class="footer">
+                   <span class="XH">#5</span>
+                   <span class="Day">09.11.2024</span>
+                </div>
+            </div>
+         </div>
+         <div class="song-card" onclick="playMusic(this)" 
+            data-title="Họ Bỏ Tôi Đi Nữa Rồi" data-artist="Thành Đạt" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744593119/HOBOTOIDINUAROI_isl57h.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537049/hobotoidinuaroi_sy4xsv.jpg" alt="Họ Bỏ Tôi Đi Nữa Rồi">
+                <div class="song-info">
+                <b>Họ Bỏ Tôi Đi Nữa Rồi</b>
+                <small>Thành Đạt</small>
+                <div class="footer">
+                   <span class="XH">#6</span>
+                   <span class="Day">23.01.2025</span>
+                </div>
+            </div>
+         </div>
+       </div>
+       <!--Danh Sách BXH2-->
+       <div class="DSBXH3">
+        <div class="song-card" onclick="playMusic(this)" 
+            data-title= "Duyên Âm " data-artist="Bạch Công Khanh" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744593452/DUYENAM_c1xekf.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536947/duyenam_x7at9j.jpg" alt="Duyên Âm">
+                <div class="song-info">
+                <b>Duyên Âm</b>
+                <small>Bạch Công Khanh</small>
+                <div class="footer">
+                   <span class="XH">#7</span>
+                   <span class="Day">21.03.2025</span>
+                </div>
+            </div>
+         </div>
+         <div class="song-card" onclick="playMusic(this)" 
+            data-title="Gọi Tên Anh" data-artist="Phan Duy Anh" data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744593705/GOITENANH_qfqcss.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536994/goitenanh_aqgvzn.jpg" alt="Gọi Tên Anh">
+                <div class="song-info">
+                <b>Gọi Tên Anh</b>
+                <small>Phan Duy Anh</small>
+                <div class="footer">
+                   <span class="XH">#8</span>
+                   <span class="Day">09.11.2024</span>
+                </div>
+            </div>
+         </div>
+         <div class="song-card">
+           <h2 onclick="window.location.href='BXH.html'">Xem Tất Cả</h2>
+         </div>
+       </div>
+       <!--Top 100-->
+       <div class="h1-NutTatCa">
+       <h1>Top 100</h1> 
+       <div class="NutTatCa1" onclick="window.location.href='Top100.html'">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+       </div>
+       <div class="Top100">
+        <div class="Top100-1 Top" onclick="window.location.href='DSTop100.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536669/100CSNhacTre_fjfbpt.webp" alt="Top 100 Nhạc Trẻ">
+            <div class="music-info">
+                <h3>Top 100 Bài Hát Nhạc Trẻ</h3>
+                <p>Erik, Amee, Hoàng Dũng, Đức Phúc, Hoài Lâm...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-2 Top" onclick="window.location.href='DSTop100P1.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536661/100CSAuMy_zrimcr.jpg" alt="Top 100 Pop Âu Mỹ">
+            <div class="music-info">
+                <h3>Top 100 Pop Âu Mỹ Hay Nhất</h3>
+                <p>Ed Sheeran, Taylor Swift, Justin Bieber, Ariana Grande...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-3 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536662/100CSEDM_stahu8.jpg" alt="Top 100 EDM" onclick="window.location.href='/DSTop100P2.html'">
+            <div class="music-info">
+                <h3>Top 100 Bài Hát EDM</h3>
+                <p>Alan Walker, The Chainsmokers, Martin Garrix, David Guetta...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-4 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536671/100CSTruTinh_l60xkq.jpg" alt="Top 100 Nhạc Trữ Tình" onclick="window.location.href='/DSTop100P3.html'">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Trữ Tình</h3>
+                <p>Quang Lê, Như Quỳnh, Trường Vũ, Phi Nhung, Đan Nguyên...</p>
+            </div>
+        </div>
+        
+        <div class="Top100-5 Top">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536667/100CSHQ_pavjwe.webp" alt="Top 100 Nhạc Hàn Quốc" onclick="window.location.href='/DSTop100P4.html'">
+            <div class="music-info">
+                <h3>Top 100 Nhạc Hàn Quốc</h3>
+                <p>BTS, Blackpink, EXO, IU, TWICE, Seventeen...</p>
+            </div>
+        </div>
+    </div>
+    <!--Album Hot-->
+    <h1>Album Hot</h1>
+       <div class="Top100">
+        <div class="Top100-1 Top" onclick="window.location.href='Album1.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537013/hieu2_rflonc.jpg" alt="Ai Cũng Phải Bắt Đầu Từ Đâu Đó(Single)">
+            <div class="music-info">
+                <h3>Ai Cũng Phải Bắt Đầu Từ Đâu Đó(Single)</h3>
+                <p>HIEUTHUAI</p>
+            </div>
+        </div>
+        
+        <div class="Top100-1 Top" onclick="window.location.href='Album.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537255/obito_album_gsyrfq.jpg" alt="Đánh Đổi(Single)">
+            <div class="music-info">
+                <h3>Đánh Đổi(Single)</h3>
+                <p>Obito</p>
+            </div>
+        </div>
+        
+        <div class="Top100-1 Top" onclick="window.location.href='Album2.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537183/loichoi_album_hea8sj.jpg" alt="Loi Choi(Single)">
+            <div class="music-info">
+                <h3>Loi Choi(Single)</h3>
+                <p>Wren Evans</p>
+            </div>
+        </div>
+        
+        <div class="Top100-1 Top" onclick="window.location.href='Album3.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537644/utopia_py6slx.jpg" alt="Utopia(Single)">
+            <div class="music-info">
+                <h3>Utopia(Single)</h3>
+                <p>Travis Scott</p>
+            </div>
+        </div>
+        
+        <div class="Top100-1 Top" onclick="window.location.href='Album4.html'">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537569/theweeknd_tmxjd1.jpg" alt="After Hours(Single)">
+            <div class="music-info">
+                <h3>After Hours(Single)</h3>
+                <p>The Weeknd</p>
+            </div>
+        </div>
+    </div>
+    <div class="h11-NutTatCa">
+    <h1>Radio</h1>
+    <div class="NutTatCa2" onclick="window.location.href='Radio.html'">Xem Tất Cả&nbsp;<i class="fa-solid fa-chevron-right"></i></div>
+    </div>
+    <div class="music-card">
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - keshi" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595318/HaveASip_vb1vrp.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537138/keshi1_eda0ep.jpg" alt="Have A Sip - keshi">
+            <div class="play-button" id="radio-play-icon">▶</div> 
+            <div class="NDRadio">
+                <h2>Have A Sip - keshi</h2>
+                <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - MCK" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595357/HaveASipMCK_wurlei.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537216/mck1_v5mjzr.jpg" alt="Have A Sip - MCK">
+            <div class="play-button" id="radio-play-icon">▶</div>
+            <div class="NDRadio">
+                <h2>Have A Sip - MCK</h2>
+                <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - Táo" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595344/HaveASip_Tao_rrzsqi.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537543/tao1_jvmqhp.jpg" alt="Have A Sip - Táo">
+            <div class="play-button" id="radio-play-icon">▶</div>
+            <div class="NDRadio">
+              <h2></h2>
+              <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - Wren Evans" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595359/WrenEvansHaveASip_h4zbkc.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537684/wren1_husqcp.jpg" alt="Have A Sip - Wren Evans">
+            <div class="play-button" id="radio-play-icon">▶</div>
+            <div class="NDRadio">
+                <h2>Have A Sip - Wren Evans</h2>
+                <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - HIEUTHUHAI" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595331/HIEUTHUHAIHaveASip_tmgz0f.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537031/hieuthuhai1_lwqdfj.jpg" alt="Have A Sip - HIEUTHUHAI">
+            <div class="play-button" id="radio-play-icon">▶</div>
+            <div class="NDRadio">
+                <h2>Have A Sip - HIEUTHUHAI</h2>
+                <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Have A Sip - B Ray" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595353/BRayHaveASip_h6y1e1.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536843/bray1_isc6l1.jpg" alt="Have A Sip - B Ray">
+            <div class="play-button" id="radio-play-icon">▶</div>
+            <div class="NDRadio">
+                <h2>Have A Sip - B Ray</h2>
+                <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="music-image" onclick="playMusic(this)" 
+            data-title="Sách Nói - Siêu Hấp Lực" 
+            data-artist="638 đang nghe" 
+            data-src="https://res.cloudinary.com/dfyyiq7rn/video/upload/v1744595301/Sieunangluc_lom8r1.mp3">
+            <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537422/sieuhapluc1_ruz1mt.jpg" alt="Sách Nói - Siêu Hấp Lực">
+            <div class="play-button" id="radio-play-icon">▶</div>
+            <div class="NDRadio">
+                <h2>Sách Nói - Siêu Hấp Lực</h2>
+                <p>638 đang nghe</p>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+    </div>
+    <h1 class="DTAN">Đối Tác Âm Nhạc</h1> 
+    <div class="DoiTac">
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537640/universal1_s2f5o2.jpg"></div>
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537672/warner1_asjd2q.jpg"></div>
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537437/sony1_hdlefl.jpg"></div>
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537444/spotify_gsq3zr.jpg"></div>
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536757/applemusic1_un3bez.jpg"></div>
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537693/youtube1_ewko4p.jpg"></div>
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537224/mtv_dyvlhq.jpg"></div>
+        <div class="DT"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537587/tidal1_vjb8gi.jpg"></div>
+    </div>   
+    <div class="DoiTac">
+        <div class="DT1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537247/music10_vmxfcs.jpg"></div>
+        <div class="DT1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537284/pop1_avum6y.jpg"></div>
+        <div class="DT1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537254/nhaccuatui1_z2ofwc.jpg"></div>
+        <div class="DT1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536909/def1_ambahg.jpg"></div>
+        <div class="DT1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744537442/sound1_laeq83.jpg"></div>
+        <div class="DT1"><img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536761/atlantic_yhazoa.jpg"></div>
+    </div>
+    <!-- Trình phát nhạc -->
+<div class="music-player">
+    <div class="player-container">
+  
+      <!-- Thông tin bài hát -->
+      <div class="song-info1">
+        <img id="song-thumbnail" src="assets/img/default.jpg" alt="Thumbnail">
+        <div class="text">
+          <b id="song-title">Tên bài hát</b>
+          <small id="song-artist">Ca sĩ</small>
+        </div>
+      </div>
+  
+      <!-- Điều khiển trung tâm -->
+      <div class="center-controls">
+        <div class="controls">
+          <button onclick="prevSong()" title="Bài trước">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button id="play-btn" title="Phát / Tạm dừng">
+            <i class="fa-solid fa-play"></i>
+          </button>         
+          <button onclick="nextSong()" title="Bài tiếp theo">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>
+  
+        <div class="progress-container">
+          <span id="current-time">0:00</span>
+          <input type="range" id="progress-bar" value="0" min="0" max="100">
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+  
+      <!-- Điều khiển mở rộng + nút đóng -->
+      <div class="extra-controls-wrapper">
+        <!-- Các nút phụ -->
+        <div class="extra-controls">
+          <button id="repeat-btn" title="Lặp lại">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+  
+          <div class="volume-container" title="Âm lượng">
+            <button id="volume-down"><i class="fa-solid fa-volume-down"></i></button>
+            <input type="range" id="volume-bar" value="100" min="0" max="100">
+            <button id="volume-up"><i class="fa-solid fa-volume-up"></i></button>
+          </div>
+  
+          <button id="download-btn" title="Tải xuống">
+            <i class="fa-solid fa-download"></i>
+          </button>
+  
+          <button id="like-btn" title="Yêu thích">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+  
+          <button id="lyrics-btn" title="Lời bài hát">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+        </div>
+  
+        <!-- Nút đóng player -->
+        <div class="exit-btn">
+          <button id="close-player" title="Đóng trình phát">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Audio -->
+    <audio id="audio-player">
+      <source id="audio-source" src="" type="audio/mp3">
+    </audio>
+</div>
+  
+    <!-- Popup lời bài hát -->
+    <div id="lyrics-popup" class="lyrics-popup hidden">
+        <div class="lyrics-content">
+             <button id="close-lyrics">&times;</button>
+             <h3>Lời bài hát</h3>
+             <div id="lyrics-text">Lời bài hát sẽ hiển thị tại đây...</div>
+             
+             <!-- Thêm lyrics-container để lời chạy từng dòng -->
+             <div id="lyrics-container" style="margin-top: 20px; height: 200px; overflow-y: auto;"></div>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <div class="container-footer">
+          <div class="footer-elements">
+            <!-- Icon Github ở phía trên bên phải -->
+            <div class="footer-top-right">
+              <a class="github-link" target="_blank" href="https://github.com/MinhCang-code/YourMusic-N4" title="GitHub">
+                <div class="inc-icon icon-20">
+                  <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744789283/github_1_zkp3cw.png" alt="GitHub" />
+                </div>
+              </a>
+            </div>
+      
+            <div class="footer-icon">
+              <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744535987/logo1_ynuyrj.jpg" />
+            </div>
+      
+            <div class="side-left">
+              <div class="true">
+                <div class="line-center">
+                  <div class="inc-icon icon-20">
+                    <img src="https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536878/CoVN_y2n9wh.png" alt="Vietnam" />
+                  </div>
+                  <span>Âm nhạc Việt Nam - Gìn giữ và lan tỏa!</span>
+                </div>
+              </div>
+              <div class="sl-brand line-center">
+                <div class="socials line-center">
+                  <!-- Các social icon khác -->
+                  <!-- ... (giữ nguyên các social item cũ) -->
+                </div>
+              </div>
+              <div class="sl-menu mb-3">
+                <a title="Chính sách bảo mật" href="ChinhSachBaoMat.html">Chính sách bảo mật</a>
+                <a title="Điều khoản sử dụng" href="DieuKhoanSuDung.html">Điều khoản sử dụng</a>
+                <a title="Giới thiệu" href="GioiThieu.html">Giới thiệu</a>
+                <a title="Liên hệ" href="LienHe.html">Liên hệ</a>
+              </div>
+              <div class="sl-menu mb-3">
+                <a title="Nhạc Việt" href="CacBaiNhac.html">Nhạc Việt</a>
+                <a title="Nhạc Hàn" href="CacBaiNhac.html">Nhạc Hàn</a>
+                <a title="Nhạc Âu Mỹ" href="CacBaiNhac.html">Nhạc Âu Mỹ</a>
+                <a title="Nhạc Hot" href="BXH.html">Nhạc Hot</a>
+              </div>
+              <div class="sl-notice mb-2">
+                Your Music – Nghe nhạc mọi lúc, mọi nơi! Trang nghe nhạc online chất lượng cao miễn phí, âm thanh chuẩn lossless. Kho nhạc khổng lồ với các bài hát mới nhất, playlist hot, nhạc Việt, nhạc quốc tế từ Hàn Quốc, Âu Mỹ, Nhật Bản… đa thể loại như Pop, Rock, EDM, Ballad. Khám phá nền tảng âm nhạc trực tuyến đỉnh cao 2024!
+              </div>
+              <div class="sl-author">
+                Tác giả: <strong id="openModal">Xây dựng & thiết kế bởi Nhóm 4.</strong> 
+              </div>
+              
+              <!-- Hộp thoại tác giả -->
+              <div id="authorModal" class="modal-overlay">
+                <div class="modal-content">
+                  <span class="close-btn" id="closeModal">&times;</span>
+                  <h3><b>Nhóm phát triển YourMusic</b></h3>
+                  <ul>
+                    <li><strong>23050120 Nguyễn Minh Cang</strong> — <a href="https://github.com/MinhCang-code" target="_blank">GitHub</a></li>
+                    <li><strong>23050116 Lê Tuấn Hải</strong> — <a href="https://github.com/LeTuanHai-SVDHBD" target="_blank">GitHub</a></li>
+                    <li><strong>23050117 Hạ Chí Tiền</strong> — <a href="https://github.com/tien2922" target="_blank">GitHub</a></li>
+                    <li><strong>23050071 Huỳnh Nguyễn Tú</strong> — <a href="https://github.com/Atus05" target="_blank">GitHub</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <script src="Home.js"></script>
+</body>
+</html>

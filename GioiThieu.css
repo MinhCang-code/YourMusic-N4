@@ -1,0 +1,398 @@
+
+body{
+  margin: 0;
+  padding: 0;
+}
+.BackgroundMusic{
+  background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), 
+  url('https://res.cloudinary.com/dfyyiq7rn/image/upload/v1744536751/AnhNenAmNhac_c4epuh.jpg');
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+}
+.Background0{
+  background-color: black;
+  width: 100%;
+  height: 30vh;
+}
+.Background1{
+  background-color: black;
+  width: 100%;
+  padding-top: 10px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.NoiDungGiua{
+  background-color: rgb(51, 46, 46);
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: clamp(50px, 60vw, 1000px);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px 30px 30px 30px; 
+}
+.NoiDungGiua1{
+  margin-top: 40px;
+  color: white;
+}
+.NoiDungGiua1 img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50em;
+}
+.NoiDungGiua h1{
+  margin-top: 40px;
+}
+.NoiDungGiua1 p{
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.NoiDungGiua1 button{
+  background: linear-gradient(to right, #1879a6, pink,rgb(220, 55, 220));
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50em;
+  border: 3px solid black;
+  margin-top: 10px;
+}
+.NoiDungGiua1 button:hover {
+  filter: brightness(1.5); /* Tăng độ sáng khi hover */
+  transform: scale(1.05); /* Phóng to nhẹ */
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 
+              0 0 15px rgba(220, 55, 220, 0.6);
+}
+.GioiThieu{
+  color: white;
+  padding: 0px 22% 20px 22%;
+}
+.GioiThieuNho{font-size: 10px;}
+.GioiThieuNho p{margin-top: 25px;}
+.KhoangCach{
+  display: flex;
+  justify-content: center; /* Căn giữa */
+  gap: 20px;
+}
+/*Chữ Chuyển Động*/
+.h1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  white-space: nowrap
+}
+.h1 span{
+  color: violet;
+  text-transform: uppercase;
+  transform: rotateY(deg);
+  transition: 0.5s;
+  display: inline-block;
+  animation: bounce 0.5s ease infinite alternate;
+}
+@keyframes bounce {
+  100% {
+    transform: translateY(-15px);
+    text-shadow:  0 2px 5px rgba(0, 0, 0, 0.5);;
+      text-shadow: 0 1px 0 #1879a6,
+                   0 2px 0 #1879a6,
+                   0 3px 0 #1879a6,
+                   0 4px 0 #1879a6,
+                   0 5px 0 #1879a6,
+                   0 6px 0 #1879a6,
+                   0 7px 0 #1879a6,
+                   0 8px 0 #1879a6;
+  }
+}
+.h1 span:nth-child(1) { animation-delay: 0s; }
+.h1 span:nth-child(2) { animation-delay: 0.1s; }
+.h1 span:nth-child(3) { animation-delay: 0.2s; }
+.h1 span:nth-child(4) { animation-delay: 0.3s; }
+.h1 span:nth-child(5) { animation-delay: 0.4s; }
+.h1 span:nth-child(6) { animation-delay: 0.5s; }
+.h1 span:nth-child(7) { animation-delay: 0.6s; }
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+/* Footer */
+footer {
+  background-color: #1a1a1a;
+  padding: 40px 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.container-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-elements {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.footer-icon img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50em;
+}
+
+.side-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.true {
+  margin-bottom: 20px;
+}
+
+.line-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inc-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-20 img {
+  width: 50px;
+  height: 50px;
+}
+
+.icon-14 img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50em;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.social-item {
+  transition: opacity 0.3s ease;
+}
+
+.social-item:hover {
+  opacity: 0.8;
+}
+
+.sl-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.sl-menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.sl-menu a:hover {
+  color: #fff;
+}
+
+.mb-3 {
+  margin-bottom: 20px;
+}
+
+.mb-2 {
+  margin-bottom: 18px;
+}
+
+.sl-notice {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sl-author {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ccc;
+  padding: 10px;
+  border-top: 1px solid #444;
+  text-align: center;
+}
+
+.sl-copyright {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Icon GitHub góc phải */
+.footer-top-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.github-link .inc-icon img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.github-link .inc-icon img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 8px #fff;
+}
+/* Modal overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+/* Modal overlay */
+#authorModal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Nội dung modal */
+.modal-content {
+  position: relative;
+  background: rgba(26,26,26,0.96);
+  padding: 25px 20px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 420px;
+  color: #ccc;
+  box-shadow: 0 0 12px rgba(0,0,0,0.8);
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-content h2 {
+  margin-bottom: 18px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-content ul li {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.modal-content a {
+  color: #0ef;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.modal-content a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #0ef;
+}
+
+/* Nút đóng */
+#closeModal {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 26px;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#closeModal:hover {
+  color: #f33;
+  text-shadow: 0 0 5px #f33;
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Strong author link */
+#openModal {
+  cursor: pointer;
+  color: #0ef;
+  transition: 0.3s ease;
+}
+
+#openModal:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #0ef;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-elements {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .line-center {
+      justify-content: center;
+  }
+
+  .sl-menu {
+      justify-content: center;
+  }
+
+  .socials {
+      justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .sl-menu {
+      gap: 15px;
+  }
+
+  .footer-logo img {
+      width: 80px;
+  }
+
+  .sl-notice {
+      font-size: 12px;
+  }
+}
+
